@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>精神科 / 临床心理 进修项目汇总</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#1c2330;
+    --ink-2:#4a5568;
+    --ink-3:#7a869a;
+    --line:#e4e8ee;
+    --accent:#3d6b8e;
+    --open:#c0392b;
+    --open-soft:#fdeceb;
+    --roll:#2f7a5a;
+    --roll-soft:#e6f4ec;
+    --wait:#6b7280;
+    --wait-soft:#eef1f5;
+    --warn:#a86a1e;
+    --warn-soft:#fdf2e0;
+    --info:#5a4b9c;
+    --info-soft:#efecfa;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 24px 80px;}
+  header{margin-bottom:28px;}
+  h1{font-size:30px;margin:0 0 10px;letter-spacing:-.3px;}
+  .sub{color:var(--ink-2);font-size:15px;margin:0 0 18px;}
+  .stamp{
+    display:inline-block;font-size:12.5px;color:var(--ink-2);
+    background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 14px;
+  }
+  .stamp b{color:var(--open);}
+  .legend{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 4px;}
+  .legend span{font-size:12.5px;padding:5px 12px;border-radius:20px;border:1px solid var(--line);}
+  h2{font-size:19px;margin:46px 0 8px;padding-left:12px;border-left:4px solid var(--accent);}
+  h2 small{font-weight:400;color:var(--ink-3);font-size:13px;margin-left:8px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(500px,1fr));gap:16px;margin-top:14px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:20px 22px 16px;display:flex;flex-direction:column;
+    transition:box-shadow .18s,border-color .18s;
+  }
+  .card:hover{box-shadow:0 6px 22px rgba(28,35,48,.07);border-color:#cfd8e3;}
+  .card h3{margin:0 0 7px;font-size:16.5px;letter-spacing:-.2px;line-height:1.45;}
+  .tags{margin:0 0 14px;display:flex;flex-wrap:wrap;gap:6px;}
+  .tag{font-size:11.5px;padding:2px 9px;border-radius:5px;font-weight:500;}
+  .t-open{background:var(--open-soft);color:var(--open);}
+  .t-roll{background:var(--roll-soft);color:var(--roll);}
+  .t-wait{background:var(--wait-soft);color:var(--wait);}
+  .t-warn{background:var(--warn-soft);color:var(--warn);}
+  .t-info{background:var(--info-soft);color:var(--info);}
+  .t-plain{background:#eef1f5;color:var(--ink-2);}
+  .facts{
+    display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-bottom:13px;
+  }
+  .fact{background:#fbfcfd;padding:11px 13px;}
+  .fl{font-size:11px;color:var(--ink-3);letter-spacing:.3px;margin-bottom:3px;}
+  .fv{font-size:13.5px;color:var(--ink);font-weight:600;line-height:1.55;}
+  .fv .dim{font-weight:400;color:var(--ink-3);font-size:12.5px;}
+  .fv em{font-style:normal;color:var(--open);}
+  .point{font-size:13.5px;color:var(--ink-2);margin:0 0 13px;}
+  .links{display:flex;flex-direction:column;gap:6px;border-top:1px dashed var(--line);padding-top:12px;margin-top:auto;}
+  .links a{
+    font-size:13px;color:var(--accent);text-decoration:none;
+    display:flex;gap:7px;align-items:baseline;word-break:break-all;
+  }
+  .links a:hover{text-decoration:underline;}
+  .links a::before{content:"↗";font-size:11px;color:var(--ink-3);flex-shrink:0;}
+  .note{
+    background:#fff;border:1px solid var(--line);border-left:3px solid var(--warn);
+    border-radius:8px;padding:13px 16px;font-size:13px;color:var(--ink-2);margin-top:12px;
+  }
+  .note b{color:var(--warn);}
+  .tips{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-top:16px;}
+  .tips ol{margin:0;padding-left:20px;font-size:14px;color:var(--ink-2);}
+  .tips li{margin-bottom:11px;}
+  .tips li b{color:var(--ink);}
+  .tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13.5px;margin-top:14px;}
+  .tbl th{background:#f2f5f8;text-align:left;padding:11px 14px;font-weight:600;color:var(--ink);font-size:12.5px;}
+  .tbl td{padding:11px 14px;border-top:1px solid var(--line);color:var(--ink-2);vertical-align:top;}
+  .tbl td:first-child{color:var(--ink);font-weight:500;}
+  footer{margin-top:44px;font-size:12.5px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:16px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    font-size:13px;font-family:inherit;color:#fff;background:var(--accent);
+    border:none;border-radius:8px;padding:8px 16px;cursor:pointer;
+  }
+  .btn:hover{background:#31597a;}
+  @media (max-width:700px){
+    .grid{grid-template-columns:1fr;}
+    .facts{grid-template-columns:1fr;}
+    .wrap{padding:28px 16px 60px;}
+    h1{font-size:24px;}
+  }
+
+  /* ===== 打印 / 导出 PDF 优化 ===== */
+  @page{size:A4;margin:14mm 12mm;}
+  @media print{
+    body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    .wrap{max-width:none;padding:0;}
+    h1{font-size:24px;}
+    h2{margin-top:20px;break-after:avoid;page-break-after:avoid;}
+    h3{break-after:avoid;page-break-after:avoid;}
+    .grid{grid-template-columns:1fr;gap:10px;}
+    .card{
+      padding:14px 16px 12px;border-color:#d3dae3;border-radius:8px;
+      break-inside:avoid;page-break-inside:avoid;box-shadow:none;
+    }
+    .card:hover{box-shadow:none;border-color:#d3dae3;}
+    .card h3{font-size:15px;}
+    .facts{margin-bottom:10px;}
+    .fact{padding:8px 11px;}
+    .point{font-size:12.6px;margin-bottom:10px;}
+    .links{gap:4px;}
+    .links a{font-size:12.2px;color:#1f5c8b;}
+    .note,.tips{break-inside:avoid;page-break-inside:avoid;}
+    .tbl{font-size:12.4px;}
+    tr{break-inside:avoid;page-break-inside:avoid;}
+    .tbl th,.tbl td{padding:8px 10px;}
+    .legend span{border-color:#d3dae3;}
+    .btn{display:none;}
+    footer{margin-top:24px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>精神科 / 临床心理 进修项目汇总</h1>
+  <p class="sub">12 家头部机构 + 3 类长程培训，每张卡片标注报名窗口、进修时长与费用；第六节答疑：没有医院导师怎么进院、各类机构收获差异、对就业的影响。</p>
+  <div class="stamp">数据核对日期：<b>2026 年 11 月 2 日</b>　·　报名窗口随时间滚动，投递前请以当期简章为准</div>
+  <div class="legend">
+    <span style="background:var(--open-soft);color:var(--open);border-color:var(--open-soft)">● 报名中（窗口开放）</span>
+    <span style="background:var(--roll-soft);color:var(--roll);border-color:var(--roll-soft)">● 滚动 / 常年招生</span>
+    <span style="background:var(--wait-soft);color:var(--wait);border-color:var(--wait-soft)">● 当期已截止 · 等下一期</span>
+    <span style="background:var(--warn-soft);color:var(--warn);border-color:var(--warn-soft)">需执业医师资格</span>
+    <span style="background:var(--info-soft);color:var(--info);border-color:var(--info-soft)">长程连续培训</span>
+  </div>
+  <button class="btn" onclick="window.print()">导出 / 打印为 PDF（链接可点击）</button>
+</header>
+
+<h2>一、你已列出的 4 家 <small>补全官方直达入口与当期时间节点</small></h2>
+<div class="grid">
+
+  <div class="card">
+    <h3>1. 首都医科大学附属北京安定医院</h3>
+    <div class="tags"><span class="tag t-wait">当期已截止 · 等下一期</span><span class="tag t-plain">北京</span><span class="tag t-plain">咨询师可报</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">每年两期：上半年 3 月、下半年 9 月开学<br><span class="dim">当期（9 月–次年 3 月）已于 2026-08-15 截止；下期 2027 年 3 月开学，报名约 2027 年 1–2 月截止（官网简章暂未更新，沿用上期核对数据 2026-10-24）</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">6 个月（全脱产）<br><span class="dim">不足半年按 1500 元/月</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">医师 8000 元/半年<br>心理治疗师 15000 元/半年</div></div>
+    </div>
+    <p class="point">各病区单独发布简章、每几个月更新一次。临床心理病区需能脱产 6 个月以上，进修期间只在临床心理病区及门诊工作，不安排其他科室轮转。食宿自理（有食堂、无宿舍）。</p>
+    <div class="links">
+      <a href="https://bjad.com.cn/Html/News/Articles/4963.html" target="_blank">临床心理病区 · 精神科医师及心理治疗师进修项目简章（最新一期）</a>
+      <a href="https://www.bjad.com.cn/Html/News/Articles/2856.html" target="_blank">临床心理病区 · 往期简章存档</a>
+      <a href="https://www.bjad.com.cn/Html/News/Articles/2853.html" target="_blank">儿科团队临床及心理进修项目招生启事（儿少病区）</a>
+      <a href="https://www.bjad.com.cn/" target="_blank">全部病区：首页 → 教育工作 → 进修培训 / 继续教育</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2. 北京回龙观医院</h3>
+    <div class="tags"><span class="tag t-wait">当期已截止 · 等下一期</span><span class="tag t-plain">北京</span><span class="tag t-plain">每年四期（已核实）</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">每年四期，报名窗口约 2 周<br><span class="dim">2026 第四期：9/15–9/28 报名、10/8 报到（已截止）；下期 2027 第一期预计 12 月上旬开放报名</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">6 个月 / 12 个月<br><span class="dim">以当期简章为准</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">官网线上报名<br><span class="dim">标准见当期通知（未公开统一价）</span></div></div>
+    </div>
+    <p class="point">北京市最大的公立三甲精神专科医院，WHO 心理危机预防研究与培训合作中心。自 2010 年实行进修学习班模式已办二十六期以上，教学模式对标住培（一对一带教 + 规范化临床督导 + 理论授课）。临床心理科是热门方向之一。</p>
+    <div class="links">
+      <a href="http://mp.weixin.qq.com/s?__biz=MzA5MjU1NzAzMg==&mid=2655277092&idx=1&sn=ba459173fc91c1bcb7a0403d4d39ef40" target="_blank">2026 年第四期全国进修培训招生通知（最新一期）</a>
+      <a href="https://www.bjhlgh.cn/jypx/jxys/jxtz/642437738680389.shtml" target="_blank">临床心理科第二十六期进修学习班招生简章</a>
+      <a href="https://www.bjhlgh.cn/" target="_blank">报名入口：官网 → 教育培训 → 进修人员报名</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>3. 武汉忠德心理医院</h3>
+    <div class="tags"><span class="tag t-roll">滚动招生</span><span class="tag t-plain">武汉</span><span class="tag t-plain">精神分析取向</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">循环开班，可随时咨询<br><span class="dim">暑期班为固定档期，一般上半年开放预定</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">三个月脱产进修<br><span class="dim">系统长程 1–3 年（分阶段）</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">按阶段收取<br><span class="dim">短期专题数百元/期起，长程见当期简章</span></div></div>
+    </div>
+    <p class="point">1988 年由德方克莱特夫妇与中方精神科医生共同创办，国内精神分析连续培训的源头之一。体系为"理论 + 技术 + 督导 + 个人体验"四层，个人体验为必修环节。入学前有评估访谈确定起点。</p>
+    <div class="links">
+      <a href="https://www.whzdyy.com/" target="_blank">官网（查看当期进修 / 暑期班简章）· 咨询电话 027-82848413</a>
+      <a href="https://www.whzdyy.com/insights/17-wu-han-xin-li-zi-xun-shi-pei-xun-me-xuan-jing-shen-fen-xi-jin-xiu-zhong-de-ti-xi" target="_blank">进修与短期工作坊的区别 · 督导路径说明</a>
+    </div>
+    <div class="note"><b>避坑提示：</b>武汉忠德心理医院与"武汉中德心理研究院"是两个独立实体、无任何关联。报名前核对主办机构全称与执业许可登记号（忠德统一社会信用代码 52420102679122214D）。</div>
+  </div>
+
+  <div class="card">
+    <h3>4. 上海市精神卫生中心（国家精神疾病医学中心）</h3>
+    <div class="tags"><span class="tag t-wait">当期已截止 · 等下一期</span><span class="tag t-plain">上海</span><span class="tag t-plain">咨询师可报</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">第 33 期（2026.3–2026.8）已结束；强迫焦虑专病班为春 / 秋两期（春 3/1–8/30、秋 9/1–次年 2/28）<br><span class="dim">当期秋季班已在读；下一期春季班 2027-03-01 开班，报名提前 1–2 个月（约 2027 年 1 月启动）</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">全脱产 6 个月<br><span class="dim">200h 理论 + 100h 专项技术 + 50h 督导 + 15h 门诊观摩；专病班可连读 1 年</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">专项班 <em>35,000 元</em>/人<br>强迫焦虑专病班 25,000 元/期</div></div>
+    </div>
+    <p class="point">2024 年 5 月成立<b>心理治疗学院</b>，国内心理治疗人才培养规格最高的平台之一。专项进修班自 2009 年开办、已培养 700+ 人，三个病房轮转（心身 / 睡眠障碍 / 强迫与焦虑）。<b>结业可获注册系统认可的督导时数证明</b>，对申报中国心理学会注册系统有直接帮助。</p>
+    <div class="links">
+      <a href="https://www.smhc.org.cn/info/1009/20701.htm" target="_blank">临床与科研半年期专项进修招生通知（新版 · 含 15 个专项收费表）</a>
+      <a href="https://www.smhc.org.cn/HospitalHomepage/contents/1137/689.html" target="_blank">进修申请表下载页（官网）</a>
+      <a href="https://www.smhc.org.cn/" target="_blank">官网首页 → 教学培训 → 心理治疗学院</a>
+      <a href="http://mp.weixin.qq.com/s?__biz=MzI0MzYwMTk2Mw==&mid=2247499468&idx=1&sn=228473f28b665c3e83d171ae3ca6c377" target="_blank">第 33 期 临床心理咨询与心理治疗专项进修班简章</a>
+      <a href="http://mp.weixin.qq.com/s?__biz=MzU0NzYwMDY5OQ==&mid=2247486679&idx=1&sn=78b1b53c4d6ae8662ecfca30a0110329" target="_blank">强迫与焦虑障碍专病进修班（春/秋季班，9 月–次年 2 月）</a>
+    </div>
+    <p class="point" style="margin-top:12px;margin-bottom:0">咨询：021-34773073（史渊老师）· 021-34773265（徐汇）· 021-34077856（闵行）</p>
+  </div>
+
+</div>
+
+<h2>二、重点补充：精神专科第一梯队 <small>8 家</small></h2>
+<div class="grid">
+
+  <div class="card">
+    <h3>5. 北京大学第六医院（北京大学精神卫生研究所）</h3>
+    <div class="tags"><span class="tag t-wait">当期已截止 · 等下一期</span><span class="tag t-warn">需精神科医师执业资格</span><span class="tag t-plain">北京</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">春 / 秋两班。春季班上年 12 月、秋季班当年 6 月集中录取<br><span class="dim">2026 秋季班已于 6 月录取、8 月开班；下期为 2027 春季班，2026 年 12 月集中录取</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">6 个月<br><span class="dim">每 3 个月轮转 1 个科室，可自主选 1 个病房</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">临床进修班 6000 元/期<br>专项研修生 1000 元/月</div></div>
+    </div>
+    <p class="point">WHO 北京精神卫生研究和培训协作中心、国家精神疾病医学中心。病房覆盖综合、心身医学、临床心理（酒药依赖 / 神经症）、老年、儿童、睡眠、进食障碍、研究型病房。另有"专项研修生"通道（18 个亚专业 / 60+ 导师，跟导师做课题 + 门诊 + 查房，可免费旁听研究生课程）。</p>
+    <div class="links">
+      <a href="https://pkuh6.cn/Html/News/Articles/6842.html" target="_blank">精神科临床进修班招生简章（2026）</a>
+      <a href="https://www.pkuh6.cn/Html/Mobile/Articles/6845.html" target="_blank">专项研修生招生简章（全年报名，每季度一期）</a>
+      <a href="https://fvs.bjmu.edu.cn/login" target="_blank">报名平台：北大医学部进修访学管理平台</a>
+    </div>
+    <div class="note"><b>门槛：</b>全日制医学院本科以上 + 精神科医师执业资格 + 临床一线 3 年以上。<b>非医师背景基本无法报名。</b>教育处 010-62723743 / bdlyjyc@126.com。</div>
+  </div>
+
+  <div class="card">
+    <h3>6. 四川大学华西医院心理卫生中心</h3>
+    <div class="tags"><span class="tag t-wait">当期已截止 · 等下一期</span><span class="tag t-plain">成都</span><span class="tag t-plain">咨询师可报</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">春、秋两季招生；临床心理评估另设 3/6/9/12 月到岗<br><span class="dim">2026 年 7 月中下旬查录取；下一批 2027 春季，报名提前 2–3 个月</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">半年起，可至 1 年<br><span class="dim">心理评估 3 个月起；心理治疗师规培 2 年全脱产</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">咨询与治疗 2500 元/6 月、4000 元/12 月<br>心理评估 1500 元/3 月起</div></div>
+    </div>
+    <p class="point">国家精神疾病医学中心，八大进修方向可选（精神科临床、儿少、临床心理咨询与治疗、脑功能检测与神经调控、心理评估、临床科研等）。2026 年另开<b>全国综合医院首家心理治疗师规范化培训</b>（2 年全脱产，覆盖 CBT / 精神动力学 / 家庭治疗，可统一报考国家心理治疗师资格）。</p>
+    <div class="links">
+      <a href="https://www.wchscu.cn/public/affairs/rewards3/97822.html" target="_blank">心理卫生中心进修招生总览（八大方向）</a>
+      <a href="https://it.wchscu.cn/byh/contents/2581/405.html" target="_blank">进修招生简章详情（各专业培养方案 / 名额）</a>
+      <a href="https://www.wchscu.cn/public/department/nephrology/dynamics/97137.html" target="_blank">全国综合医院首家 · 心理治疗师规培 2026 招生</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>7. 中南大学湘雅二医院精神病学科</h3>
+    <div class="tags"><span class="tag t-wait">当期已截止 · 等下一批</span><span class="tag t-warn">医师为主</span><span class="tag t-plain">长沙</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一批</div><div class="fv">每年四批次，报名截止约：<em>1/31 · 5/5 · 7/31 · 10/31</em><br><span class="dim">第四批（12 月入科）报名已于 2026-10-31 截止；下一批 2027 第一批约 2027-01-31 截止、2 月入科（按常年批次节奏，简章暂未更新）</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">半年 / 一年<br><span class="dim">少数项目 3 个月</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">按医院统一标准<br><span class="dim">见当期简章附件</span></div></div>
+    </div>
+    <p class="point">精神病学全国常年前三、WHO 合作研究中心。儿少精神病学专科（李雪荣教授创立）为全国儿少精神心理领军人才培养基地，每年 3/6/9/12 月开班，含临床进修与科研进修两类。<b>注意：医学心理中心只接受"心理评估"和"科研"两类进修</b>，想做咨询与治疗实践需走精神科病房通道。</p>
+    <div class="links">
+      <a href="https://www.xyeyy.com/5/40/3099/3101/content_86189.html" target="_blank">2026 年进修培训招生简章（官网 通知公告）</a>
+      <a href="http://mp.weixin.qq.com/s?__biz=MzI0NjAzNjI1NQ==&mid=2650769039&idx=1&sn=097cec732a1c0095f39f1325ae03dc01" target="_blank">儿童少年精神病学专科 科研 / 临床进修招生简章</a>
+    </div>
+    <p class="point" style="margin-top:12px;margin-bottom:0">毕教办 0731-85294063（何老师、杨老师）；精神科科研进修先联系田于胜老师 13054175422。</p>
+  </div>
+
+  <div class="card">
+    <h3>8. 南京医科大学附属脑科医院</h3>
+    <div class="tags"><span class="tag t-wait">当期已截止 · 等下一期</span><span class="tag t-plain">南京</span><span class="tag t-plain">咨询师可报 · CBT 领先</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">每半年一期（3 月、9 月开班）<br><span class="dim">本届 2026-09-01 开班，报名已于 2026-08-10 截止；下期 2027 年 3 月，报名约 2 月截止</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">3 / 6 / 12 个月<br><span class="dim">脱产全日制，导师制</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">4500 元 / 6500 元 / 9500 元<br><span class="dim">对应 3 / 6 / 12 个月；宿舍 1000 元/月</span></div></div>
+    </div>
+    <p class="point">国家精神区域医疗中心建设单位。医学心理科是国内<b>认知行为治疗连续培训基地</b>，CBT 方向国内领先；团队有注册督导师 9 名、注册心理师 18 名。三个专项方向：医学心理学与专病诊疗管理 / 心理咨询与治疗 / 临床心理评估与随访管理，每期 10–15 人。<b>提供宿舍</b>，在头部机构里少见。</p>
+    <div class="links">
+      <a href="http://www.c-nbh.com/kyjx/detail.asp?nid=412" target="_blank">医学心理科 · 医学心理与心理治疗专项进修班招生公告</a>
+      <a href="http://www.c-nbh.com/kyjx/detail.asp?nid=416" target="_blank">2026 年秋季进修班招生简章（国家级精神医学 / 儿少心理卫生进修班）</a>
+      <a href="http://www.c-nbh.com/kyjx/" target="_blank">全部项目：官网 → 科研教学 → 进修园地</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>9. 广州医科大学附属脑科医院（广州市脑科医院）</h3>
+    <div class="tags"><span class="tag t-roll">● 滚动招生 · 长期有效</span><span class="tag t-plain">广州</span><span class="tag t-plain">咨询师可报</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">临床心理科：2026 年四期（3/6/9/12 月），长期有效<br><span class="dim">儿少中心：一季度入学一次，下一期预计 2027 年一季度（简章未更新，沿用上期核对 2026-10-24）</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">优先脱产 6 个月<br><span class="dim">儿少中心：全程临床 ≥6 月 / 评估 ≥4 月 / 治疗 ≥4 月</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv"><em>4000 元/月</em><br><span class="dim">食宿自理，可办职工饭卡</span></div></div>
+    </div>
+    <p class="point">临床心理科创建于 80 年代初，<b>导师制 + 三级督导</b>，可自选流派与导师（精神分析、客体关系与自体心理学、拉康学派、CBT、家庭治疗、叙事、人本、IPT 等）。<b>结业提供个案时数与督导时数证明，可用于申报中国心理学会注册系统</b>。年门诊量近 90 万、床位 1920 张，个案量充足。</p>
+    <div class="links">
+      <a href="http://mp.weixin.qq.com/s?__biz=MzkzMTYzNDAwNw==&mid=2247489624&idx=1&sn=019f487d02e11188c7d35b3904fe757b" target="_blank">临床心理科进修生招募（长期有效）</a>
+      <a href="http://mp.weixin.qq.com/s?__biz=MzI4NTMxMjYxMw==&mid=2247530903&idx=2&sn=93162d49cf4bda266db07b148f8d2bc0" target="_blank">儿少心理评估与治疗中心进修学员招募</a>
+      <a href="https://www.gzbrain.cn/" target="_blank">官网 → 教学培训 → 进修培训及继续教育专栏</a>
+    </div>
+    <p class="point" style="margin-top:12px;margin-bottom:0">电话 020-81268086 / 81268083（张老师、罗老师）；儿少中心 020-81268037（朱医生）。</p>
+  </div>
+
+  <div class="card">
+    <h3>10. 深圳市康宁医院（深圳市精神卫生中心）</h3>
+    <div class="tags"><span class="tag t-roll">● 滚动招生</span><span class="tag t-plain">深圳</span><span class="tag t-plain">咨询师可报 · 15 人小班</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">滚动开班，扫码 / 电话咨询报名<br><span class="dim">需通过院内考试及面试</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">3 个月，每周到岗 3–5 天<br><span class="dim">科室项目（成瘾 / 儿少）3–6 个月</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">简章未公示<br><span class="dim">需电话 / 微信咨询</span></div></div>
+    </div>
+    <p class="point">心理咨询与心理治疗临床技能实践进修班，含 80–100 课时理论（精神病学 / 心理测量 / 咨询与治疗 / 危机干预 / 伦理法律）+ 轮转轻症病房、重症病房、儿少精神科、心理咨询与治疗科、心理测验室 + 每月 1 次专家督导。<b>小班制仅招 15 人</b>。各科室另有独立进修项目。</p>
+    <div class="links">
+      <a href="http://mp.weixin.qq.com/s?__biz=MzI3NzM5MDUxMg==&mid=2247503619&idx=1&sn=fc12b357ec4b5360b8dc87c323dae63b" target="_blank">心理咨询与心理治疗临床技能实践进修班简章</a>
+      <a href="https://www.szknyy.com/attachment/0/67/67145/1084889.pdf" target="_blank">成瘾医学科 · 心理治疗进修项目（PDF）</a>
+      <a href="https://www.szknyy.com/attachment/0/67/67149/1084890.pdf" target="_blank">儿少精神科临床心理进修项目（PDF）</a>
+    </div>
+    <p class="point" style="margin-top:12px;margin-bottom:0">咨询：0755-27999903 · 兰心老师 186 8249 0182</p>
+  </div>
+
+  <div class="card">
+    <h3>11. 天津市安定医院（天津市精神卫生中心）</h3>
+    <div class="tags"><span class="tag t-roll">● 常年招收</span><span class="tag t-plain">天津</span><span class="tag t-plain">2025 国家临床重点专科</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">常年招收，寄送申请表审核后录取<br><span class="dim">无固定批次，随时可投</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">按月 / 半年 / 一年自选<br><span class="dim">申请书需加盖单位章</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">800 元/月<br>4000 元/半年 · 7000 元/年</div></div>
+    </div>
+    <p class="point">天津唯一三甲精神专科医院，设有临床心理科、儿童青少年心理科、睡眠医学科、成瘾医学科、老年科等。面向全国精神专科医院或综合医院精神科 / 心理科临床专业技术人员。<b>费用在头部机构中最低</b>，适合预算有限但想要系统临床训练的从业者。</p>
+    <div class="links">
+      <a href="https://www.tmu.edu.cn/jswszx/2022/0702/c7840a60590/page.htm" target="_blank">天津市安定医院进修招生简章</a>
+    </div>
+    <p class="point" style="margin-top:12px;margin-bottom:0">科教科 022-88188856 / 8530 · sadyykjk@tj.gov.cn · 食宿自理</p>
+  </div>
+
+  <div class="card">
+    <h3>12. 复旦大学附属中山医院心理医学科</h3>
+    <div class="tags"><span class="tag t-roll">● 常年网上申请</span><span class="tag t-warn">住院医师及以上</span><span class="tag t-plain">上海</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">常年网上申请<br><span class="dim">官网 → 医学教育 → 进修教育 → 网上进修申请</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">3 个月 / 6 个月<br><span class="dim">立志从事综合医院精神卫生工作者</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">按医院进修教育统一标准<br><span class="dim">未公开公示</span></div></div>
+    </div>
+    <p class="point">1987 年开设上海第一家综合医院心理咨询门诊，季建林教授所在科室，自 1987 年起即为进修医生培训基地。内容为综合医院心理医学门诊 + 精神心理评估 + 联络会诊 + 临床科研，覆盖<b>肿瘤心理、围手术期心理、双心门诊、MDT</b> 等纯精神专科给不了的场景。</p>
+    <div class="links">
+      <a href="https://yxjy.zs-hospital.sh.cn/mt/" target="_blank">进修网上申请入口</a>
+      <a href="https://www.zs-hospital.sh.cn/jinxiu/index.htm" target="_blank">官网 → 医学教育 → 进修人员教育</a>
+      <a href="http://mp.weixin.qq.com/s?__biz=Mzk0NjAyNjMyNg==&mid=2247484812&idx=1&sn=6ffa43e0718cb7cf484d585f027f8620" target="_blank">心理医学科进修招募启事（3 / 6 个月）</a>
+    </div>
+  </div>
+
+</div>
+
+<h2>三、长程连续培训 <small>含金量最高，非"医院脱产进修"</small></h2>
+<div class="grid">
+
+  <div class="card">
+    <h3>中德精神分析连续培训项目（"中德班"）</h3>
+    <div class="tags"><span class="tag t-wait">无公开报名链接 · 需蹲守</span><span class="tag t-info">长程连续培训</span><span class="tag t-plain">上海精卫主办</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">由上海精卫心理治疗学院发布 / 内部选拔<br><span class="dim">无公开链接，建议关注公众号蹲守</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">连续培训，通常 2–3 年<br><span class="dim">分期集训 + 小组督导</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">以当期招生通知为准<br><span class="dim">未公开统一价</span></div></div>
+    </div>
+    <p class="point">国内心理治疗界公认的"黄埔军校"。上海市精神卫生中心主办、仇剑崟教授领衔，德方 Alf Gerlach 等参与，落地上海 26 周年（2026 年为德中心理治疗研究院成立 30 周年）。师资含肖泽萍、张海音、李晓驷、施琪嘉、曾奇峰、徐勇等。同体系还有中德心身医学、中美 CBT / DBT、中英 CBT-E 等分支。</p>
+    <div class="links">
+      <a href="https://www.smhc.org.cn/" target="_blank">上海市精神卫生中心官网 → 教学培训 → 心理治疗学院（各连续项目招生发布）</a>
+      <a href="https://baike.baidu.com/item/%E4%B8%AD%E5%BE%B7%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%E8%BF%9E%E7%BB%AD%E5%9F%B9%E8%AE%AD%E9%A1%B9%E7%9B%AE/67664699" target="_blank">中德精神分析连续培训项目 · 背景与师资介绍</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>北京师范大学心理学部 CARE 项目（第八期）</h3>
+    <div class="tags"><span class="tag t-wait">报名已截止 · 11 月面试</span><span class="tag t-info">长程连续培训</span><span class="tag t-plain">非学历</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">第八期报名已于 <em>2026-10-31 24:00</em> 截止<br><span class="dim">面试 2026 年 11 月下旬（北京线下）；2027 年 3 月开学。第九期按惯例预计 2027 年秋季开放报名（简章未发布，沿用上期核对 2026-10-24）</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">2.5 年（2027.3–2029.6）<br><span class="dim">≥300 小时见习实习与督导；每周投入 10–20 小时</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv"><em>16.8 万元</em>/两年半<br><span class="dim">校友 16.2 万；第一学年 8 万、第二学年 8.8 万</span></div></div>
+    </div>
+    <p class="point">临床与咨询心理专业能力长程培训，含 192h 初阶 + 192h 中阶 + 160h 高阶，三级督导体系（总督导 / 督导 / 实习督导）。主实习基地为北师大心理健康服务中心，<b>是中国心理学会注册系统认证实习基地，累积实习小时数可用于申请注册心理师</b>。本科及以上、专业不限。</p>
+    <div class="links">
+      <a href="https://psych.bnu.edu.cn//xwzx/zszp/c9deaaecc734496486fae26d75097284.htm" target="_blank">第八期 CARE 项目招生简章（官网）</a>
+      <a href="https://psych.bnu.edu.cn/zt/care2024/images/CARE%E6%89%8B%E5%86%8C.pdf" target="_blank">CARE 项目手册（PDF）</a>
+    </div>
+    <p class="point" style="margin-top:12px;margin-bottom:0">EDP 培训中心 010-62204669 / 62204009 · edpbnu@bnu.edu.cn</p>
+  </div>
+
+  <div class="card">
+    <h3>中国科学院心理研究所 · 继续教育学院 / 心理健康应用中心</h3>
+    <div class="tags"><span class="tag t-roll">● 长期滚动招生</span><span class="tag t-info">专项技能培训</span><span class="tag t-plain">北京 · 在职友好</span></div>
+    <div class="facts">
+      <div class="fact"><div class="fl">报名窗口 / 下一期</div><div class="fv">EAP 研修班长期滚动招生<br><span class="dim">家庭咨询等专项按班期开班</span></div></div>
+      <div class="fact"><div class="fl">进修时长</div><div class="fv">EAP 按学分制（100 分）<br><span class="dim">家庭咨询 80 学时</span></div></div>
+      <div class="fact"><div class="fl">费用</div><div class="fv">EAP 9800 元 + 测评 300 元<br>家庭咨询 6800 元 + 证书 100 元</div></div>
+    </div>
+    <p class="point">心理所继教学院体系的专项 / 专业技能培训项目。EAP 研修班含基础培训 + 临床观察 + 实战练习 + 督导 + 自我体验 + 项目实习，需通过 MMPI 测评与面试。另有家庭咨询、儿童青少年、心理危机干预、正念指导等专项。适合<b>无法长期脱产</b>、想分模块补技能的从业者。</p>
+    <div class="links">
+      <a href="https://eap.psych.cn/Articles/RootDetails.cfm?GUID=E8FACF63-8DEE-4C58-9BC6-3E574F6968A4" target="_blank">EAP 心理咨询师实践初级研修班招生简章</a>
+      <a href="https://eap.psych.cn/Articles/RootDetails.cfm?GUID=59F7F4F4-1E8F-40ED-9BB4-28BB48068A8F" target="_blank">家庭咨询专项技能培训招生简章</a>
+      <a href="http://www.psych.ac.cn/jixujiaoyu/tzgg_163046/202101/P020240606426966808805.pdf" target="_blank">继教学院培训项目总览（PDF）</a>
+    </div>
+  </div>
+
+</div>
+
+<h2>四、现在就能投的窗口 <small>截至 2026-11-02（固定批次项目本期均已截止，当前可投的为滚动 / 常年招生项目）</small></h2>
+<table class="tbl">
+  <tr><th style="width:26%">项目</th><th style="width:22%">报名方式</th><th style="width:18%">时长</th><th>备注</th></tr>
+  <tr>
+    <td>广州脑科医院 · 临床心理科</td>
+    <td><b style="color:var(--roll)">长期有效 · 2026 年 3/6/9/12 月入学</b></td>
+    <td>6 个月</td>
+    <td>4000 元/月，导师制 + 三级督导，结业发个案 / 督导时数证明。电话 020-81268086</td>
+  </tr>
+  <tr>
+    <td>深圳市康宁医院 · 临床技能实践进修班</td>
+    <td><b style="color:var(--roll)">滚动开班 · 需考试面试</b></td>
+    <td>3 个月</td>
+    <td>15 人小班，80–100 课时理论 + 多科室轮转 + 专家督导。0755-27999903</td>
+  </tr>
+  <tr>
+    <td>天津市安定医院</td>
+    <td><b style="color:var(--roll)">常年招收 · 随时可投</b></td>
+    <td>按月 / 半年 / 一年</td>
+    <td>800 元/月起，头部机构中最低；申请表需加盖单位章。022-88188856</td>
+  </tr>
+  <tr>
+    <td>武汉忠德心理医院</td>
+    <td><b style="color:var(--roll)">循环开班 · 可随时咨询</b></td>
+    <td>3 个月起</td>
+    <td>精神分析取向，个人体验必修；长程 1–3 年分阶段。027-82848413</td>
+  </tr>
+  <tr>
+    <td>复旦中山医院 · 心理医学科</td>
+    <td><b style="color:var(--roll)">常年网上申请</b></td>
+    <td>3 / 6 个月</td>
+    <td>综合医院场景（会诊联络 / 肿瘤心理 / 双心），需住院医师及以上资质</td>
+  </tr>
+  <tr>
+    <td>中科院心理所 · EAP 等专项研修班</td>
+    <td><b style="color:var(--roll)">长期滚动招生</b></td>
+    <td>按学分制</td>
+    <td>在职友好，无需脱产；另有家庭咨询、儿少、危机干预等专项</td>
+  </tr>
+</table>
+
+<div class="tips">
+  <b style="font-size:14px">其他机构什么时候再投？（固定批次 · 按时间排序）</b>
+  <table class="tbl" style="margin-top:10px">
+    <tr><th style="width:34%">机构</th><th style="width:26%">下一期窗口 / 开班</th><th>建议提前多久准备</th></tr>
+    <tr><td>北京回龙观医院</td><td>2027 第一期，报名预计 2026 年 12 月上旬开放（约 12/8–1/3），1 月上旬报到</td><td>窗口仅约 2 周，建议现在就备好线上报名材料，12 月初起盯官网"教育培训 → 进修人员报名"</td></tr>
+    <tr><td>北大六院</td><td>2027 春季班，2026 年 12 月集中录取（春节后开班）</td><td>秋季（10–11 月）即应投递；仅限精神科执业医师</td></tr>
+    <tr><td>中南大学湘雅二医院</td><td>2027 第一批，报名约 2027-01-31 截止、2 月入科</td><td>1 月上旬投递；医学心理中心仅收心理评估与科研方向</td></tr>
+    <tr><td>上海市精神卫生中心</td><td>强迫焦虑专病班春季班 2027-03-01 开班；第 34 期专项班按往年节奏约 2027 年 1 月前后启动报名</td><td>提前 1–2 个月，额满即止；现在就去官网下载申请表准备材料</td></tr>
+    <tr><td>北京安定医院</td><td>2027 年 3 月开学那期，报名约 2027 年 1–2 月截止</td><td>报名提前约 1 个月，需先下载"特色团队进修"登记表并加盖单位章</td></tr>
+    <tr><td>华西心理卫生中心</td><td>2027 年春季</td><td>报名提前 2–3 个月，需登录四川大学医学继续教育官网</td></tr>
+    <tr><td>南京脑科医院</td><td>2027 年 3 月</td><td>报名约 2027 年 2 月截止，材料需邮寄（预留寄送时间）</td></tr>
+    <tr><td>北师大 CARE 第九期</td><td>按惯例 2027 年秋季开放报名、2028 年 3 月开学（简章未发布）</td><td>关注心理学部官网与 EDP 中心公众号；费用 16.8 万 / 2.5 年</td></tr>
+  </table>
+</div>
+
+<h2>五、给心理咨询师背景的选型建议</h2>
+<div class="tips">
+  <ol>
+    <li><b>先看清门槛再投。</b>北大六院、湘雅二精神科、复旦中山这类明确要求执业医师资格 + 3 年临床，咨询师背景投了也是白投。真正开放的是：<b>上海精卫、华西、南京脑科、广州脑科、深圳康宁、武汉忠德</b>。</li>
+    <li><b>目标是"注册系统"的话，优先选能开督导时数证明的。</b>上海精卫专项进修班（注册督导师全程带教、可开官方督导时长证明）、广州脑科（结业发个案时数与督导时数证明）、深圳康宁、北师大 CARE（实习基地为注册系统认证）。</li>
+    <li><b>按取向选机构：</b>精神分析 / 动力取向 → 上海精卫（中德班体系）、武汉忠德；CBT → 南京脑科（国内 CBT 连续培训基地）、上海精卫（中英 CBT-E）；儿少 → 安定儿科、南京脑科儿少、广州脑科儿少中心、湘雅二儿少；心身 / 综合医院 → 华西（阳光医院模式）、复旦中山。</li>
+    <li><b>算清时间与成本。</b>脱产 6 个月区间很大：天津安定 4000 元/半年、南京脑科 6500 元/半年、华西 2500 元/半年、安定 8000–15000 元/半年、上海精卫 35000 元、广州脑科 4000 元/月（6 个月约 24000 元）。北师大 CARE 属长程路径，16.8 万 / 2.5 年。</li>
+    <li><b>别只盯"名气"。</b>对咨询师而言，能否<b>实际接个案 + 拿到督导时数 + 拿到可写进简历的证明</b>，比机构牌子更影响后续执业与注册申请。</li>
+  </ol>
+</div>
+
+<h2>六、答疑：没有医院导师怎么进？收获差异与就业影响</h2>
+
+<div class="tips" style="border-left:3px solid var(--accent);border-radius:8px;margin-bottom:14px">
+  <b style="font-size:15px">先分清三件事：见习 ≠ 实习 ≠ 进修</b>
+  <table class="tbl" style="margin-top:10px">
+    <tr><th style="width:14%">类型</th><th style="width:24%">你做什么</th><th style="width:22%">门槛</th><th>产出</th></tr>
+    <tr><td><b>见习</b></td><td>观摩为主，不碰病历、不接个案</td><td>最低，几天–几周</td><td>视野与感受，一般无证明</td></tr>
+    <tr><td><b>实习</b></td><td>在督导下做评估、接部分个案</td><td>需学校 / 机构协议与督导安排</td><td>实践小时数 + 督导证明（可计入注册系统）</td></tr>
+    <tr><td><b>进修</b></td><td>正式录取、付费、全日制在岗</td><td>最高，多数要单位选送</td><td>结业证书 + 个案 / 督导时数证明</td></tr>
+  </table>
+</div>
+
+<h3 style="font-size:15.5px;margin:24px 0 6px;padding-left:12px;border-left:3px solid var(--open)">6.1 导师不在医院，五条可走的路</h3>
+<div class="tips">
+  <ol>
+    <li><b>走"面向社会招生"的班，绕开单位选送。</b>多数公立医院普通进修明文要求"单位推荐、加盖公章"，部分直接写<b>"不接收个人进修申请"</b>（如无锡市精神卫生中心）。但本报告里这几家<b>个人即可报名</b>：上海精卫专项进修班、广州脑科临床心理科、深圳康宁、华西（接受心理咨询师 / 治疗师证）、武汉忠德、北师大 CARE。这是最直接的通道。</li>
+    <li><b>先有单位，再被"选送"。</b>入职综合医院心理科、社区卫生服务中心、学校心理中心或社会机构后，以在职身份由单位盖章派出——不少单位有进修名额和经费，这是体制内最常规的做法。</li>
+    <li><b>走学校渠道。</b>研究生阶段的实践基地、联合培养、导师课题合作是最省力的入口。没有的话主动联系医院科教科 / 教育处，自荐做<b>科研助理、量表评估、课题随访</b>或门诊志愿服务——先进入，再争取转为实习。</li>
+    <li><b>用长程培训项目自带实习。</b>北师大 CARE、中德班等项目的实习基地多为<b>注册系统认证基地</b>，在督导下接触真实来访者，等同于绕开"医院进修"拿到合规的实践与督导小时数。</li>
+    <li><b>低门槛替代路径（可立刻开始）。</b>危机干预热线接线、案例督导小组、门诊观摩班、短期工作坊。个案深度不如进修，但能先积累时数、建立督导师与同行关系，也是后续被推荐进医院的铺垫。</li>
+  </ol>
+  <div class="note" style="margin-top:14px"><b>材料清单（提前备齐）：</b>身份证、学历 / 学位证、心理咨询师或治疗师证、简历与个人陈述、单位盖章的进修申请表（如需）、体检证明、保险。部分医院还要求伦理承诺书与无犯罪记录证明。</div>
+</div>
+
+<h3 style="font-size:15.5px;margin:24px 0 6px;padding-left:12px;border-left:3px solid var(--open)">6.2 去不同类型的机构，收获差在哪</h3>
+<div class="tips">
+  <table class="tbl" style="margin-top:4px">
+    <tr><th style="width:22%">机构类型</th><th style="width:31%">你会见到什么</th><th>真正能带走的能力</th></tr>
+    <tr>
+      <td><b>三甲精神专科</b><br><span style="font-size:12px;color:var(--ink-3)">安定 / 回龙观 / 上海精卫 / 华西</span></td>
+      <td>精神分裂症、双相、重性抑郁、风险与危机个案；查房、病例讨论、药物方案</td>
+      <td>症状严重程度的"谱系感"、<b>鉴别诊断与风险筛查</b>、与精神科医生对话的能力——社会机构最缺、招聘方最看重的一项</td>
+    </tr>
+    <tr>
+      <td><b>临床心理科 / 心身病房</b><br><span style="font-size:12px;color:var(--ink-3)">上海精卫心身、安定临床心理病区、广州脑科</span></td>
+      <td>抑郁焦虑、强迫、躯体症状障碍、人格议题；能独立接个案并接受督导</td>
+      <td><b>个案时数 + 督导时数</b>（可写进注册系统申请）、长程个案能力</td>
+    </tr>
+    <tr>
+      <td><b>儿童青少年专科</b><br><span style="font-size:12px;color:var(--ink-3)">安定儿科、南京脑科儿少、广州脑科儿少、湘雅二儿少</span></td>
+      <td>ADHD、抽动、孤独谱系、儿少抑郁与情绪障碍；家长访谈、学校协作</td>
+      <td>家庭系统工作、与家长 / 学校沟通的技术；儿少方向目前<b>市场需求最大</b></td>
+    </tr>
+    <tr>
+      <td><b>综合医院心理医学科</b><br><span style="font-size:12px;color:var(--ink-3)">华西、复旦中山</span></td>
+      <td>会诊联络、肿瘤心理、围术期、双心门诊、MDT</td>
+      <td>躯体共病场景下的<b>短程干预</b>、与躯体科室协作——纯精神专科给不了的场景</td>
+    </tr>
+    <tr>
+      <td><b>亚专科病房</b><br><span style="font-size:12px;color:var(--ink-3)">成瘾 / 睡眠 / 老年 / 康复</span></td>
+      <td>单一病种的密集个案与标准化临床路径</td>
+      <td>特定技术栈：DBT、CBT-I、动机访谈、认知康复</td>
+    </tr>
+    <tr>
+      <td><b>社区 / 基层精防</b></td>
+      <td>严重精神障碍患者随访、个案管理、公共卫生服务</td>
+      <td>公共卫生体系与政策理解、大样本筛查；个案深度有限</td>
+    </tr>
+    <tr>
+      <td><b>长程连续培训</b><br><span style="font-size:12px;color:var(--ink-3)">中德班、北师大 CARE</span></td>
+      <td>单一流派纵深 + 个人体验 + 小组督导</td>
+      <td>流派认同与个人修通，而非"见多识广"；适合已确定取向的人</td>
+    </tr>
+  </table>
+  <p class="point" style="margin:12px 0 0">选法上的一句话：<b>想补"医学底盘"去精神专科，想拿"个案与督导时数"去临床心理科，想做儿少去儿少专科，想进综合医院去心理医学科。</b></p>
+</div>
+
+<h3 style="font-size:15.5px;margin:24px 0 6px;padding-left:12px;border-left:3px solid var(--open)">6.3 对就业的实际影响：能带来什么，以及三个现实限制</h3>
+<div class="tips">
+  <ol>
+    <li><b>真正值钱的是三样"硬通货"：</b>① 督导下的<b>个案小时数</b>；② <b>有效注册督导师签的督导证明</b>；③ 结业证书。注册系统（第二版）的量化门槛是：认可培养方案的硕士——实践 ≥150 小时、个体督导 ≥50 小时 + 团体督导 ≥50 小时；非认可专业——实践 ≥250 小时、个体督导 ≥80 小时 + 团体督导 ≥120 小时。<b>关键：只有"有效注册督导师"的督导才计数</b>，所以选机构先看有没有注册督导师带教。</li>
+    <li><b>简历筛选层面：</b>医院心理治疗师岗位普遍要求"医学 / 心理学背景 + 临床经历"，有精神专科进修经历在筛选中明显加分；高校心理咨询中心、EAP、社会机构同样认可"医院背景"，因为它意味着你见过重性症状、会做风险筛查。进修期间建立的督导与同行关系，往往就是后续工作机会的来源。</li>
+    <li><b style="color:var(--warn)">限制一：进修、见习、实习都不算"工作年限"。</b>心理治疗师属卫生专业技术资格（初级师代码 212 / 中级 386），适用人员为"经批准的<b>医疗卫生机构内</b>从事心理治疗工作的人员"，报考需机构从业满 1 年（本科 / 硕士）起算，<b>实习不计入</b>。结论：想拿这个证，得先<b>入职医疗机构</b>，进修是加分项而非替代项。</li>
+    <li><b style="color:var(--warn)">限制二：非医学背景进不了医师序列。</b>心理治疗师属医技职称序列，无处方权、只从事辅助诊疗；精神科医师资格与规培通道对非临床医学背景基本关闭。</li>
+    <li><b style="color:var(--warn)">限制三：各考区审核松紧不一。</b>部分地区要求"医学院校毕业的心理学专业"，个别岗位甚至叠加医师资格要求，也有考区认定宽松。<b>报名前先咨询当地卫健委</b>，别按网上通用口径想当然。</li>
+    <li><b>成本与风险要算清：</b>脱产 6 个月意味着无收入 + 学费（2500 元 – 16.8 万）+ 异地食宿；伦理红线不能碰——不私自录音录像、不带走来访者、个案材料不外传、危机个案按流程上报；进场前确认责任保险与个案归属约定。</li>
+  </ol>
+  <div class="note" style="margin-top:14px"><b>一句话结论：</b>对咨询师背景的人，医院进修是"补医学底盘 + 攒合规时数"的手段，不是入行门票。较优顺序是：<b>先入职一家医疗机构（拿到工作年限与报考资格）→ 由单位选送或自费参加面向社会招生的进修班 → 用个案与督导时数申报注册系统 → 再考心理治疗师职称。</b></div>
+</div>
+
+<footer>
+  共收录 12 家机构 + 3 类长程培训项目 + 答疑板块。报名窗口、时长、费用均查证自各机构官网 / 官方公众号，核对日期 2026 年 11 月 2 日（上期 2026-10-24；标注"沿用上期数据"的机构官网当期无新简章发布）；多数机构每季度或每半年滚动更新简章，投递前请再次确认当期通知。注册系统小时数标准引自《中国心理学会临床与咨询心理学专业机构和专业人员注册标准（第二版）》。
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>心理援助资源清单</title>
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --ink:#2C2C2A; --ink2:#5F5E5A; --ink3:#888780;
+  --line:rgba(0,0,0,.12); --line2:rgba(0,0,0,.22);
+  --red:#A32D2D; --red-bg:#FCEBEB;
+  --teal:#0F6E56; --teal-bg:#E1F5EE;
+  --blue:#185FA5; --blue-bg:#E6F1FB;
+  --amber:#854F0B; --amber-bg:#FAEEDA;
+  --purple:#534AB7; --purple-bg:#EEEDFE;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; padding:32px 20px 64px;
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:15px; line-height:1.7; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px; margin:0 auto}
+h1{font-size:24px; font-weight:500; margin:0 0 6px}
+.sub{color:var(--ink2); font-size:14px; margin:0 0 28px}
+h2{font-size:17px; font-weight:500; margin:40px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line)}
+h3{font-size:15px; font-weight:500; margin:22px 0 8px}
+p{margin:8px 0}
+.hero{
+  background:var(--red-bg); border:0.5px solid var(--red);
+  border-radius:12px; padding:18px 20px; margin-bottom:28px;
+}
+.hero h2{border:0; margin:0 0 10px; font-size:16px; padding:0; color:var(--red)}
+.hero-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px}
+.hero-item{background:#fff; border-radius:8px; padding:10px 12px}
+.hero-item .num{font-size:20px; font-weight:500; color:var(--red); letter-spacing:.5px}
+.hero-item .lab{font-size:13px; color:var(--ink2)}
+table{width:100%; border-collapse:collapse; margin:10px 0 4px; font-size:14px; background:var(--card);
+  border:0.5px solid var(--line); border-radius:8px; overflow:hidden}
+th{text-align:left; font-weight:500; font-size:13px; color:var(--ink2);
+  background:#F4F3EF; padding:9px 12px; border-bottom:1px solid var(--line)}
+td{padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+tr:last-child td{border-bottom:0}
+.num{font-weight:500; white-space:nowrap; font-variant-numeric:tabular-nums}
+.card{background:var(--card); border:0.5px solid var(--line); border-radius:12px; padding:4px 16px 14px; margin:12px 0}
+ul{margin:8px 0 0; padding-left:20px}
+li{margin:5px 0}
+.tag{display:inline-block; font-size:12px; padding:1px 7px; border-radius:20px; margin-left:6px; vertical-align:1px}
+.t-red{background:var(--red-bg); color:var(--red)}
+.t-teal{background:var(--teal-bg); color:var(--teal)}
+.t-blue{background:var(--blue-bg); color:var(--blue)}
+.t-amber{background:var(--amber-bg); color:var(--amber)}
+.t-purple{background:var(--purple-bg); color:var(--purple)}
+.note{background:var(--amber-bg); border:0.5px solid var(--amber); border-radius:12px; padding:14px 18px; margin:16px 0; font-size:14px}
+.note strong{color:var(--amber)}
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin:12px 0}
+.mini{background:var(--card); border:0.5px solid var(--line); border-radius:12px; padding:12px 14px}
+.mini h4{margin:0 0 4px; font-size:14px; font-weight:500}
+.mini p{margin:0; font-size:13px; color:var(--ink2)}
+footer{margin-top:44px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--ink3)}
+@media print{
+  @page{size:A4; margin:14mm 12mm 15mm}
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  body{background:#fff; padding:0; font-size:10pt; line-height:1.6}
+  .wrap{max-width:none}
+  h1{font-size:19pt}
+  .sub{font-size:9.5pt; margin-bottom:12pt}
+  h2{font-size:13pt; margin:16pt 0 8pt; page-break-after:avoid; break-after:avoid}
+  h3{font-size:11pt; margin:10pt 0 4pt; page-break-after:avoid; break-after:avoid}
+  table{font-size:8.8pt; page-break-inside:auto}
+  thead{display:table-header-group}
+  tr,td,th{page-break-inside:avoid; break-inside:avoid}
+  td,th{padding:5px 7px}
+  .hero,.card,.note,.mini,.grid2,.hero-item{page-break-inside:avoid; break-inside:avoid}
+  .hero{page-break-after:avoid}
+  .grid2{gap:8px}
+  .mini{padding:9px 11px}
+  .mini p{font-size:9pt}
+  ul{margin:4pt 0 0}
+  li{margin:2pt 0; font-size:10pt}
+  p{font-size:10pt; margin:5pt 0; orphans:2; widows:2}
+  footer{margin-top:14pt; font-size:8.5pt}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>心理援助资源清单</h1>
+<p class="sub">普通人可以用的求助渠道全览 · 含公益热线、学校、社区、医院、单位、民政群团与公益组织</p>
+
+<div class="hero">
+  <h2>最紧急时，只需要记住这三条</h2>
+  <div class="hero-grid">
+    <div class="hero-item"><div class="num">12356</div><div class="lab">全国统一心理援助热线，7×24 小时，免费、匿名</div></div>
+    <div class="hero-item"><div class="num">120 / 110</div><div class="lab">已发生自伤行为或有人处于危险中</div></div>
+    <div class="hero-item"><div class="num">12345</div><div class="lab">不知道找谁时的总机，可转介本地心理服务</div></div>
+  </div>
+</div>
+
+<h2>一、公益热线：政务号码</h2>
+<table>
+<thead><tr><th style="width:82px">号码</th><th style="width:150px">名称</th><th style="width:150px">服务时间</th><th>适合什么情况</th></tr></thead>
+<tbody>
+<tr><td class="num">12356</td><td>全国统一心理援助热线<br><span class="tag t-red">首选</span></td><td>7×24 小时</td><td>所有人。情绪困扰、心理科普、心理咨询、情绪疏导、危机干预。由国家卫健委主导，2025 年 5 月 1 日全面开通，各地原有热线已并入。接线人员为精神科医生、心理治疗师、心理咨询师。仅收通讯费，支持匿名。</td></tr>
+<tr><td class="num">12355</td><td>青少年服务台（共青团中央）</td><td>各地不一，多为 8:30–20:00，部分地区 24 小时</td><td>青少年及家长。学业压力、考试焦虑、人际冲突、亲子关系、校园欺凌，同时提供法律咨询与权益保护。</td></tr>
+<tr><td class="num">12338</td><td>妇女维权公益服务热线（全国妇联）</td><td>各地不一，多为工作日 8:30–12:00、14:00–17:30，部分地区 24 小时</td><td>女性。家暴、婚姻家事、职场歧视、生育与产后情绪，接线同时提供心理疏导。可转介当地"舒心驿站"、妇女维权站、反家暴庇护所。</td></tr>
+<tr><td class="num">12351</td><td>全国总工会职工服务热线</td><td>各地不一，多为工作日 8:30–17:30，部分地区 24 小时</td><td>在职职工、新就业形态劳动者（外卖、网约车、快递）。工作压力、劳动权益、欠薪，含职工子女心理问题。</td></tr>
+<tr><td class="num">12345</td><td>政务服务便民热线<br><span class="tag t-blue">万能入口</span></td><td>7×24 小时</td><td>不知道该找哪个部门时的总机。可直接询问：本地社会心理服务中心在哪、精神卫生中心电话、困难帮扶怎么申请。会派单到属地部门并回访。</td></tr>
+<tr><td class="num">12348</td><td>公共法律服务热线（司法部）</td><td>多 7×24 小时</td><td>不是心理咨询热线，但家暴、离婚、抚养、劳动纠纷、侵权这类"现实问题"解决了，心理压力往往随之下降。可申请人身安全保护令、法律援助。</td></tr>
+<tr><td class="num">12320</td><td>公共卫生服务热线</td><td>部分省份开通，如广东 020-12320 转 5 全天</td><td>心理健康咨询与转介，部分地区可挂号咨询。</td></tr>
+<tr><td class="num">12393</td><td>医疗保障服务热线</td><td>工作日为主</td><td>不是咨询热线。用来问：心理治疗项目在当地能否医保报销、精神科门诊慢特病怎么办理。</td></tr>
+<tr><td class="num">12385</td><td>残疾人服务热线（中国残联）</td><td>工作日</td><td>残障人士及照护家属的心理支持、康复资源、政策咨询。</td></tr>
+<tr><td class="num">12349</td><td>养老服务信息平台 / 民政服务热线</td><td>部分地区开通</td><td>独居、高龄老人的孤独感与照料需求，可对接社区探访、助餐、喘息服务。</td></tr>
+</tbody>
+</table>
+<p style="font-size:13px;color:var(--ink2)">拨打异地号码需加区号。各地热线服务时间会调整，以当地官方公布为准。</p>
+
+<h2>二、专业与民间危机干预热线</h2>
+<p>这些不是政务号码，但长期公益运营，专业度高，全国可拨。</p>
+<table>
+<thead><tr><th style="width:150px">热线</th><th style="width:170px">号码</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>北京市心理援助热线<br>（北京心理危机研究与干预中心 / 北京回龙观医院）</td><td class="num">010-82951332<br>800-810-1117（座机）</td><td>7×24 小时，2002 年底开通，全国可拨。手机、分机、IP 用户请拨 010 号码。常年承担全国心理援助热线管理项目办职能。</td></tr>
+<tr><td>希望 24 热线 · 全国生命危机干预热线</td><td class="num">400-161-9995</td><td>7×24 小时。按 1 学生专线，按 2 抑郁与自伤防治专线，按 3 生命热线。</td></tr>
+<tr><td>教育部华中师范大学心理援助热线平台</td><td class="num">400-9678-920<br>010-67440033<br>027-59427263</td><td>面向师生与公众，公益免费。另有微信小程序「CCNU 心理援助」、公众号「青少年网络心理与行为重点实验室」，支持语音与图文咨询。</td></tr>
+<tr><td>清华大学幸福公益心理援助热线</td><td class="num">4000-100-525</td><td>约 10:00–22:00。另有清华心理援助项目 400-680-6101，公众号「幸福公益」。</td></tr>
+<tr><td>北京师范大学心理学部心理支持热线</td><td class="num">010-86409146</td><td>约每日 9:00–24:00，支持 Skype 拨打，海外同胞适用。</td></tr>
+<tr><td>中国科学院心理研究所咨询志愿者热线</td><td class="num">010-64851106</td><td>志愿者值守，部分地区全天。</td></tr>
+<tr><td>北京红枫妇女心理咨询服务中心</td><td class="num">010-68333388</td><td>面向女性，家暴、婚姻、性别议题。</td></tr>
+<tr><td>上海市心理热线</td><td class="num">021-962525</td><td>7×24 小时。另有上海生命热线 021-62798990。</td></tr>
+<tr><td>广州心理危机研究与干预中心</td><td class="num">020-81899120</td><td>华南地区主要危机干预资源。</td></tr>
+<tr><td>深圳市心理援助与危机干预热线</td><td class="num">400-995-995-9</td><td>7×24 小时。另有深圳市心理危机研究中心 0755-25629459、深圳市学生心理辅导中心 0755-82228597。</td></tr>
+<tr><td>武汉市精神卫生中心危机干预中心</td><td class="num">027-85844666</td><td>华中地区危机干预。</td></tr>
+<tr><td>南京市自杀干预中心</td><td class="num">025-86528082</td><td>危机干预。</td></tr>
+<tr><td>重庆心理援助</td><td class="num">96320 转 1<br>023-62804507</td><td>市精神卫生中心热线 / 危机干预热线。</td></tr>
+<tr><td>沈阳市心理援助热线</td><td class="num">024-23813000</td><td>7×24 小时。</td></tr>
+</tbody>
+</table>
+<div class="note"><strong>找不到本地号码时：</strong>拨 12345 或 12356，直接问"我所在的区有没有心理援助热线"，接线员会给出本地号码。全国 333 个地级市和所有直辖市的 87 个区县已设置心理门诊和睡眠门诊，本地资源比想象中多。</div>
+
+<h2>三、学校系统</h2>
+<div class="grid2">
+  <div class="mini"><h4>高校心理健康教育与咨询中心</h4><p>在校生免费，通常需预约，部分学校提供 24 小时热线、QQ/企业微信线上咨询。咨询记录一般不对院系公开（保密例外除外）。</p></div>
+  <div class="mini"><h4>辅导员 / 班主任 / 导师</h4><p>不能做治疗，但是最快的转介通道：请假、缓考、调换宿舍、联系家长、陪同就医，都需要他们签字协调。</p></div>
+  <div class="mini"><h4>中小学心理辅导室</h4><p>国家要求每校至少配备 1 名专职或兼职心理教师。家长可直接联系，也可通过班主任转介。</p></div>
+  <div class="mini"><h4>省市中小学心理健康教育指导中心</h4><p>负责区域内筛查、转介、教师培训，家长可咨询孩子的问题该往哪送。</p></div>
+  <div class="mini"><h4>12355 青少年服务台（线下阵地）</h4><p>多地设有 12355 线下服务点、驻校社工、"青少年维权岗"，可预约面询。</p></div>
+  <div class="mini"><h4>学生资助中心 / 勤工助学</h4><p>经济压力是大学生抑郁的重要诱因。助学贷款、临时困难补助、勤工岗位属于实质性的心理保护。</p></div>
+  <div class="mini"><h4>研究生 / 留学生专门支持</h4><p>很多高校设有研究生心理支持小组、国际学生辅导员。海外留学生可拨北师大 010-86409146（Skype 可拨）。</p></div>
+  <div class="mini"><h4>校友会 / 朋辈互助</h4><p>朋辈热线、心理社团、树洞信箱。专业性有限，但胜在低门槛、无权威感。</p></div>
+</div>
+
+<h2>四、社区系统</h2>
+<div class="grid2">
+  <div class="mini"><h4>社区（村）党群服务中心</h4><p>进门问"有没有心理疏导室 / 社会心理服务室"。多数社区已按要求挂牌，免费、就近、可面谈。</p></div>
+  <div class="mini"><h4>乡镇（街道）社会工作站</h4><p>"十四五"末已基本实现乡镇街道社工站全覆盖。社工可做家庭访视、资源链接、陪伴支持，并帮你对接民政救助。</p></div>
+  <div class="mini"><h4>社区卫生服务中心 / 乡镇卫生院</h4><p>国家基本公共卫生服务项目包含严重精神障碍患者社区管理与随访。部分中心提供初筛评估与转诊。</p></div>
+  <div class="mini"><h4>综治中心（矛盾纠纷调处）</h4><p>邻里纠纷、家庭矛盾、债务冲突这类现实压力源，可在此申请人民调解，比闷在心里有效。</p></div>
+  <div class="mini"><h4>社区网格员</h4><p>最了解本楼栋的人。可以上门、代办、帮忙联系家属，对独居老人和高风险人群尤其重要。</p></div>
+  <div class="mini"><h4>新时代文明实践中心（所、站）</h4><p>常设心理疏导志愿服务、讲座、团体活动，门槛低，适合"还没严重到要看病"的人。</p></div>
+  <div class="mini"><h4>妇女之家 / 儿童之家 / 家长学校</h4><p>妇联系统在社区的落脚点。亲子冲突、育儿焦虑、家庭关系，可在这里找到同伴和课程。</p></div>
+  <div class="mini"><h4>未成年人保护工作站</h4><p>乡镇街道已普遍设立。儿童遭受侵害、监护缺失、严重心理危机，可在此启动强制报告与保护流程。</p></div>
+  <div class="mini"><h4>日间照料中心 / 老年大学 / 助餐点</h4><p>对老年人来说，"每天有个地方去"本身就是强效的抗抑郁措施。</p></div>
+</div>
+
+<h2>五、医院与公共医疗系统</h2>
+<h3>门诊渠道</h3>
+<ul>
+<li><strong>综合医院心理科 / 心身医学科 / 睡眠门诊</strong>：截至 2025 年，全国 333 个地级市和所有直辖市的 87 个区县都已设置心理门诊和睡眠门诊，服务量比 2024 年同期分别增长 17% 和 39%。首次就诊建议挂"心理科"或"精神科"，先做评估再谈治疗。</li>
+<li><strong>精神专科医院 / 各级精神卫生中心</strong>：诊断、药物治疗、心理治疗、住院。多数设有 24 小时急诊，危机情况可直接去。</li>
+<li><strong>妇幼保健院</strong>：孕产期心理门诊、产后抑郁筛查与干预。</li>
+<li><strong>儿童医院 / 儿童保健科 / 发育行为儿科</strong>：儿童青少年情绪行为问题、注意缺陷多动、孤独症谱系评估。</li>
+<li><strong>肿瘤、慢病、康复科</strong>：重大疾病伴随的心理痛苦，部分三甲医院已设"心理社会支持"门诊或安宁疗护团队。</li>
+</ul>
+<h3>费用与报销</h3>
+<ul>
+<li>心理治疗项目在越来越多地区纳入医保；精神分裂症、双相障碍、抑郁症等可申请门诊慢特病。</li>
+<li>具体政策拨打 <span class="num">12393</span> 医保服务热线，或直接问就诊医院的医保办。</li>
+<li>严重精神障碍患者可纳入国家基本公共卫生服务，享受免费社区随访与管理。</li>
+</ul>
+<h3>互联网医院</h3>
+<ul>
+<li>三甲医院互联网平台可线上复诊、续方、查看报告；部分提供线上心理评估与咨询。</li>
+<li>适合复诊和稳定期，不适合首诊和危机状态。</li>
+</ul>
+<div class="note"><strong>什么情况必须去医院而不是只打热线：</strong>持续两周以上情绪低落或焦虑、明显失眠或食欲改变、无法正常上学上班、出现幻觉或妄想、有自伤计划或行为、物质滥用。热线是支持，诊断和治疗需要面诊。</div>
+
+<h2>六、单位、工会、EAP 与 AI</h2>
+<div class="grid2">
+  <div class="mini"><h4>EAP 员工帮助计划</h4><p>很多大企业、机关、事业单位已购买。<strong>直接问 HR 或工会"我们有没有 EAP"</strong>。通常匿名、免费、每年 6–12 次咨询，且<strong>覆盖配偶和子女</strong>——这是最被低估的资源。</p></div>
+  <div class="mini"><h4>单位工会</h4><p>职工心理服务、困难帮扶、慰问、互助保障。发生变故时，工会往往能同时提供经济和情感支持。</p></div>
+  <div class="mini"><h4>12351 职工服务热线</h4><p>单位没有 EAP 时的替代方案，可反映职场压力与劳动权益问题。</p></div>
+  <div class="mini"><h4>行业心理协会 / 职工服务中心</h4><p>教师、医护、警察、消防、社工、记者等高压力行业常有专项心理项目，可留意系统内通知。</p></div>
+  <div class="mini"><h4>职业健康与安全生产</h4><p>职业倦怠、创伤事件后应激，可走单位职业健康通道或工伤相关流程。</p></div>
+  <div class="mini"><h4>AI 与数字化工具<br><span class="tag t-purple">辅助，非替代</span></h4><p>适合：把混乱的情绪写清楚、做 CBT 自助练习、正念引导、心理科普、提前演练"我该怎么开口求助"。</p><p><strong>不适合：</strong>危机状态、诊断、用药决策。AI 不会主动联系救援，也可能给出错误建议。另外，不要在不可信的平台上传可识别身份的隐私信息。</p></div>
+  <div class="mini"><h4>自助测评与正念 APP</h4><p>PHQ-9、GAD-7 等量表可自测，但<strong>结果不等于诊断</strong>，只作为"要不要去医院"的参考。</p></div>
+  <div class="mini"><h4>自由职业者 / 无单位者</h4><p>走 12356、12351（新就业形态劳动者）、社区社工站、12345。参保可走城乡居民医保。</p></div>
+</div>
+
+<h2>七、民政、妇联、团委与社工</h2>
+<table>
+<thead><tr><th style="width:100px">系统</th><th style="width:130px">入口</th><th>能帮你做什么</th></tr></thead>
+<tbody>
+<tr><td>民政</td><td class="num">12345<br>乡镇街道社工站</td><td>最低生活保障、特困供养、<strong>急难型临时救助</strong>（突发事件导致基本生活困难可快速申请）、临时遇困人员救助、未成年人保护、流浪救助。很多心理危机背后是经济崩溃，先把钱和住处稳住。</td></tr>
+<tr><td>妇联</td><td class="num">12338<br>妇女之家 / 舒心驿站</td><td>反家暴（协助报警、伤情鉴定、庇护所、人身安全保护令）、婚姻家庭辅导、维权站、单亲母亲支持、生育与产后关怀。</td></tr>
+<tr><td>团委</td><td class="num">12355<br>青年之家</td><td>青少年心理、法律援助、权益维护、困境青少年帮扶、驻校社工、志愿服务对接。</td></tr>
+<tr><td>社工</td><td class="num">12345 转属地</td><td>个案管理、家庭访视、资源链接、陪伴就医、照料者喘息。社工最大的价值是"帮你把各个部门串起来"。</td></tr>
+<tr><td>残联</td><td class="num">12385</td><td>残疾证办理、康复服务、心理支持、照护者培训。</td></tr>
+<tr><td>司法</td><td class="num">12348<br>人民调解委员会</td><td>法律援助、人民调解、社区矫正心理服务、被害人与证人支持。</td></tr>
+<tr><td>卫健</td><td class="num">12320<br>12356</td><td>精神卫生防治、严重精神障碍管理、心理门诊与睡眠门诊转介。</td></tr>
+</tbody>
+</table>
+
+<h2>八、公益团体与支持小组</h2>
+<div class="grid2">
+  <div class="mini"><h4>危机干预类公益组织</h4><p>北京心理危机研究与干预中心（含自杀者亲友互助"活动园地"）、希望 24 热线（生命教育与危机干预）、各地心理危机干预中心。</p></div>
+  <div class="mini"><h4>专项人群基金会</h4><p>如关注抑郁、双相、失独家庭、抗战老兵、自闭症儿童的公益基金会，常设免费咨询名额、家属课堂、互助营。</p></div>
+  <div class="mini"><h4>同伴支持小组</h4><p>抑郁 / 双相 / 焦虑 / 强迫 / 成瘾 / 进食障碍的康复者小组与家属小组。医院、NGO、线上社群都有。"原来不止我这样"本身就有效。</p></div>
+  <div class="mini"><h4>家属与照护者组织</h4><p>精神疾病家属协会、失独互助会、罕见病与慢病家属组织、阿尔茨海默照护者支持。照护者的抑郁率很高，值得单独求助。</p></div>
+  <div class="mini"><h4>成瘾与戒断</h4><p>戒毒所与美沙酮维持治疗门诊、戒酒匿名互助小组、游戏/赌博障碍门诊。</p></div>
+  <div class="mini"><h4>低价 / 公益咨询平台</h4><p>主流心理服务平台设有"公益咨询""低价计划""新手咨询师实习个案"，费用远低于市场价。注意核查咨询师资质与督导背景。</p></div>
+  <div class="mini"><h4>宗教、正念、艺术与运动团体</h4><p>正念课程、合唱团、跑团、戏剧与绘画工作坊、志愿服务。属于促进因素，<strong>不能替代临床治疗</strong>，但能显著降低复发风险。</p></div>
+  <div class="mini"><h4>动物辅助与生态疗愈</h4><p>导盲犬、疗愈犬项目、园艺治疗。证据等级不一，但副作用极低。</p></div>
+</div>
+
+<h2>九、用之前，先知道这几件事</h2>
+<div class="card">
+<ul>
+<li><strong>免费不等于不专业。</strong>12356 等政务热线由精神科医生、心理治疗师、心理咨询师接听，不是"随便聊聊"。</li>
+<li><strong>可以匿名。</strong>热线不要求报姓名和身份证，匿名反而让人更愿意说真话。</li>
+<li><strong>保密是有例外的，而例外是为了保护你。</strong>当涉及你或他人的生命安全、儿童受侵害时，机构会启动危机干预（联系紧急联系人或属地部门）。这不是背叛。</li>
+<li><strong>一次打不通就多打几次。</strong>来电高峰集中在 20:00 到次日 1:00，工作日上午通常更容易接通。</li>
+<li><strong>现在就把 2–3 个号码存进手机。</strong>人在最难受的时候，是没有力气去搜索的。</li>
+<li><strong>不知道找谁，就打 12345。</strong>这是最省力的一步。</li>
+<li><strong>如果是帮别人问：</strong>你可以先打热线说明情况，接线员会告诉你怎么做、能不能代为联动。</li>
+</ul>
+</div>
+
+<div class="note"><strong>关于准确性：</strong>热线号码与服务时间会随政策调整，各地落地情况也有差异。如需正式发布或用于工作场景，请以当地卫健委、共青团、妇联官网最新公告为准。本清单整理于 2026 年 10 月，其中 12356 已接通来电超 70 万通，实施危机干预近 1 万起。</div>
+
+<footer>心理援助资源清单 · 2026 年 10 月整理 · 可直接保存、打印或转发给需要的人</footer>
+
+</div>
+</body>
+</html>

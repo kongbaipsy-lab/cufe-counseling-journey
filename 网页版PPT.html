@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医院见习与实习 · 央财应用心理硕士 · 王艳（终版 · 网页 PPT）</title>
+<style>
+  :root{
+    --navy:#1A2744;
+    --navy2:#22345C;
+    --navy3:#2C4270;
+    --gold:#C9A227;
+    --gold-bright:#E3C35A;
+    --gold-d:#A98618;
+    --gold-soft:#F7EFD8;
+    --cream:#FBF9F4;
+    --ink:#232830;
+    --ink2:#5A6068;
+    --line:#E3E0D4;
+    --card:#FFFFFF;
+    --red:#B4443C;
+    --red-soft:#F9ECEA;
+    --green:#3E7C5B;
+    --green-soft:#EAF3EE;
+    --blue:#33608F;
+    --blue-soft:#EBF1F8;
+    --ease:cubic-bezier(.22,.9,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+    background:#0C1322;color:var(--ink);overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* ===== 舞台：1280x720 等比缩放 ===== */
+  #viewport{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #stage{
+    width:1280px;height:720px;position:relative;flex:none;border-radius:10px;overflow:hidden;
+    background:var(--cream);
+    box-shadow:0 30px 90px rgba(0,0,0,.55),0 4px 18px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.06);
+  }
+  .slide{
+    position:absolute;inset:0;display:none;flex-direction:column;
+    padding:42px 56px 52px;background:var(--cream);overflow:hidden;
+  }
+  .slide.active{display:flex;animation:slideIn .45s var(--ease) both}
+  @keyframes slideIn{from{opacity:0;transform:translateY(12px) scale(.99);filter:blur(4px)}to{opacity:1;transform:none;filter:blur(0)}}
+  /* 浅色页背景装饰：角落光晕 */
+  .slide:not(.dark)::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(1100px 460px at 108% -12%, rgba(201,162,39,.09), transparent 62%),
+      radial-gradient(900px 420px at -8% 112%, rgba(26,39,68,.06), transparent 60%);
+  }
+  .slide:not(.dark)::after{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;pointer-events:none;
+    background:linear-gradient(90deg,var(--navy) 0%,var(--navy) 55%,var(--gold) 100%);
+  }
+  /* 顶栏 */
+  .topbar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex:none;position:relative;z-index:2}
+  .kicker{font-size:11px;letter-spacing:2.5px;color:var(--gold-d);font-weight:700;text-transform:uppercase}
+  .sec-tag{font-size:11.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);border-radius:999px;padding:3.5px 13px;letter-spacing:1px;box-shadow:0 2px 8px rgba(26,39,68,.25)}
+  .time-tag{margin-left:auto;font-size:11px;color:var(--ink2);border:1px solid var(--line);border-radius:999px;padding:2.5px 11px;background:rgba(255,255,255,.75);backdrop-filter:blur(4px)}
+  h2{font-size:27px;line-height:1.25;font-weight:800;color:var(--navy);position:relative;z-index:2}
+  h2 .hl{position:relative;white-space:nowrap;z-index:0}
+  h2 .hl::after{content:'';position:absolute;left:-2px;right:-2px;bottom:2px;height:9px;background:linear-gradient(90deg,rgba(201,162,39,.38),rgba(201,162,39,.12));border-radius:2px;z-index:-1}
+  .sub{font-size:14px;color:var(--ink2);margin-top:5px;line-height:1.5;position:relative;z-index:2}
+  .body{flex:1;display:flex;flex-direction:column;gap:10px;min-height:0;margin-top:12px;position:relative;z-index:2}
+  .cols{display:flex;gap:12px;flex:1;min-height:0}
+  .col{flex:1;display:flex;flex-direction:column;gap:10px;min-width:0}
+  .foot{position:absolute;left:56px;right:56px;bottom:16px;display:flex;justify-content:space-between;font-size:10.5px;color:#A8A395;flex:none;z-index:2;letter-spacing:.5px}
+  .slide.dark .foot{color:rgba(255,255,255,.4)}
+  /* ===== 入场动画（分级错落） ===== */
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes growX{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
+  .slide.active .topbar{animation:fade .55s var(--ease) both}
+  .slide.active h2,.slide.active .sub{animation:rise .6s var(--ease) both;animation-delay:.07s}
+  .slide.active .body>*{animation:rise .65s var(--ease) both}
+  .slide.active .body>*:nth-child(1){animation-delay:.14s}
+  .slide.active .body>*:nth-child(2){animation-delay:.22s}
+  .slide.active .body>*:nth-child(3){animation-delay:.30s}
+  .slide.active .body>*:nth-child(4){animation-delay:.38s}
+  .slide.active .body>*:nth-child(5){animation-delay:.46s}
+  .slide.active .cols>.col>*{animation:rise .6s var(--ease) both}
+  .slide.active .cols>.col>*:nth-child(1){animation-delay:.24s}
+  .slide.active .cols>.col>*:nth-child(2){animation-delay:.33s}
+  .slide.active .cols>.col>*:nth-child(3){animation-delay:.42s}
+  .slide.active .cols>.col>*:nth-child(4){animation-delay:.51s}
+  .slide.active .cols>.col>*:nth-child(5){animation-delay:.60s}
+  .slide.active .cols>.col>*:nth-child(6){animation-delay:.68s}
+  .slide.active .foot{animation:fade .9s var(--ease) both;animation-delay:.55s}
+  .slide.active table tr{animation:rise .55s var(--ease) both}
+  .slide.active table tr:nth-child(1){animation-delay:.2s}
+  .slide.active table tr:nth-child(2){animation-delay:.27s}
+  .slide.active table tr:nth-child(3){animation-delay:.34s}
+  .slide.active table tr:nth-child(4){animation-delay:.41s}
+  .slide.active table tr:nth-child(5){animation-delay:.48s}
+  .slide.active table tr:nth-child(6){animation-delay:.55s}
+  .slide.active table tr:nth-child(7){animation-delay:.62s}
+  /* ===== 卡片 ===== */
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:13px;padding:12px 14px;
+    box-shadow:0 1px 2px rgba(26,39,68,.04),0 2px 8px rgba(26,39,68,.03);
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+    position:relative;overflow:hidden;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(26,39,68,.12),0 2px 8px rgba(26,39,68,.06)}
+  .card::before{
+    content:'';position:absolute;top:0;left:0;width:34px;height:3px;
+    background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .3s;
+  }
+  .card:hover::before{opacity:1}
+  .card.navy{border-top:3px solid var(--navy)}
+  .card.gold{border-top:3px solid var(--gold)}
+  .card.red{border-top:3px solid var(--red)}
+  .card.green{border-top:3px solid var(--green)}
+  .card.blue{border-top:3px solid var(--blue)}
+  .card h4{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .card p,.card li{font-size:12px;line-height:1.62;color:var(--ink2)}
+  .card ul{padding-left:16px}
+  .card li{margin:2px 0}
+  .card li b,p b{color:var(--ink)}
+  .card li::marker{color:var(--gold)}
+  .chip{display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800;border-radius:6px;padding:1px 7px;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;flex:none;letter-spacing:1px}
+  .chip.gold{background:linear-gradient(135deg,var(--gold-bright),var(--gold));color:#3A2F05}
+  .chip.red{background:linear-gradient(135deg,#C85A52,var(--red))}
+  .chip.green{background:linear-gradient(135deg,#4E9370,var(--green))}
+  .chip.line{background:transparent;color:var(--gold-d);border:1px solid var(--gold)}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:999px;padding:1px 9px;vertical-align:1px}
+  .pill.navy{background:var(--blue-soft);color:var(--blue)}
+  .pill.gold{background:var(--gold-soft);color:var(--gold-d)}
+  .pill.red{background:var(--red-soft);color:var(--red)}
+  .pill.green{background:var(--green-soft);color:var(--green)}
+  .pill.gray{background:#EFEDE5;color:var(--ink2)}
+  /* 引用块 */
+  .quote{
+    background:linear-gradient(135deg,#F9F2DD 0%,#F7EFD8 100%);
+    border-left:4px solid var(--gold);border-radius:0 12px 12px 0;
+    padding:11px 16px;font-size:13.5px;line-height:1.65;color:#4A3D10;font-weight:600;flex:none;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+  }
+  .quote small{display:block;font-weight:400;font-size:11.5px;color:#7A6A33;margin-top:3px}
+  /* 表格 */
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;font-size:11.5px;box-shadow:0 1px 3px rgba(26,39,68,.06)}
+  th{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;font-weight:700;padding:7.5px 9px;text-align:left;font-size:11.5px;white-space:nowrap;letter-spacing:.5px}
+  td{padding:6.5px 9px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top;line-height:1.5;transition:background .2s}
+  table tr:hover td{background:var(--gold-soft)}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--ink)}
+  td a{color:var(--blue);text-decoration:none;word-break:break-all;border-bottom:1px dashed rgba(51,96,143,.4);transition:border-color .2s,color .2s}
+  td a:hover{color:var(--gold-d);border-color:var(--gold)}
+  .note{font-size:11px;color:var(--ink2);background:rgba(255,255,255,.85);border:1px dashed #D8D3C2;border-radius:10px;padding:8px 12px;line-height:1.6;flex:none;backdrop-filter:blur(3px)}
+  .note b{color:var(--navy)}
+  /* 步骤/编号 */
+  .steps{display:flex;gap:10px;flex:1;min-height:0}
+  .step{
+    flex:1;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px;position:relative;min-width:0;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  }
+  .step:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(26,39,68,.12)}
+  .step::after{content:'';position:absolute;left:12px;right:12px;bottom:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+  .step:hover::after{transform:scaleX(1)}
+  .step .num{
+    width:25px;height:25px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12.5px;margin-bottom:8px;
+    background:linear-gradient(135deg,var(--navy),var(--navy3));box-shadow:0 3px 8px rgba(26,39,68,.3);
+  }
+  .step h4{font-size:13.5px;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.35}
+  .step p{font-size:11.5px;color:var(--ink2);line-height:1.58}
+  .step p b{color:var(--ink)}
+  /* 大数字 */
+  .stat{
+    display:flex;flex-direction:column;align-items:center;gap:2px;border-radius:12px;padding:12px 8px;flex:1;
+    background:linear-gradient(180deg,#fff 0%,#FDFBF5 100%);border:1px solid var(--line);
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  }
+  .stat:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(26,39,68,.12)}
+  .stat .n{font-size:27px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+  .stat .n em{font-style:normal;font-size:13px;color:var(--gold-d)}
+  .stat .t{font-size:11px;color:var(--ink2)}
+  /* ===== 章节分隔页 & 封面 ===== */
+  .slide.dark{
+    background:linear-gradient(135deg,#101A30 0%,#1A2744 52%,#24365C 100%);color:#fff;justify-content:center;
+  }
+  .slide.dark::before{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(560px 560px at 88% 18%, rgba(201,162,39,.14), transparent 62%),
+      radial-gradient(700px 500px at -6% 96%, rgba(84,118,178,.22), transparent 60%);
+  }
+  .slide.dark .deco{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+  .slide.dark .ring{position:absolute;border-radius:50%;border:1px solid rgba(201,162,39,.28)}
+  .slide.dark .ring.r1{width:520px;height:520px;right:-140px;top:-180px;animation:spinSlow 60s linear infinite}
+  .slide.dark .ring.r2{width:340px;height:340px;right:-40px;top:-60px;border-style:dashed;animation:spinSlow 45s linear infinite reverse}
+  .slide.dark .ring.r3{width:220px;height:220px;left:-70px;bottom:-70px;border-color:rgba(255,255,255,.1)}
+  @keyframes spinSlow{to{transform:rotate(360deg)}}
+  .dark .secnum{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:118px;font-weight:700;line-height:1;margin-bottom:12px;
+    color:transparent;-webkit-text-stroke:2px rgba(201,162,39,.9);
+    animation:numIn 1s var(--ease) both;
+  }
+  @keyframes numIn{from{opacity:0;transform:translateY(22px) rotate(-1.5deg)}to{opacity:1;transform:none}}
+  .dark h1{font-size:46px;font-weight:800;line-height:1.3;color:#fff;animation:rise .7s var(--ease) .15s both}
+  .dark .rule{
+    width:64px;height:3px;border-radius:2px;margin:20px 0 16px;transform-origin:left;
+    background:linear-gradient(90deg,var(--gold-bright),var(--gold));
+    animation:growX .8s var(--ease) .3s both;
+    box-shadow:0 0 14px rgba(201,162,39,.55);
+  }
+  .dark p.desc{font-size:15px;color:rgba(255,255,255,.78);line-height:1.85;max-width:760px;animation:rise .7s var(--ease) .4s both}
+  .cover{justify-content:center}
+  .cover .tag{font-size:13px;letter-spacing:5px;color:var(--gold-bright);font-weight:700;margin-bottom:20px;animation:rise .7s var(--ease) .1s both}
+  .cover h1{font-size:52px;font-weight:800;color:#fff;line-height:1.28;margin-bottom:8px;animation:rise .8s var(--ease) .22s both}
+  .cover .sub2{font-size:19px;color:rgba(255,255,255,.88);margin-bottom:6px;letter-spacing:2px;animation:rise .8s var(--ease) .34s both}
+  .cover .rule{margin:24px 0 18px}
+  .cover .meta{font-size:13.5px;color:rgba(255,255,255,.62);line-height:1.95;margin-top:8px;animation:rise .8s var(--ease) .5s both}
+  .cover .meta b{color:rgba(255,255,255,.9);font-weight:700}
+  /* 联系人占位 */
+  .ph{
+    border:1.5px dashed var(--gold);border-radius:13px;background:rgba(255,255,255,.7);
+    display:flex;align-items:center;justify-content:center;color:var(--gold-d);font-weight:700;font-size:12px;letter-spacing:2px;
+    transition:background .3s;
+  }
+  .ph:hover{background:var(--gold-soft)}
+  /* 窗口时间线 */
+  .mini-win{
+    background:#fff;border:1px solid var(--line);border-radius:11px;padding:8px 10px;flex:1;min-width:0;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+  }
+  .mini-win:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(26,39,68,.12);border-color:var(--gold)}
+  .mini-win .m{font-size:12.5px;font-weight:800;color:var(--navy)}
+  .mini-win .d{font-size:11px;color:var(--gold-d);font-weight:700;margin:2px 0}
+  .mini-win .r{font-size:10.5px;color:var(--ink2)}
+  /* 日历网格 */
+  .calrow{display:grid;grid-template-columns:64px repeat(12,1fr);gap:4px;align-items:stretch}
+  .calrow .lbl{font-size:11.5px;font-weight:800;color:var(--navy);display:flex;flex-direction:column;justify-content:center}
+  .calrow .lbl small{font-weight:400;font-size:9.5px;color:var(--ink2)}
+  .mcell{background:#fff;border:1px solid var(--line);border-radius:7px;min-height:44px;padding:4px 5px;position:relative;transition:box-shadow .25s,border-color .25s}
+  .mcell:hover{border-color:var(--gold);box-shadow:0 4px 12px rgba(201,162,39,.18)}
+  .mcell .mn{font-size:9.5px;color:#B0AB9C;font-weight:700}
+  .mcell .bar{font-size:9px;line-height:1.35;border-radius:5px;padding:2px 4px;margin-top:2px;font-weight:700}
+  .bar.reg{background:var(--gold-soft);color:var(--gold-d)}
+  .bar.exam{background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff}
+  .bar.warn{background:var(--red-soft);color:var(--red)}
+  /* 注册数字 */
+  .reqgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;min-height:0}
+  .reqbox{background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 14px;display:flex;flex-direction:column}
+  .reqbox h4{font-size:13.5px;color:var(--navy);font-weight:800;margin-bottom:8px}
+  .reqnums{display:flex;gap:8px;flex:1}
+  .reqnums .stat .n{font-size:30px}
+  /* 认证四列 */
+  .cert4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1;min-height:0}
+  .cert4 .ccard{
+    background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 12px;display:flex;flex-direction:column;gap:6px;min-width:0;
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  }
+  .ccard:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(26,39,68,.13)}
+  .ccard .cn{font-size:14px;font-weight:800;color:var(--navy);line-height:1.3}
+  .ccard .clv{font-size:10.5px;color:var(--gold-d);font-weight:700}
+  .ccard p{font-size:11px;line-height:1.55;color:var(--ink2)}
+  .ccard .win{margin-top:auto;font-size:10.5px;font-weight:700;background:var(--gold-soft);color:#5C4A0E;border-radius:7px;padding:5px 8px;line-height:1.45}
+  .ccard .win.red{background:var(--red-soft);color:var(--red)}
+  /* ===== 备注抽屉 / 目录 ===== */
+  .drawer{
+    position:fixed;z-index:80;background:rgba(255,255,255,.97);border:1px solid var(--line);
+    box-shadow:0 -10px 40px rgba(0,0,0,.2);display:none;flex-direction:column;backdrop-filter:blur(10px);
+  }
+  .drawer.open{display:flex;animation:drawerUp .35s var(--ease) both}
+  @keyframes drawerUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  #notesDrawer{left:0;right:0;bottom:0;height:150px;border-radius:14px 14px 0 0}
+  #notesDrawer .dhead{font-size:11px;font-weight:800;color:var(--gold-d);letter-spacing:1.5px;padding:9px 18px 0;display:flex;align-items:center;gap:6px}
+  #notesDrawer .dhead::before{content:'';width:14px;height:2px;background:var(--gold);border-radius:2px}
+  #notesDrawer .dbody{padding:6px 18px 14px;font-size:12.5px;line-height:1.75;color:var(--ink);overflow:auto}
+  #outlineDrawer{top:0;right:0;bottom:0;width:312px;border-radius:0;animation-name:drawerRight}
+  @keyframes drawerRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:none}}
+  #outlineDrawer .dhead{font-size:12px;font-weight:800;color:var(--navy);padding:14px 18px 8px;display:flex;justify-content:space-between;align-items:center}
+  #outlineDrawer ol{list-style:none;overflow:auto;padding:0 10px 16px;flex:1}
+  #outlineDrawer li{font-size:12px;padding:6px 10px;border-radius:8px;cursor:pointer;color:var(--ink2);display:flex;gap:8px;align-items:baseline;transition:background .2s,color .2s,transform .2s}
+  #outlineDrawer li:hover{background:var(--gold-soft);color:var(--ink);transform:translateX(3px)}
+  #outlineDrawer li.cur{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff}
+  #outlineDrawer li .no{font-size:10px;font-weight:800;color:var(--gold-d);flex:none;width:20px;font-variant-numeric:tabular-nums}
+  #outlineDrawer li.cur .no{color:var(--gold-bright)}
+  #outlineDrawer li .grp{font-size:9.5px;color:#B0AB9C;margin-left:auto;flex:none}
+  /* ===== 导航（玻璃拟态） ===== */
+  .nav{
+    position:fixed;bottom:16px;right:18px;display:flex;gap:6px;align-items:center;z-index:90;
+    background:rgba(16,24,42,.82);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 12px;
+    backdrop-filter:blur(12px);box-shadow:0 8px 30px rgba(0,0,0,.35);
+  }
+  .nav button{
+    border:none;background:rgba(255,255,255,.08);color:#fff;width:32px;height:28px;border-radius:999px;cursor:pointer;
+    font-size:13px;line-height:1;transition:background .25s,color .25s,transform .2s;
+  }
+  .nav button:hover{background:var(--gold);color:#1A2744;transform:scale(1.08)}
+  .nav button:active{transform:scale(.94)}
+  .nav .pageno{font-size:12px;color:rgba(255,255,255,.88);min-width:58px;text-align:center;font-variant-numeric:tabular-nums;letter-spacing:1px}
+  .progress{
+    position:fixed;top:0;left:0;height:3px;z-index:100;transition:width .4s var(--ease);
+    background:linear-gradient(90deg,var(--gold-d),var(--gold-bright));
+    box-shadow:0 0 10px rgba(201,162,39,.7);
+  }
+  .hint{
+    position:fixed;bottom:20px;left:20px;font-size:11px;color:rgba(255,255,255,.42);z-index:90;letter-spacing:.5px;
+    transition:opacity 1.2s;animation:fade 1s .8s both;
+  }
+  .hint.gone{opacity:0}
+  /* ===== 动态层：粒子 / 聚光灯 / 视差 / 常驻动效 ===== */
+  #fxbg{position:fixed;inset:0;z-index:0;pointer-events:none;transition:transform .4s ease-out}
+  #viewport{z-index:1}
+  #fx{position:absolute;inset:0;z-index:6;pointer-events:none}
+  #spot{
+    position:absolute;inset:0;z-index:5;pointer-events:none;opacity:0;transition:opacity .7s;
+    background:radial-gradient(430px 430px at var(--sx,50%) var(--sy,38%),rgba(201,162,39,.11),transparent 70%);
+  }
+  #stage:hover #spot{opacity:1}
+  /* 深色页背景渐变缓慢流动 */
+  .slide.dark{background-size:170% 170%}
+  .slide.dark.active{animation:slideIn .45s var(--ease) both,bgFlow 18s ease-in-out infinite}
+  @keyframes bgFlow{0%,100%{background-position:0% 0%}50%{background-position:100% 100%}}
+  /* 深色页光晕呼吸 */
+  .slide.dark::before{animation:breathe 7s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:.6}50%{opacity:1}}
+  /* 装饰层鼠标视差 */
+  .slide .deco{
+    transform:translate3d(calc(var(--mx,0)*12px),calc(var(--my,0)*8px),0);
+    transition:transform .3s ease-out;will-change:transform;
+  }
+  /* 荧光笔高亮划入 */
+  h2 .hl::after{transform-origin:left;transform:scaleX(0)}
+  .slide.active h2 .hl::after{animation:hlIn .55s var(--ease) .55s both}
+  @keyframes hlIn{to{transform:scaleX(1)}}
+  /* 进度条流光 */
+  .progress{overflow:hidden}
+  .progress::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);
+    animation:sheen 2.6s linear infinite;
+  }
+  @keyframes sheen{from{transform:translateX(-100%)}to{transform:translateX(200%)}}
+  /* 数字微光 */
+  .stat .n{transition:text-shadow .3s}
+  .stat:hover .n{text-shadow:0 0 18px rgba(201,162,39,.45)}
+  /* 打印 */
+  @media print{
+    body{overflow:visible;background:#fff}
+    #viewport{position:static;display:block}
+    #stage{width:auto;height:auto;box-shadow:none;transform:none !important;border-radius:0}
+    .slide{display:flex !important;position:relative;width:1280px;height:720px;page-break-after:always;inset:auto;animation:none !important}
+    .slide *{animation:none !important;opacity:1 !important;transform:none !important}
+    .nav,.progress,.hint,.drawer,#fx,#fxbg,#spot{display:none !important}
+    .slide.dark{background:var(--navy) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<canvas id="fxbg"></canvas>
+<div id="viewport"><div id="stage">
+<canvas id="fx"></canvas><div id="spot"></div>
+
+<!-- 1 封面 -->
+<section class="slide dark cover" data-title="封面" data-notes="开场先说一句：今天讲的是我自己的经历和查过的资料，不是标准答案。费用、窗口这些会变，大家以各机构当期简章为准。">
+  <div class="deco"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div></div>
+  <div class="tag">中央财经大学 · 应用心理硕士（非全日制）</div>
+  <h1>医院见习与实习</h1>
+  <div class="sub2">心 得 与 资 源 分 享</div>
+  <div class="rule"></div>
+  <div class="meta">分享人 <b>王艳</b> · 应用心理硕士（非全日制）<br>2026 年 11 月</div>
+</section>
+
+<!-- 2 目录 -->
+<section class="slide" data-title="今天的五个部分" data-notes="30 秒过一遍。第四部分占 11 分钟，是今天的主体。末尾说明资料包会后发群，现场不展开细节。">
+  <div class="topbar"><span class="kicker">Agenda</span><span class="time-tag">全程 25 分钟</span></div>
+  <h2>今天的<span class="hl">五个部分</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:0 0 auto">
+      <div class="col">
+        <div class="card navy"><h4><span class="chip">01</span>个人简介 <span class="pill gray">1.5′</span></h4></div>
+        <div class="card navy"><h4><span class="chip">02</span>我找过的低成本资源 <span class="pill gray">3′</span></h4><p>哪些不花钱、哪些能退回来、哪些该花</p></div>
+        <div class="card navy"><h4><span class="chip">03</span>实操与练习怎么排 <span class="pill gray">3′</span></h4><p>16 项方式的优先级</p></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">04</span>医院见习与实习 <span class="pill gold">11′ · 主体</span></h4><p>去了能得到什么、怎么进、机构差别、对就业的影响</p></div>
+        <div class="card navy"><h4><span class="chip">05</span>培训与认证 <span class="pill gray">2.5′</span></h4><p>几条路径怎么选，报名前怎么核验</p></div>
+      </div>
+    </div>
+    <div class="note">资料包（培训对比表 / 12 家机构速查 / 转介热线表）会后发群，现场不挨个展开。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学</span><span>02</span></div>
+</section>
+
+<!-- 3 章节 01 -->
+<section class="slide dark" data-title="01 · 个人简介" data-notes="5–8 秒带过。这一页的目的是建立可信度，不是念履历。">
+  <div class="deco"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div></div>
+  <div class="secnum">01</div>
+  <h1>个人简介</h1>
+  <div class="rule"></div>
+  <p class="desc">医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</p>
+</section>
+
+<!-- 4 个人简介 -->
+<section class="slide" data-title="个人简介" data-notes="75 秒。可以按三段讲：专业路径 → 医院经历 → 今天能给你什么。">
+  <div class="topbar"><span class="sec-tag">01 · 个人简介</span><span class="time-tag">约 1.5 分钟</span></div>
+  <h2>个人简介</h2>
+  <div class="body">
+    <div class="cols">
+      <div class="col" style="flex:0 0 26%">
+        <div class="ph" style="flex:1;min-height:170px">照 片</div>
+      </div>
+      <div class="col" style="flex:1">
+        <div class="card navy"><h4>身份</h4><p><b>王艳 ｜ 研二 ｜ 应用心理 - 健康与咨询</b></p></div>
+        <div class="card navy"><h4>医院经历</h4><p><b>平安医院 ｜ 进修 ｜ 精神科和心理科</b></p></div>
+        <div class="card navy"><h4>当前取向</h4><p><b>整合取向：</b>CBT / 精神动力学 / 家庭 / 焦点解决</p></div>
+      </div>
+      <div class="col" style="flex:0 0 24%;justify-content:center;gap:12px">
+        <div class="stat"><div class="n">200<em> 小时</em></div><div class="t">个案</div></div>
+        <div class="stat"><div class="n">95<em> 小时</em></div><div class="t">督导</div></div>
+        <div class="stat"><div class="n">150<em> 小时</em></div><div class="t">个人体验</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>04</span></div>
+</section>
+
+<!-- 5 章节 02 -->
+<section class="slide dark" data-title="02 · 我找过的低成本资源" data-notes="强调一点：非全同学真正缺的是每周稳定的时间，不完全是钱。">
+  <div class="deco"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div></div>
+  <div class="secnum">02</div>
+  <h1>我找过的低成本资源</h1>
+  <div class="rule"></div>
+  <p class="desc">先分清哪些不花钱、哪些能退回来、哪些确实该花。</p>
+</section>
+
+<!-- 6 一条经验 -->
+<section class="slide" data-title="我找资源时的一条经验" data-notes="核心是「先去帮上忙」，不用讲成道理，举课题组 / 热线 / 大会三个例子就够。">
+  <div class="topbar"><span class="sec-tag">02 · 低成本受训资源</span><span class="time-tag">约 3 分钟</span></div>
+  <h2>我找资源时的<span class="hl">一条经验</span></h2>
+  <div class="body">
+    <div class="quote">课题组缺被试、热线缺接线员、大会缺志愿者。这些地方不收钱，收的是时间和劳动力——<b>先去帮上忙，后面很多事会顺一些。</b></div>
+    <div class="cols">
+      <div class="col">
+        <div class="card green" style="flex:1"><h4><span class="chip green">免费</span>交的是时间和劳动力，不是钱</h4><p>课题组被试、热线接线、大会志愿者、蹭课蹭讲座、当读书会成员</p></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">返还</span>花出去的钱，有几条路能拿回来</h4><p>个税扣除 · 单位或学校报销 · 公益资助 · 学生价与早鸟价 · 助教减免</p></div>
+      </div>
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">付费</span>只花在能计入系统的地方</h4><p>能计入学时吗？师资查得到吗？有没有实践和督导安排？</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>06</span></div>
+</section>
+
+<!-- 7 免费 A-D -->
+<section class="slide" data-title="免费 · 最值钱的几条" data-notes="正式课进不去，但学术讲座和报告对外开放。海报一般提前 3–7 天发 B 站；耶鲁《心理学导论》(Paul Bloom)，搜课时加「合集」。">
+  <div class="topbar"><span class="sec-tag">02 · 低成本受训资源</span><span class="pill gold">免费</span></div>
+  <h2>不花钱的，先把这些<span class="hl">捡起来</span></h2>
+  <div class="body">
+    <div class="cols">
+      <div class="col">
+        <div class="card green" style="flex:1"><h4><span class="chip green">线</span>12356 热线志愿者</h4>
+          <ul><li>国家卫健委主导，2025 年 5 月全面开通，各地都有接线点</li><li>免费岗前培训 + 督导 + 服务时长；<b>上海明文：服务时长可计入心理从业年限</b></li><li>承诺：年服务 30 小时起（上海），稳定 6–12 个月</li><li>找：搜「12356 + 城市 + 志愿者招募」</li></ul></div>
+        <div class="card green" style="flex:1"><h4><span class="chip green">课</span>蹭课与蹭讲座</h4>
+          <ul><li>正式课进不去，但学术讲座和报告对外开放，免费</li><li>看目标院系官网和公众号，海报一般提前 3–7 天发 B 站</li><li>耶鲁《心理学导论》(Paul Bloom)，搜课时加「合集」</li></ul></div>
+      </div>
+      <div class="col">
+        <div class="card green" style="flex:1"><h4><span class="chip green">会</span>学术大会志愿者</h4>
+          <ul><li>免注册费 + 直接接触同行</li><li>第一轮通知一出来就给会务组发自荐邮件</li><li>中国心理卫生协会大会、中国社会心理学会年会、省市学会年会</li></ul></div>
+        <div class="card green" style="flex:1"><h4><span class="chip green">校</span>本校心理咨询中心</h4>
+          <ul><li>很多学校的心理中心对本校生（含非全）免费开放</li><li>实践基地可争取选成热线 / 医院</li></ul></div>
+      </div>
+    </div>
+    <div class="note"><b>最容易被忽略、也最值钱的三条：</b>12356 热线（时长计入从业年限）· 继续教育个税扣除（每月 400 元）· 本校心理咨询中心　｜　另外 7 项（机构招募来访者 / 蹭讲座 / 公益团督 / 读书会 / 当实验被试 / 开放文献 / 以劳动换资源）会后自行翻阅资料包。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>07</span></div>
+</section>
+
+<!-- 8 免费 E-K -->
+<section class="slide" data-title="免费 · 更多路径（北大 MIED 等）" data-notes="北大 MIED 三条路径均不返还学费。找：北大继续教育平台搜「正念干预」。">
+  <div class="topbar"><span class="sec-tag">02 · 低成本受训资源</span><span class="pill gold">免费 · 续</span></div>
+  <h2>更多免费路径</h2>
+  <div class="body">
+    <div class="cols">
+      <div class="col">
+        <div class="card green" style="flex:1"><h4>北大 MIED 正念（0 元路径）</h4>
+          <ul><li><b>① 公益师资：</b>北大继续教育平台，启明星辰基金会支持，I–IV 阶逐阶考核；门槛：研究生学历 / 中级职称 / 注册助理心理师之一；讲座阶段即需 15 周</li><li><b>② 大众八周课：</b>官方 3980 元；认证师资班 980–1980 元</li><li><b>③ 医院/高校工会公益班次</b>（如胶州市心理康复医院）</li><li>三条路径均不返还学费。找：北大继续教育平台搜「正念干预」</li></ul></div>
+        <div class="card green" style="flex:1"><h4>公益 / 朋辈团体督导</h4>
+          <ul><li><b>现成的：</b>洛阳阳光心理（免费，已办到第十期）、捡回珍珠计划（14 周，面向中西部心理老师）</li><li><b>自己组：</b>3–6 人封闭小组，两周一次，轮流呈报案例；能请到注册督导师每学期来一次就很值</li><li>找：公益 团体督导 招募 / 朋辈督导小组</li></ul></div>
+      </div>
+      <div class="col">
+        <div class="card green" style="flex:1"><h4>当实验被试 ｜ 读书会</h4>
+          <ul><li><b>G 被试：</b>不花钱还拿被试费（30–100 元/小时），顺带看懂研究怎么设计；找：各校心理学院公众号、校内 BBS</li><li><b>H 读书会：</b>有督导带的最值钱，纯朗读价值有限；自己组：6–8 人，两周一次，按流派经典书单</li></ul></div>
+        <div class="card green" style="flex:1"><h4>学校里已付费的部分 ｜ 开放获取文献</h4>
+          <ul><li><b>I：</b>图书馆数据库（CNKI/万方/EBSCO/PsycInfo）、学位论文库、学校采购课程、导师组会；实践基地争取选成热线/机构/医院心理科——一份时间换两份收获</li><li><b>K：</b>《心理学报》《心理科学进展》开放内容、OSF、PsyArXiv 预印本（看别人研究方案怎么设计）</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>08</span></div>
+</section>
+
+<!-- 9 返还 -->
+<section class="slide" data-title="返还 · 花出去的钱怎么拿回来" data-notes="个税那条最实在，可以当场截图发到群里。其余几条一句带过。">
+  <div class="topbar"><span class="sec-tag">02 · 低成本受训资源</span><span class="pill gold">返还</span></div>
+  <h2>花出去的钱，有几条路能<span class="hl">拿回来</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4>个税专项附加扣除</h4><p><b>学历继续教育 400 元/月，最长 48 个月</b>（上限 19200 元）；职业资格证书：取证当年 <b>3600 元</b>。<br>操作：个税 App → 专项附加扣除 → 继续教育</p></div>
+        <div class="card gold" style="flex:1"><h4>单位或学校报销</h4><p>单位的继续教育经费（教师 / 医生 / 公务员 / EAP 岗）；专硕的「专业实践 / 学术交流」经费——问辅导员；导师课题经费（有参与课题时合乎规定）</p></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4>身份差价</h4><p>学生价 · 早鸟价 · 老学员价，差距不小。大会非注册 1780–1980，学生 980；注册系统成员 1680，早鸟 1480。<br><b>报名前先问清楚：非全算不算学生价</b></p></div>
+        <div class="card gold" style="flex:1"><h4>助教或志愿者减免</h4><p>工作坊的班长 / 助教 / 志愿者，可减免 <b>30%–100%</b>。看到招募第一时间私信主办方，别等它公开发报；报名前直接问「有没有减免或助教机制」</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>09</span></div>
+</section>
+
+<!-- 10 付费三问 -->
+<section class="slide" data-title="付费 · 掏钱之前必问三件事" data-notes="这三个问题是筛项目的。愿意正面回答的机构才值得继续看。">
+  <div class="topbar"><span class="sec-tag">02 · 低成本受训资源</span><span class="pill navy">付费</span></div>
+  <h2>掏钱之前，必问<span class="hl">三件事</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="step"><div class="num">1</div><h4>能不能计入注册系统？</h4><p>学时、督导、个人体验能不能计入？去 <b>chinacpb.net</b> 上核对，不要只看招生简章。<b>这一条排在最前面。</b></p></div>
+        <div class="step"><div class="num">2</div><h4>师资是谁？</h4><p>是不是注册督导师 / 注册心理师？同一件事问三遍：<b>能查到吗、哪一年注册的、带多少小时。</b></p></div>
+        <div class="step"><div class="num">3</div><h4>有没有理论 + 实践 + 督导？</h4><p>只听课的长程培训，学完很难用上；没有督导跟着的技术，忘得也快。<b>缺一样都打折。</b></p></div>
+      </div>
+    </div>
+    <div class="note">各个培训项目的费用、周期、方向对比，整理在<b>《2026 年靠谱培训每月更新》</b>（xlsx，每月更新），会后发群。</div>
+    <div class="note"><b>补充说明</b> ｜ 免费平台的课程证书，一般不能作为注册系统的继续教育学分——如果只是听课，没必要买证书；要学分就走注册系统认可的项目。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>10</span></div>
+</section>
+
+<!-- 11 章节 03 -->
+<section class="slide dark" data-title="03 · 实操与练习怎么排" data-notes="这一部分的判断标准只有一条：有没有真实的临床压力，有没有人给你反馈。">
+  <div class="deco"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div></div>
+  <div class="secnum">03</div>
+  <h1>实操与练习怎么排</h1>
+  <div class="rule"></div>
+  <p class="desc">16 项方式怎么排优先级，三年大概怎么走。</p>
+</section>
+
+<!-- 12 前四项地基 -->
+<section class="slide" data-title="16 项方式 · 四个地基" data-notes="前四项是地基，缺一样后面都吃力。后面十二项按阶段挑着做，不要想同时全做。">
+  <div class="topbar"><span class="sec-tag">03 · 实操路径</span><span class="time-tag">约 3 分钟</span></div>
+  <h2>16 项方式，怎么排<span class="hl">优先级</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">01</span>系统长程连续培训（2–3 年）</h4><p>短期工作坊给的是碎片，系统培训给你一个完整的框架和技术一致性。<b>没有框架，督导的反馈你也接不住。</b>做法：选定一个流派深耕两三年，不要来回换。</p></div>
+        <div class="card navy" style="flex:1"><h4><span class="chip">02</span>个人体验</h4><p>最容易被忽略的一项。让你知道坐在来访者位置上是什么感受，反移情有处安放。多数长程培训要求 50–100 小时。做法：<b>每周一次，把它算进学费，而不是可选项。</b></p></div>
+      </div>
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">03</span>督导下的真实个案</h4><p><b>一切能力的来源。</b>没有真实来访，其余的都落不了地。新手最常见的卡点不是学得不够，是接不到个案。做法：宁可低价、公益或与机构分账，也要先把个案量做起来。</p></div>
+        <div class="card navy" style="flex:1"><h4><span class="chip">04</span>个体督导</h4><p>唯一能持续针对「你这个咨询师」给反馈的机制。团督看个案，个督看你。做法：新手 <b>1:2 起步</b>，稳定后维持 <b>1:4</b>。带录音、录像或逐字稿去，不要靠回忆。</p></div>
+      </div>
+    </div>
+    <div class="note"><b>其余 12 项：</b>逐字稿分析 · 刻意练习 · 团体督导 · 危机干预训练 ｜ 机构助理 · 12356 热线 · 医院进修 · 公益个案 ｜ 朋辈督导小组 · 临床读书会 · 专项工作坊 · 输出（案例报告 / 科普 / 带教）</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>12</span></div>
+</section>
+
+<!-- 13 A/B 级 -->
+<section class="slide" data-title="16 项方式 · A 级与 B 级" data-notes="A 级是把经验加工成能力，B 级解决「有东西可练」。">
+  <div class="topbar"><span class="sec-tag">03 · 实操路径</span><span class="time-tag">约 3 分钟</span></div>
+  <h2>16 项方式，怎么排<span class="hl">优先级</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">A 级</span>把经验加工成能力（放大器）</h4>
+          <ul>
+            <li><b>05 逐字稿分析与录音回听</b>——性价比最高的自我督导。会谈后 15 分钟，转写 3–5 分钟关键片段并标注：我当时为什么这么说？还有哪三种说法？</li>
+            <li><b>06 刻意练习 / 模拟来访</b>——真实个案里没有重来的机会。同辈互扮来访，每次只练一项技能（共情回应、处理沉默、此时此地），录像回放后再来一轮。</li>
+            <li><b>07 团体督导与案例研讨</b>——看到别人的盲区时，你会认出自己的。每月 1–2 次；呈报聚焦一个具体困境，不要做成工作报告。</li>
+            <li><b>08 危机干预与风险评估训练</b>——新手最容易出事的区域。掌握结构化评估工具（C-SSRS）、安全计划、强制报告与转介流程，并在督导下演练。</li>
+          </ul></div>
+      </div>
+      <div class="col">
+        <div class="card blue" style="flex:1"><h4><span class="chip" style="background:linear-gradient(135deg,#3F6FA5,var(--blue))">B 级</span>场域与个案来源（解决「有东西可练」）</h4>
+          <ul>
+            <li><b>09 机构/学校咨询助理与实习</b>——入职前谈定三件事：能否参与 intake 初诊评估、能否旁听或整理录音、能否进案例讨论会。拿不到，它就只是一份兼职。</li>
+            <li><b>10 12356 心理援助热线志愿</b>——门槛最低、自带督导、反馈密度最高的真实临床场。个案量为 0 时应临时提到最高优先级（缺点：缺乏长程经验）。</li>
+            <li><b>11 医院精神科/心理科进修</b>——系统补上鉴别诊断、精神病理、药物知识与危机处置。建议有 100–300 小时个案基础后再去，太早多为旁听。</li>
+            <li><b>12 公益低价个案与社区/EAP/社工机构合作</b>——稳定的个案来源，来访多样性高。确认机构有督导安排与转介通道，不要单独承接高风险个案。</li>
+          </ul></div>
+      </div>
+    </div>
+    <div class="note"><b>其余 12 项：</b>逐字稿分析 · 刻意练习 · 团体督导 · 危机干预训练 ｜ 机构助理 · 12356 热线 · 医院进修 · 公益个案 ｜ 朋辈督导小组 · 临床读书会 · 专项工作坊 · 输出（案例报告 / 科普 / 带教）</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>13</span></div>
+</section>
+
+<!-- 14 C 级 + 组小组 -->
+<section class="slide" data-title="16 项方式 · C 级与自组小组" data-notes="预算有限时，砍读书会、砍工作坊，但不要砍督导和个人体验——前者在囤积知识，后者在被改变。">
+  <div class="topbar"><span class="sec-tag">03 · 实操路径</span><span class="time-tag">约 3 分钟</span></div>
+  <h2>16 项方式，怎么排<span class="hl">优先级</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card" style="flex:1;border-top:3px solid var(--ink2)"><h4><span class="chip" style="background:linear-gradient(135deg,#6B7076,var(--ink2))">C 级</span>有价值，但优先级低于「做」与「被看见」</h4>
+          <ul>
+            <li><b>13 结构化朋辈督导小组</b>——成本最低的持续反馈源，能扛住职业孤独感。必须有固定流程（呈报→提问→反馈→复盘），否则退化成互相安慰。</li>
+            <li><b>14 临床读书会</b>——提供共同语言与概念框架。精读而非泛读，每次绑定一个自己的个案来讨论。（DSM 读书会：诊断维度最实用）</li>
+            <li><b>15 专项技术工作坊</b>——按需补强特定技术（动机式访谈、CBT-I、EMDR、危机干预）。判断标准：学完两个月内你在个案里用了几次？</li>
+            <li><b>16 输出：案例报告 / 科普写作 / 带教</b>——输出倒逼输入。从写规范的个案报告开始，逐步过渡到讲座、带教、发表。</li>
+          </ul></div>
+      </div>
+      <div class="col" style="flex:0 0 36%">
+        <div class="card gold" style="flex:1"><h4>怎么自己组一个能长期活下去的小组</h4>
+          <ul>
+            <li><b>朋辈督导小组</b>——3–6 人封闭小组，两周一次，轮流呈报案例；能请到注册督导师每学期来一次就很值</li>
+            <li><b>临床读书会</b>——6–8 人，两周一次，按目标流派经典书单；有督导带的最值钱，纯朗读价值有限</li>
+          </ul></div>
+        <div class="quote">预算有限时，砍读书会、砍工作坊，<b>但不要砍督导和个人体验</b>——前者在囤积知识，后者在被改变。</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>14</span></div>
+</section>
+
+<!-- 15 章节 04 -->
+<section class="slide dark" data-title="04 · 医院见习与实习（主体）" data-notes="11 分钟。开场可以说一句：这部分信息密度比较高，12 家机构的完整对比表在资料包里，会后发群。">
+  <div class="deco"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div></div>
+  <div class="secnum">04</div>
+  <h1>医院见习与实习</h1>
+  <div class="rule"></div>
+  <p class="desc">今天的主要内容（11 分钟）。回答四件事：去了能得到什么、导师不在医院怎么进、不同机构差别在哪、对就业有什么用。</p>
+</section>
+
+<!-- 16 容易被漏掉 -->
+<section class="slide" data-title="容易被漏掉的两件事" data-notes="左边容易被漏，尤其是自我照顾。右边几种做法不是错，是投入产出比不高。">
+  <div class="topbar"><span class="sec-tag">03 · 实操路径</span><span class="time-tag">约 3 分钟</span></div>
+  <h2>有两件事<span class="hl">容易被漏掉</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card green"><h4><span class="chip green">漏</span>容易被漏掉的</h4></div>
+        <div class="card green" style="flex:1"><h4>伦理与法律</h4><p>知情同意、保密例外、强制报告、危机上报流程——这块缺了，前面几项反而会放大风险</p></div>
+        <div class="card green" style="flex:1"><h4>疗效反馈</h4><p>每次会谈后用 ORS / SRS 记录，用数据看自己做得怎么样，而不是凭感觉</p></div>
+        <div class="card green" style="flex:1"><h4>自我照顾</h4><p>白天上班、晚上接个案的同学，这一条最先出问题。耗竭不是突然发生的，是慢慢累积的</p></div>
+      </div>
+      <div class="col">
+        <div class="card red"><h4><span class="chip red">省</span>几种投入产出比不高的做法</h4></div>
+        <div class="card red" style="flex:1"><h4>工作坊报了很多</h4><p>短期培训听的时候很过瘾，但没在个案里用过，很快就忘了</p></div>
+        <div class="card red" style="flex:1"><h4>用朋辈小组代替督导</h4><p>同辈能陪你扛情绪、缓解孤独，但没法替你负临床责任，也看不出你的盲区</p></div>
+        <div class="card red" style="flex:1"><h4>太早去医院进修</h4><p>没有个案基础时多半是旁听，看不出门道；有 100–300 小时之后再去做专项补强更划算</p></div>
+        <div class="card red" style="flex:1"><h4>助理岗位只干行政</h4><p>排班、整理档案、接待，成长很有限。入职前把 intake、旁听、案例讨论谈进职责里</p></div>
+      </div>
+    </div>
+    <div class="quote">预算有限的时候，读书会和工作坊可以先放一放，<b>督导和个人体验尽量留着</b>——前者是攒知识，后者是在改变你自己。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>16</span></div>
+</section>
+
+<!-- 17 医院能见到什么 -->
+<section class="slide" data-title="在医院能见到什么" data-notes="这一页回答「去了能学到什么社会上学不到的东西」。四点讲完再翻页。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span><span class="time-tag">主体 · 约 11 分钟</span></div>
+  <h2>在医院能<span class="hl">见到什么</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4>重性症状的完整面貌</h4>
+          <ul><li><b>见到：</b>精神分裂症、双相、重性抑郁、风险与危机个案；查房、病例讨论、药物方案</li><li><b>为什么别处学不到：</b>社会机构的来访多为轻中度，很难见到重性症状的完整过程</li><li><b>能带走：</b>鉴别诊断与风险筛查，以及跟精神科医生对话的能力</li></ul></div>
+        <div class="card navy" style="flex:1"><h4>诊断与用药</h4>
+          <ul><li><b>见到：</b>查房和病例讨论里的诊断思路、药物方案怎么调、副作用与依从性</li><li><b>为什么别处学不到：</b>咨询师培训几乎不讲药物，但你一定会遇到「来访者在吃药、你却不知道那是什么」</li><li><b>能带走：</b>读懂诊断和用药说明，知道什么情况必须转介</li></ul></div>
+      </div>
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4>危机怎么处置</h4>
+          <ul><li><b>见到：</b>急诊的自杀自伤个案、冲动与攻击行为、急性精神症状的处理流程</li><li><b>为什么别处学不到：</b>这是新手最容易出事、后果也最严重的一块，社会机构几乎遇不到</li><li><b>能带走：</b>结构化评估（C-SSRS）、安全计划、强制报告与转介流程，并且在督导下练过</li></ul></div>
+        <div class="card navy" style="flex:1"><h4>医院是怎么运转的</h4>
+          <ul><li><b>见到：</b>门诊 → 收治 → 病房 → 出院随访的完整链条；MDT 会诊；医保与慢特病政策</li><li><b>为什么别处学不到：</b>这是理解整个转介体系最快的方式</li><li><b>能带走：</b>对公共卫生体系和政策的理解，知道来访者在系统里处在哪个位置</li></ul></div>
+      </div>
+    </div>
+    <div class="note">这几样在社会咨询机构里很难系统接触到。<b>招聘方——尤其是医院和高校心理中心——也比较看重这一块。</b></div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>17</span></div>
+</section>
+
+<!-- 18 见习/实习/进修 -->
+<section class="slide" data-title="见习、实习、进修不是一回事" data-notes="这三个词经常被混着用，但门槛、产出、能带走的东西都不一样。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span></div>
+  <h2>见习、实习、进修<span class="hl">不是一回事</span></h2>
+  <div class="body">
+    <table style="flex:none">
+      <tr><th style="width:9%">类型</th><th style="width:31%">你做什么</th><th style="width:26%">门槛</th><th>能带走什么</th></tr>
+      <tr><td><b>见习</b></td><td>观摩为主，不碰病历、不接个案</td><td>最低，几天到几周</td><td>视野和感受，一般没有证明</td></tr>
+      <tr><td><b>实习</b></td><td>在督导下做评估、接部分个案</td><td>需要学校或机构的协议，以及督导安排</td><td>实践小时数和督导证明，<b>可计入注册系统</b></td></tr>
+      <tr><td><b>进修</b></td><td>正式录取、付费、全日制在岗</td><td>最高，多数要单位选送</td><td>结业证书 + 个案与督导时数证明</td></tr>
+    </table>
+    <div class="note">对非全同学来说，比较现实的顺序是：<b>先用实习或见习把基础时数攒起来，再报面向社会招生的进修班</b>，补医学这块底子。</div>
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4>进场前先算清楚的成本</h4>
+          <ul><li><b>时间</b>——脱产 6 个月（部分 3 个月起）= 半年没有收入</li><li><b>金钱</b>——学费 200 元到 16.8 万不等，外加异地食宿（部分提供宿舍，如南京脑科 1000 元/月）</li><li><b>机会成本</b>——同一段时间你本来可以接的个案量和督导投入</li></ul></div>
+      </div>
+      <div class="col">
+        <div class="card red" style="flex:1"><h4>几件事要先确认</h4>
+          <ul><li><b>伦理</b>——不私自录音录像、不带走来访者、个案材料不外传、危机个案按流程上报</li><li><b>约定</b>——责任保险谁承担、个案归属怎么算、能不能开时数证明</li><li><b>资质</b>——带教老师是不是有效注册督导师，这决定你的时数能不能计入注册系统</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>18</span></div>
+</section>
+
+<!-- 19 问题1 收益总览 -->
+<section class="slide" data-title="问题1 · 去医院能带走什么（总览）" data-notes="分两组讲：左边三样是能写进材料的，右边三样是关系和工作机会。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span><span class="time-tag">本页 55″</span></div>
+  <h2>【问题 1】去医院能得到的收益 / 能带走什么？</h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">能写进材料的</span></h4></div>
+        <div class="card navy" style="flex:1"><h4>个案小时数</h4><p>有督导、有记录、可追溯，能写进申请材料</p></div>
+        <div class="card navy" style="flex:1"><h4>督导时数证明</h4><p>可以计入注册系统，门槛见后面一页</p></div>
+        <div class="card navy" style="flex:1"><h4>结业证书</h4><p>简历筛选阶段最直观的一行</p></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">关系与机会</span></h4></div>
+        <div class="card gold" style="flex:1"><h4>督导师的推荐</h4><p>业内的一句话，比十份简历管用</p></div>
+        <div class="card gold" style="flex:1"><h4>同行与督导网络</h4><p>后面很多工作机会是从这里来的</p></div>
+        <div class="card gold" style="flex:1"><h4>个案来源</h4><p>转介和合作，往往从进修期间就开始</p></div>
+      </div>
+      <div class="col" style="flex:0 0 30%">
+        <div class="card blue" style="flex:1"><h4>什么时候去比较合适</h4>
+          <ul>
+            <li><b>&lt; 100 小时</b>——多数时间在旁听，吸收得有限</li>
+            <li><b>100 – 300 小时</b>——比较合适的窗口：知道该看什么、问什么</li>
+            <li><b>300+ 小时</b>——带着具体问题去，效率最高</li>
+          </ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>19</span></div>
+</section>
+
+<!-- 20 问题1 收益详解 -->
+<section class="slide" data-title="问题1 · 四项收益详解" data-notes="分两组讲：左边三样是能写进材料的，右边三样是关系和工作机会。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span><span class="time-tag">本页 55″</span></div>
+  <h2>【问题 1】去医院能得到的收益 / 能带走什么？</h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">收益 1</span>症状严重程度的「谱系感」</h4>
+          <ul><li><b>会见到：</b>精神分裂症、双相障碍、重性抑郁、风险与危机个案；查房、病例讨论、药物方案</li><li><b>为什么学不到：</b>社会机构的来访多为轻中度，很难见到重性症状的完整面貌，更难判断「同一个诊断在不同阶段的差别」</li><li><b>带得走：</b>鉴别诊断与风险筛查、与精神科医生对话的能力——社会机构最缺、招聘方最看重的一项</li></ul></div>
+        <div class="card navy" style="flex:1"><h4><span class="chip">收益 2</span>精神病理与药物知识</h4>
+          <ul><li><b>会见到：</b>精神科查房与病例讨论中的诊断思路、药物方案调整、副作用与依从性</li><li><b>为什么学不到：</b>咨询师培训体系里几乎不讲药物，但你将来一定会遇到「来访者在吃药，我却不知道那是什么」</li><li><b>带得走：</b>能读懂诊断与用药说明、知道什么情况必须转介、能和医生与家属说上话</li></ul></div>
+      </div>
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">收益 3</span>危机处置与风险管理的实战经验</h4>
+          <ul><li><b>会见到：</b>急诊自杀/自伤个案、冲动与攻击行为、急性精神症状的处理流程</li><li><b>带得走：</b>结构化风险评估（如 C-SSRS）、安全计划制定、强制报告义务与转介流程，并在督导下演练</li><li><b>对应实操路径第 08 项</b>——新手最容易出事、后果最严重的区域</li></ul></div>
+        <div class="card navy" style="flex:1"><h4><span class="chip">收益 4</span>场域理解：医院是怎么运转的</h4>
+          <ul><li><b>会见到：</b>门诊 → 收治 → 病房 → 出院随访的完整链条；MDT 会诊；医保与慢特病政策</li><li><b>带得走：</b>公共卫生体系与政策理解、大样本筛查思路、知道「我的来访者在系统里处于哪个位置」</li><li><b>这是理解转介地图</b>（第三部分心理援助资源）的最快方式</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>20</span></div>
+</section>
+
+<!-- 21 问题2 五条路 -->
+<section class="slide" data-title="问题2 · 导师不在医院，怎么进" data-notes="五条路按可行性从高到低排。材料清单可以拍照发到群里。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span><span class="time-tag">本页 70″</span></div>
+  <h2>【问题 2】导师不在医院，<span class="hl">怎么进？</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="step"><div class="num">1</div><h4>面向社会招生的班</h4><p><b>上海精卫专项班 · 广州脑科 · 深圳康宁 · 华西 · 武汉忠德 · 北师大 CARE</b>——这几家个人就能报名。操作：直接下载申请表、联系科教科/教育处，确认是否接受个人申请与心理师证。<span class="pill red">⚠ 先看清门槛</span> 北大六院、湘雅二精神科、复旦中山明确要求执业医师资格 + 3 年临床，咨询师背景投了也是白投。</p></div>
+        <div class="step"><div class="num">2</div><h4>先入职，再由单位选送</h4><p>进综合医院心理科、社区、学校或社会机构之后，以在职身份由单位盖章派出。体制内这是最常规的做法。不少单位有进修名额和经费——问 HR/科主任「我们有没有进修名额」。这条路同时解决后面「工作年限」的问题（考心理治疗师需机构从业满 1 年）。</p></div>
+        <div class="step"><div class="num">3</div><h4>走学校渠道</h4><p>研究生实践基地、联合培养、导师课题合作。没有现成渠道的话，可以自荐去做科研助理、量表评估、课题随访。<b>策略是「先进入，再争取转为实习」。</b></p></div>
+      </div>
+      <div class="col">
+        <div class="step"><div class="num">4</div><h4>长程培训自带实习</h4><p>北师大 CARE、中德班等项目有实习基地，多数是注册系统认证基地，<b>等同于绕开「医院进修」拿到合规的实践与督导小时数</b>。</p></div>
+        <div class="step"><div class="num">5</div><h4>从低门槛的先开始</h4><p>危机热线接线 · 案例督导小组 · 门诊观摩班 · 短期工作坊。个案深度不如进修，但能攒时数、也能建立关系。</p></div>
+        <div class="card gold"><h4>材料清单（提前备齐）</h4><p>身份证 · 学历/学位证 · 心理咨询师或治疗师证 · 简历与个人陈述 · 单位盖章申请表（如需）· 体检证明 · 保险</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>21</span></div>
+</section>
+
+<!-- 22 自荐邮件 -->
+<section class="slide" data-title="自荐邮件模板与自查清单" data-notes="邮件模板可以直接抄，把名字和细节换成自己的。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span><span class="time-tag">本页 55″</span></div>
+  <h2>自荐邮件</h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col" style="flex:0 0 46%">
+        <div class="card navy" style="flex:1"><h4>自荐邮件模版</h4>
+          <p style="font-size:11px;line-height:1.6">主题：【进修/实习申请】姓名 - 学校/机构 - 心理学硕士<br>XX 老师 / XX 医院科教科：<br>您好！我是 XX 大学应用心理硕士（非全日制），预计 XX 年毕业。<br><b>【我的情况】</b>· 个案小时数约 XX 小时（来源：XXX），个体督导 XX 小时 · 取向：XX（如 CBT / 精神动力学 / 家庭治疗）· 目标：申请贵院 XX 进修班 / 实习岗位（时间：XXXX 年 X–X 月）<br><b>【我能带来什么】</b>· 可全职脱产 / 每周到岗 X 天 · 有 XXX 经验（如热线接听 XX 小时 / 课题研究 XXX）· 已备齐申请材料（身份证 / 学历证 / 简历 / 体检）<br><b>【附件与联系方式】</b>附件是我的简历和个人陈述。如有面试或进一步沟通的机会，非常感谢！此致敬礼　姓名 · 手机 · 邮箱 · 日期</p></div>
+        <div class="note"><b>写邮件前问自己：</b>我是谁？我想要什么？我能付出什么？附件与联系方式齐了吗？</div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4>投递前自己先核一遍</h4>
+          <ul>
+            <li><b>当期简章下载并通读了吗？</b>——不要用去年的信息投</li>
+            <li><b>硬性门槛满足吗？</b>——医师资格 / 学历 / 证书，不满足的别投</li>
+            <li><b>自荐信是针对这家机构写的吗？</b>——通用模板一眼就能看出来</li>
+            <li><b>附件格式对吗？</b>——PDF 简历，不超过 2 页，文件名含姓名</li>
+            <li><b>留了跟进方式吗？</b>——投后 5–7 个工作日没回复，可以礼貌追问一次</li>
+          </ul></div>
+        <div class="card navy"><h4>材料清单（提前两周备齐）</h4><p>身份证 · 学历与学位证 ｜ 心理咨询师 / 治疗师证 ｜ 简历与个人陈述 ｜ 单位盖章的进修申请表 ｜ 体检证明 · 保险（部分医院）｜ 伦理承诺书 ｜ 无犯罪记录证明（部分医院）</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>22</span></div>
+</section>
+
+<!-- 23 机构对比表 -->
+<section class="slide" data-title="重点3 · 我了解过的几家机构" data-notes="现场只挑两三家重点讲，剩下的让大家看资料包。核对日 2026-10-24。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span></div>
+  <h2>【重点 3】我了解过的几家机构</h2>
+  <div class="body">
+    <table style="flex:1">
+      <tr><th style="width:15%">机构</th><th style="width:7%">城市</th><th style="width:30%">费用</th><th style="width:11%">下一期</th><th>备注</th></tr>
+      <tr><td><b>北京安定医院</b><br><a href="https://www.bjad.com.cn/Html/News/Articles/4963.html">官网简章</a></td><td>北京</td><td>医师 8000/半年；治疗师 15000/半年</td><td>2027-03</td><td>各病区单独发简章，每年两期</td></tr>
+      <tr><td><b>上海市精神卫生中心</b><br><a href="http://mp.weixin.qq.com/s?__biz=MzI0MzYwMTk2Mw==&mid=2247500425&idx=1&sn=4e6d8e629b9db63ec785576201cf7017">公众号文章</a></td><td>上海</td><td>专项班 25000（6 个月脱产）</td><td>关注官网</td><td>注册督导师全程；200h 理论 + 100h 技术 + 50h 督导</td></tr>
+      <tr><td><b>华西心理卫生中心</b><br><a href="https://www.wchscu.cn/public/notice/recruit/97822.html">八大方向总入口</a> · <a href="https://www.cd120.com/public/bmxxy1_dynamics/97141.html">临床心理评估方向</a></td><td>成都</td><td>1500/3 个月；2500/6 月；4000/12 月</td><td>2027 春季</td><td>咨询师可报，八大方向</td></tr>
+      <tr><td><b>南京脑科医院</b><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODgwNjQ1OQ==&mid=2651018970&idx=1&sn=31e6a80906a975b36d188b0b9938633a">公众号文章</a></td><td>南京</td><td>4500 / 6500 / 9500（3/6/12 月）；脱产全日制</td><td>2027-03</td><td>CBT 领先；进修导师制，导师负责带教、治疗演示及督导，按进修生手册记录轮转与病案，完成进修导师评价</td></tr>
+      <tr><td><b>广州脑科医院</b><br><a href="http://mp.weixin.qq.com/s?__biz=MzkzMTYzNDAwNw==&mid=2247490036&idx=1&sn=59a7447d8071de7662b260dde6ac4f66">公众号文章</a></td><td>广州</td><td>4000/月，长期有效</td><td>长期有效</td><td>导师制，可选流派；一年四期</td></tr>
+      <tr><td><b>天津安定医院</b><br><a href="http://mp.weixin.qq.com/s?__biz=MzUzODg3NzQ5Ng==&mid=2247570644&idx=2&sn=362ccbb3cd89158f5b9d98a75f21d729">公众号文章</a></td><td>天津</td><td>800/月；4000/半年；7000/年</td><td>常年招收</td><td>费用最低，三甲；食宿自理</td></tr>
+    </table>
+    <div class="note"><b>12 家的完整对比在资料包里</b>——《精神心理科进修项目汇总》有 12 家机构的完整信息：报名窗口、时长、费用、截止日期、咨询师能不能报、有没有宿舍。另外，按取向选机构也有一个对照表（精神分析 / CBT / 儿少 / 心身 / 以注册系统为目标 / 预算有限），同样在资料包里。<br>费用和时间取自各机构官网与公众号，<b>核对日 2026-10-24</b>，多数按季度滚动更新。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>23</span></div>
+</section>
+
+<!-- 24 现在能投的两个 -->
+<section class="slide" data-title="现在能投的两个窗口" data-notes="这两个窗口可能就在分享当天前后关闭。有条件的同学现在就可以准备材料。核对日 2026-11-02。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span></div>
+  <h2>现在能投的<span class="hl">两个</span></h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card green" style="flex:1"><h4><span class="chip green">报名中</span>上海市精神卫生中心 · 心理专项进修班</h4>
+          <p style="color:var(--green);font-weight:700;font-size:11.5px">常年报名 · 额满即止 ｜ 2027 年春季入科 ｜ 6 个月全脱产</p>
+          <ul>
+            <li><b>咨询师可以直接报：</b>临床心理专项交咨询师证或治疗师证就行，不要求医师资格。</li>
+            <li><b>六个月连续临床：</b>门诊观摩 + 心身/睡眠/强迫焦虑三个特色病房轮转 + 团体治疗观摩，配定期案例督导。</li>
+            <li><b>结业出具中国心理学会注册系统认可的督导证明</b>，走注册系统时用得上。</li>
+            <li>费用 2.5 万 / 期，住宿自理。第 34 期已于 2026 年 9 月开班，现在投的是下一期。</li>
+            <li><b>做法：</b>上 smhc.org.cn 找「临床与科研半年期专项进修招生通知」，填问卷星，把盖章申请表 + 证书合成一个 PDF 提交。</li>
+          </ul></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">常年招生</span>广州脑科医院 · 临床心理科进修</h4>
+          <p style="color:var(--gold-d);font-weight:700;font-size:11.5px">长期有效 · 一年四期 ｜ 现在投 → 2026 年 12 月期 ｜ 建议报 6 个月</p>
+          <ul>
+            <li><b>门槛最友好：</b>有二/三级心理咨询师证 + 一定咨询经验，面试通过即可，不用医师证。</li>
+            <li><b>导师制 + 三级督导</b>，进院自己挑流派和导师；每位导师只带 3–5 人，带教密度高。</li>
+            <li><b>结业发进修证书</b>，并如实开具个案时数与被督导时数证明，可用于申报注册系统。</li>
+            <li>费用 4000 元/月，食宿自理，可在医院办饭卡；官方明确优先考虑能脱产 6 个月的学员。</li>
+            <li><b>做法：</b>简历 + 证书 + 进修期待发到 pengdoctor2@126.com，或打 020-81268086 找张老师、罗老师。</li>
+          </ul></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex:none">
+      <div class="mini-win"><div class="m">北大六院 <span class="pill red">只收执业医师</span></div><div class="d">春季 · 2026-12 录取</div><div class="r">咨询师背景不符</div></div>
+      <div class="mini-win"><div class="m">北京回龙观</div><div class="d">2027-01 上旬</div><div class="r">窗口只有 3–4 周</div></div>
+      <div class="mini-win"><div class="m">北京安定</div><div class="d">2027-03</div><div class="r">提前约 1 个月</div></div>
+      <div class="mini-win"><div class="m">华西 <span class="pill green">咨询师可报</span></div><div class="d">2027 春季</div><div class="r">八大方向可挑</div></div>
+      <div class="mini-win"><div class="m">南京脑科</div><div class="d">2027-03</div><div class="r">材料需要邮寄</div></div>
+      <div class="mini-win"><div class="m">天津安定</div><div class="d">随时可投</div><div class="r">常年招收 · 800/月</div></div>
+    </div>
+    <div class="note">核对日 <b>2026-11-02</b>｜费用与时间为各机构官网 / 公众号最新通知，投之前建议再核一次。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>24</span></div>
+</section>
+
+<!-- 25 问题4 机构类型 -->
+<section class="slide" data-title="问题4 · 不同类型机构的差别" data-notes="选法可以一句话说完：想补医学底子去精神专科，想拿时数去临床心理科，想做儿少去儿少专科。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span></div>
+  <h2>【问题 4】不同类型的机构，差别在哪？</h2>
+  <div class="body">
+    <table style="flex:1">
+      <tr><th style="width:17%">机构类型</th><th style="width:23%">代表机构</th><th style="width:30%">你会见到什么</th><th>能学到什么</th></tr>
+      <tr><td><b>三甲精神专科</b></td><td>北京安定 · 回龙观 · 上海精卫 · 华西</td><td>重性症状、风险个案、查房、药物方案</td><td>症状谱系感、鉴别诊断、跟精神科对话的能力</td></tr>
+      <tr><td><b>临床心理科 / 心身病房</b></td><td>上海精卫心身 · 安定临床心理病区 · 广州脑科</td><td>抑郁焦虑强迫躯体化，独立接个案 + 督导</td><td>个案时数和督导时数，可写入注册系统</td></tr>
+      <tr><td><b>儿童青少年专科</b></td><td>安定儿科 · 南京脑科儿少 · 广州脑科儿少 · 湘雅二儿少</td><td>ADHD、孤独谱系、儿少抑郁，家长访谈与学校协作</td><td>家庭系统工作；儿少方向目前需求比较大</td></tr>
+      <tr><td><b>综合医院心理医学科</b></td><td>华西（阳光医院模式）· 复旦中山</td><td>会诊联络、肿瘤心理、围术期、MDT</td><td>躯体共病场景下的短程干预，纯精神专科给不了</td></tr>
+      <tr><td><b>亚专科病房</b></td><td>—</td><td>成瘾、睡眠、老年、康复的密集单一病种</td><td>特定技术栈：DBT、CBT-I、动机访谈</td></tr>
+      <tr><td><b>社区 / 基层精防</b></td><td>社区卫生服务中心 · 社工站</td><td>严重障碍随访、个案管理、公卫服务</td><td>理解公共卫生体系；个案深度有限</td></tr>
+    </table>
+    <div class="quote">简单说：<b>补医学底子 → 精神专科　｜　拿个案和督导时数 → 临床心理科　｜　做儿少 → 儿少专科　｜　想进综合医院 → 心理医学科</b></div>
+    <div class="note"><b>两个提醒</b> ｜ ① 北大六院、湘雅二精神科明确要求执业医师资格加 3 年临床，咨询师背景不符合条件，不用投。② <b>武汉忠德心理医院</b>和「武汉中德心理研究院」是两家独立的机构，彼此没有关系，报名前核对主办机构全称和执业许可登记号。③ 除了学费，还要看三件事：能不能开时数证明、能不能接个案、带教是不是注册督导师。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>25</span></div>
+</section>
+
+<!-- 26 问题4 按取向选 -->
+<section class="slide" data-title="问题4 · 按取向选机构" data-notes="如果听众已有取向，这一页最实用；没有取向的，先看能不能开督导时数证明。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span></div>
+  <h2>【问题 4】按取向选机构</h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col" style="flex:0 0 42%">
+        <div class="card navy"><h4><span class="chip">取向</span>推荐</h4></div>
+        <div class="card navy"><h4>精神分析 / 动力</h4><p>上海精卫（中德班体系）· 武汉忠德</p></div>
+        <div class="card navy"><h4>CBT</h4><p>南京脑科（CBT 连续培训基地）· 上海精卫（中英 CBT-E）</p></div>
+        <div class="card navy"><h4>儿童青少年</h4><p>北京安定儿科 · 南京脑科儿少 · 广州脑科儿少 · 湘雅二儿少</p></div>
+        <div class="card navy"><h4>心身 / 综合医院</h4><p>华西（阳光医院模式）· 复旦中山心理医学科</p></div>
+        <div class="card gold"><h4>目标是注册系统</h4><p>上海精卫 · 广州脑科 · 深圳康宁 · 北师大 CARE</p></div>
+      </div>
+      <div class="col">
+        <table style="flex:1">
+          <tr><th style="width:52%">次选</th><th>说明</th></tr>
+          <tr><td>中国心理卫生协会心理治疗与心理咨询专委会（专病/心理治疗学组）</td><td>中德为「理论+技术+督导+个人体验」四层，个人体验为必修；入学前有评估访谈</td></tr>
+          <tr><td>上海精卫（中英 CBT-E）· 王建平 CBT 连续培训（多城市，注册系统认证）</td><td>南京脑科团队有注册督导师 9 名、注册心理师 18 名；三个专项方向，每期 10–15 人、提供宿舍</td></tr>
+          <tr><td>儿童医院/儿保科进修 · 学校心理中心实习</td><td>市场需求最大；核心能力是家庭系统工作与家长/学校沟通</td></tr>
+          <tr><td>综合医院心理科门诊 · 联络会诊项目</td><td>复旦中山覆盖肿瘤心理、围术期、双心门诊、MDT 等纯精神专科给不了的场景</td></tr>
+          <tr><td>有注册督导师带教的任何机构</td><td><b>只有「有效注册督导师」的督导才计数</b>——报名前先问带教老师是谁、能否开证明</td></tr>
+        </table>
+        <div class="note"><b>选之前先看门槛：</b>北大六院、湘雅二精神科、复旦中山要求执业医师资格 + 3 年临床，咨询师背景投了也是白投。</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>26</span></div>
+</section>
+
+<!-- 27 问题5 就业 -->
+<section class="slide" data-title="问题5 · 对找工作有什么用" data-notes="回看前面「能带走什么」那六项：对方真正会看的是这三样。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span></div>
+  <h2>【问题 5】对找工作有什么用？</h2>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col" style="flex:0 0 40%">
+        <div class="card navy"><h4>真正有价值的三样</h4></div>
+        <div class="card navy" style="flex:1"><h4><span style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:12px;font-weight:800;align-items:center;justify-content:center">1</span>督导下的个案小时数</h4><p>有督导、有记录、可追溯</p></div>
+        <div class="card navy" style="flex:1"><h4><span style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:12px;font-weight:800;align-items:center;justify-content:center">2</span>注册督导师签的督导证明</h4><p>须为有效注册督导师签署</p></div>
+        <div class="card navy" style="flex:1"><h4><span style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy3));color:#fff;font-size:12px;font-weight:800;align-items:center;justify-content:center">3</span>结业证书</h4><p>简历筛选阶段最直观的一行</p></div>
+        <div class="quote">「在医院待过」这句话本身没什么分量，<b>能拿出来核对的是这三样。</b></div>
+      </div>
+      <div class="col">
+        <div class="card gold"><h4>简历层面优势（哪些岗位认这个）</h4></div>
+        <div class="card gold" style="flex:1"><h4>医院心理治疗师岗位</h4><p>普遍要求医学或心理学背景加临床经历，有进修经历明显加分</p></div>
+        <div class="card gold" style="flex:1"><h4>高校心理咨询中心</h4><p>认可医院背景——意味着见过重性症状、会做风险筛查</p></div>
+        <div class="card gold" style="flex:1"><h4>EAP / 社会机构</h4><p>看重医院训练出来的底线思维和危机处置能力</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>27</span></div>
+</section>
+
+<!-- 28 注册系统门槛 -->
+<section class="slide" data-title="注册系统的门槛与行动建议" data-notes="两组数字让大家心里有数。重点强调：只有有效注册督导师的督导才计数。">
+  <div class="topbar"><span class="sec-tag">04 · 医院见习与实习</span><span class="time-tag">本页 50″</span></div>
+  <h2>注册系统的门槛</h2>
+  <div class="body">
+    <div class="reqgrid" style="flex:0 0 200px">
+      <div class="reqbox" style="border-top:3px solid var(--navy)">
+        <h4>中国心理学会注册系统（第二版）· 认可培养方案的硕士</h4>
+        <div class="reqnums">
+          <div class="stat"><div class="n">150<em>h</em></div><div class="t">实践</div></div>
+          <div class="stat"><div class="n">50<em>h</em></div><div class="t">个体督导</div></div>
+          <div class="stat"><div class="n">50<em>h</em></div><div class="t">团体督导</div></div>
+        </div>
+        <p style="font-size:11px;color:var(--ink2);margin-top:6px">如果你读的项目在注册系统认可名单里，按这一组走。</p>
+      </div>
+      <div class="reqbox" style="border-top:3px solid var(--gold)">
+        <h4>非认可专业</h4>
+        <div class="reqnums">
+          <div class="stat"><div class="n">250<em>h</em></div><div class="t">实践</div></div>
+          <div class="stat"><div class="n">80<em>h</em></div><div class="t">个体督导</div></div>
+          <div class="stat"><div class="n">120<em>h</em></div><div class="t">团体督导</div></div>
+        </div>
+        <p style="font-size:11px;color:var(--ink2);margin-top:6px">不在认可名单里的项目按这一组，实践时数要求高出不少。<b>关键点：只有「有效注册督导师」签的督导才计数。选机构的时候先看这一条。</b></p>
+      </div>
+    </div>
+    <div class="card navy" style="flex:1"><h4>现在该做什么（按个案小时数判断）</h4>
+      <div style="display:flex;gap:8px;flex:1">
+        <div class="step" style="border:none;padding:6px 0"><h4 style="color:var(--gold-d)">&lt; 50 小时</h4><p>12356 热线 / 机构助理 / 公益个案。先把个案量和第一位督导师搞定</p></div>
+        <div class="step" style="border:none;padding:6px 0"><h4 style="color:var(--gold-d)">50 – 200 小时</h4><p>稳定个案 + 1:4 督导 + 进入系统培训。开始刻意练习和团督</p></div>
+        <div class="step" style="border:none;padding:6px 0"><h4 style="color:var(--gold-d)">200 – 300 小时</h4><p>这是去医院比较合适的窗口，同时准备进修申请材料</p></div>
+        <div class="step" style="border:none;padding:6px 0"><h4 style="color:var(--gold-d)">300+ 小时</h4><p>带着具体问题去进修。目标是补医学底子 + 攒注册系统时数</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>28</span></div>
+</section>
+
+<!-- 29 章节 05 -->
+<section class="slide dark" data-title="05 · 培训与认证" data-notes="先给结论：2017 年国家已取消人社部心理咨询师职业资格认证。">
+  <div class="deco"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div></div>
+  <div class="secnum">05</div>
+  <h1>培训与认证</h1>
+  <div class="rule"></div>
+  <p class="desc">2017 年之后已经没有国家心理咨询师证了。现在这几条路怎么选。</p>
+</section>
+
+<!-- 30 四条路径 -->
+<section class="slide" data-title="四条路径" data-notes="先讲清两个前提：现在的证书都不是执业许可，医疗系统唯一有效的是心理治疗师。再展开四条路径：CAMH 最接近原来的国考、CPS 水平评价门槛最低、CPS 注册系统标准最高、CASP 还没出细则。">
+  <div class="topbar"><span class="sec-tag">05 · 培训与认证</span><span class="time-tag">约 2.5 分钟</span></div>
+  <h2>四条路径</h2>
+  <div class="body">
+    <div class="cert4">
+      <div class="ccard" style="border-top:3px solid var(--navy)">
+        <div class="cn">中国心理卫生协会 CAMH</div>
+        <div class="clv">心理咨询师职业能力水平评价（助理 / 初级 / 中级 / 高级）</div>
+        <p>考培分离：机构培训 + 全国统考，四级体系，可衔接协会注册系统 ｜ cert-camh.org.cn ｜ <b>目前最接近原来那个「国考」的行业证书</b></p>
+        <div class="win">报名 8/24–11/5（第三期）｜ 考试费 480 / 580 元</div>
+      </div>
+      <div class="ccard" style="border-top:3px solid var(--navy)">
+        <div class="cn">中国心理学会 CPS · 水平评价</div>
+        <div class="clv">心理咨询师水平评价（四级 / 三级 / 二级 / 一级）</div>
+        <p>大专可报四级；考培分离，要在备案培训机构完成培训才能报考 ｜ sppj.psysoc.org.cn ｜ <b>社会认可度比较高，报考门槛低</b></p>
+        <div class="win">报名 10/26–11/26（第二轮）｜ 考试费 460 / 480 元</div>
+      </div>
+      <div class="ccard" style="border-top:3px solid var(--gold)">
+        <div class="cn">中国心理学会 CPS · 注册系统</div>
+        <div class="clv">注册助理心理师 / 心理师 / 督导师</div>
+        <p><b>行业里标准最高的一条。</b>不是考试，是申请制，需要实践小时数 + 督导 + 伦理培训 ｜ chinacpb.net ｜ 适合目标是高校、医院或高端机构的同学</p>
+        <div class="win">2026 个人注册申请 10/1–10/31 ｜ 评审费以通知为准</div>
+      </div>
+      <div class="ccard" style="border-top:3px solid var(--ink2)">
+        <div class="cn">中国社会心理学会 CASP</div>
+        <div class="clv">心理咨询师职业技能等级认证（2026 新增）</div>
+        <p>比较新的体系，细则还在持续更新 ｜ <b>建议在官方公告确认最新要求之前先观望</b></p>
+        <div class="win red">报名时间 / 费用 / 门槛 —— 暂未公布</div>
+      </div>
+    </div>
+    <div class="note"><b>两个前提</b> ｜ ① 2017 年人社部已取消心理咨询师职业资格认证。今天所有「心理咨询师证书」都是行业水平评价或培训合格证明，<b>不是执业许可</b>。② 唯一在医疗系统有效的心理治疗执业资质是「<b>心理治疗师</b>」（卫健委体系），需医疗机构工作经历 + 相关学历 + 全国统考。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>30</span></div>
+</section>
+
+<!-- 31 四条路径对照 -->
+<section class="slide" data-title="四条路径一次对照" data-notes="这张是全场最实用的一页。四列分别对应四条路径，每列四个维度。CASP 那一列四项都还是空白，如实说明即可。">
+  <div class="topbar"><span class="sec-tag">05 · 培训与认证</span><span class="time-tag">截至 2026 年 11 月，以官网当期通知为准</span></div>
+  <h2 style="font-size:24px">四条路径一次对照：报名时间、费用、门槛</h2>
+  <div class="body">
+    <div class="cert4" style="flex:1">
+      <div class="ccard" style="border-top:3px solid var(--navy)">
+        <div class="cn">CAMH <a href="https://cert-camh.org.cn" style="font-size:10px;color:var(--blue)">cert-camh.org.cn</a></div>
+        <p><b>报名时间</b>｜一年三期：① 1/24–4/24（考 5/24）② 6/1–7/15（考 8/15）③ 8/24–11/5（考 12/5）</p>
+        <p><b>考试费</b>｜助理 480 元 / 初级 480 元 / 中级 580 元，不含培训费</p>
+        <p><b>报名门槛</b>｜助理：大专及以上（含在读）+ 174 学时备案培训；初级：相关专业本科等五选一；中级：证书 / 硕士 / 职称 + 从业 2 年 + 督导与实习学时</p>
+        <div class="win">怎么报：个人在官网直接报名，自选就近考点</div>
+      </div>
+      <div class="ccard" style="border-top:3px solid var(--navy)">
+        <div class="cn">CPS 水平评价 <a href="https://sppj.psysoc.org.cn" style="font-size:10px;color:var(--blue)">sppj.psysoc.org.cn</a></div>
+        <p><b>报名时间</b>｜一年两轮：第一轮 4/27–5/27（考 6/27）；第二轮 10/26–11/26（考 12/26）。三级试点 6/8–7/8（考 8/8）</p>
+        <p><b>考试费</b>｜四级 460 元 / 三级 480 元（两科）。培训费另计，指导价四级 ≥3000、三级 ≥4000</p>
+        <p><b>报名门槛</b>｜四级：大专及以上（不限专业）/ 毕业年级在校生 / 助理社工师 + 172 学时；三级：四级证书或相关专业本科等七选一 + 212 学时</p>
+        <div class="win red">怎么报：不接受个人直报，须经备案授权机构统一申报</div>
+      </div>
+      <div class="ccard" style="border-top:3px solid var(--gold)">
+        <div class="cn">CPS 注册系统 <a href="https://chinacpb.net" style="font-size:10px;color:var(--blue)">chinacpb.net</a></div>
+        <p><b>报名时间</b>｜不是考试。2026 年个人注册申请开放 10/1–10/31，一年窗口有限</p>
+        <p><b>费用</b>｜无考试费；评审费在注册系统内缴纳，金额以当期通知为准</p>
+        <p><b>报名门槛</b>｜硕士项目毕业生推荐名单，或硕士满 1 年 / 中级职称满 2 年 / 原二级证满 2 年等；初阶伦理 16 学时 + 实践小时数 + 个体督导 + 2 位注册人员推荐</p>
+        <div class="win">怎么报：网上提交材料 → 审核 → 伦理公示 1 个月</div>
+      </div>
+      <div class="ccard" style="border-top:3px solid var(--ink2)">
+        <div class="cn">CASP</div>
+        <div class="clv">2026 新增体系</div>
+        <p><b>报名时间</b>｜暂未公布</p>
+        <p><b>考试费</b>｜暂未公布</p>
+        <p><b>报名门槛</b>｜暂未公布</p>
+        <div class="win red">怎么报：细则仍在更新，建议等官方公告确认后再决定</div>
+      </div>
+    </div>
+    <div class="note">费用均为考试费，<b>培训费另计且占大头</b>；报名前请以 cert-camh.org.cn、sppj.psysoc.org.cn、chinacpb.net 官网当期通知为准。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>31</span></div>
+</section>
+
+<!-- 32 报名窗口日历 -->
+<section class="slide" data-title="2026 剩下的报名窗口" data-notes="把时间摊开看最直观：CAMH 一年三期、CPS 一年两轮，都集中在 5 月、8 月、12 月考试。今天卡在 CAMH 第三期报名截止前 3 天、CPS 第二轮报名刚开放，是很关键的决策时点。">
+  <div class="topbar"><span class="sec-tag">05 · 培训与认证</span></div>
+  <h2 style="font-size:24px">2026 剩下的报名窗口</h2>
+  <div class="body">
+    <div style="display:flex;flex-direction:column;gap:8px;flex:none">
+      <div class="calrow">
+        <div class="lbl">CAMH<small>中国心理卫生协会</small></div>
+        <div class="mcell"><div class="mn">1月</div><div class="bar reg">报名 1/24 起</div></div>
+        <div class="mcell"><div class="mn">2月</div></div>
+        <div class="mcell"><div class="mn">3月</div></div>
+        <div class="mcell"><div class="mn">4月</div><div class="bar reg">报名至 4/24</div></div>
+        <div class="mcell"><div class="mn">5月</div><div class="bar exam">考 5/24</div></div>
+        <div class="mcell"><div class="mn">6月</div><div class="bar reg">报名 6/1 起</div></div>
+        <div class="mcell"><div class="mn">7月</div><div class="bar reg">报名至 7/15</div></div>
+        <div class="mcell"><div class="mn">8月</div><div class="bar exam">考 8/15</div><div class="bar reg">报名 8/24 起</div></div>
+        <div class="mcell"><div class="mn">9月</div></div>
+        <div class="mcell"><div class="mn">10月</div></div>
+        <div class="mcell" style="border-color:var(--gold);background:var(--gold-soft)"><div class="mn" style="color:var(--gold-d)">11月</div><div class="bar reg">报名至 11/5</div></div>
+        <div class="mcell"><div class="mn">12月</div><div class="bar exam">考 12/5</div></div>
+      </div>
+      <div class="calrow">
+        <div class="lbl">CPS<small>水平评价 四级 / 三级</small></div>
+        <div class="mcell"><div class="mn">1月</div></div>
+        <div class="mcell"><div class="mn">2月</div></div>
+        <div class="mcell"><div class="mn">3月</div></div>
+        <div class="mcell"><div class="mn">4月</div><div class="bar reg">四级报名 4/27 起</div></div>
+        <div class="mcell"><div class="mn">5月</div><div class="bar reg">四级报名至 5/27</div></div>
+        <div class="mcell"><div class="mn">6月</div><div class="bar exam">考 6/27</div><div class="bar reg">三级报名 6/8 起</div></div>
+        <div class="mcell"><div class="mn">7月</div><div class="bar reg">三级报名至 7/8</div></div>
+        <div class="mcell"><div class="mn">8月</div><div class="bar exam">考 8/8</div></div>
+        <div class="mcell"><div class="mn">9月</div></div>
+        <div class="mcell"><div class="mn">10月</div><div class="bar reg">四级/三级报名 10/26 起</div></div>
+        <div class="mcell" style="border-color:var(--gold);background:var(--gold-soft)"><div class="mn" style="color:var(--gold-d)">11月</div><div class="bar reg">报名至 11/26</div></div>
+        <div class="mcell"><div class="mn">12月</div><div class="bar exam">考 12/26</div></div>
+      </div>
+    </div>
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">CAMH 第三期</span>报名 8/24–11/5，12/5 考试</h4><p><b>窗口只剩 3 天</b>，现在还能赶上今年的末班车 ｜ 考试费 480 元（助理 / 初级）、580 元（中级）｜ 个人在官网直接报，不需要通过机构</p></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">CPS 第二轮</span>报名 10/26–11/26，12/26 考试</h4><p>四级、三级同天开考，今年最后一场 ｜ 资料更正截止 11/16，比报名截止早 10 天 ｜ 考试费 460 / 480 元，<b>须授权机构代报</b></p></div>
+      </div>
+      <div class="col">
+        <div class="card" style="flex:1;border-top:3px solid var(--ink2)"><h4><span class="chip" style="background:linear-gradient(135deg,#6B7076,var(--ink2))">CPS 注册系统</span>2026 个人注册申请 10/1–10/31</h4><p><b>今年的窗口已经关了</b>，下一轮要等明年 ｜ 不是考试，是材料审核 + 伦理公示 ｜ 现在该做的是攒实践小时数和督导记录</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>32</span></div>
+</section>
+
+<!-- 33 门槛五档 -->
+<section class="slide" data-title="门槛 · 你现在能报哪一级" data-notes="门槛是五档：大专起步、相关专业本科、要先有证并从业、申请制、还有一档没定。听众可以对号入座，先确定自己在哪一档，再回头看时间和费用。">
+  <div class="topbar"><span class="sec-tag">05 · 培训与认证</span></div>
+  <h2>门槛：你现在能报<span class="hl">哪一级</span></h2>
+  <p class="sub">从最宽松到最严格，五档排下来。</p>
+  <div class="body">
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card green" style="flex:1"><h4><span class="chip green">入门</span>大专就能报 · CPS 四级 · CAMH 助理</h4>
+          <p>大专及以上（不限专业）、本专科毕业年级在校生、助理社工师，满足其一即可。CPS 四级需 172 学时，CAMH 助理需 174 学时。<b>跨专业、零基础的第一站。</b></p></div>
+        <div class="card navy" style="flex:1"><h4><span class="chip">基础</span>相关专业本科 · CAMH 初级 · CPS 三级</h4>
+          <p>心理学、临床/精神医学、教育学、社会工作等本科及以上；或其他专业本科 + 174 学时（CAMH 初级）。CPS 三级七选一 + 212 学时。<b>大多数人第一次正经考证的目标档。</b></p></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">进阶</span>要先有证 + 从业 · CAMH 中级</h4>
+          <p>持三级证 / CAMH 初级证 / 相关硕士 / 中级职称，且心理咨询相关工作满 2 年；另需 60 学时课程 + 12 学时伦理 + 40 学时见习 + 100 学时实习 + 10 小时个体督导 / 20 小时团体督导。<b>已经从业、想往注册系统走的人。</b></p></div>
+        <div class="card navy" style="flex:1"><h4><span class="chip">执业</span>申请制，不是考试 · CPS 注册系统 助理心理师 / 心理师</h4>
+          <p>硕士项目毕业生推荐名单，或硕士毕业满 1 年、中级职称满 2 年、原二级证满 2 年等；初阶伦理 16 学时 + 临床实践小时数 + 个体督导 + 2 位注册人员推荐，材料审核后伦理公示 1 个月。<b>行业里标准最高的一条。</b></p></div>
+        <div class="card" style="flex:0 0 auto;border-top:3px solid var(--ink2)"><h4><span class="chip" style="background:linear-gradient(135deg,#6B7076,var(--ink2))">待定</span>细则未公布 · CASP 中国社会心理学会</h4><p>2026 年新增体系，报名时间、费用、门槛都还没有官方口径。<b>建议先观望，别抢第一波。</b></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>33</span></div>
+</section>
+
+<!-- 34 两个前提和怎么选 -->
+<section class="slide" data-title="两个前提，和怎么选" data-notes="收尾回到两个前提：证书不是执业许可，医疗系统只认心理治疗师。选择建议很简单——想快就 CAMH，想认可度就 CPS，想走学院派就提前布局注册系统，CASP 先观望。">
+  <div class="topbar"><span class="sec-tag">05 · 培训与认证</span></div>
+  <h2>两个前提，和<span class="hl">怎么选</span></h2>
+  <div class="body">
+    <div class="note"><b>两个前提</b> ｜ ① 2017 年人社部已取消心理咨询师职业资格认证。今天所有「心理咨询师证书」都是行业水平评价或培训合格证明，不是执业许可。② 唯一在医疗系统有效的心理治疗执业资质是「<b>心理治疗师</b>」（卫健委体系，卫生专业技术资格），需医疗机构工作经历 + 相关学历 + 全国统考。<b>独立执业还要个案时数、督导、机构备案——证书只是第一块砖。</b></div>
+    <div class="cols" style="flex:1">
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">像原来国考的一张证</span>先考 CAMH</h4>
+          <ul><li>一年三期，个人可在官网直接报名</li><li>助理 / 初级 480 元，中级 580 元</li><li>第三期 11/5 截止，12/5 考试</li><li><b>门槛清晰，见效最快</b></li></ul></div>
+      </div>
+      <div class="col">
+        <div class="card gold" style="flex:1"><h4><span class="chip gold">社会认可度优先</span>CPS 水平评价</h4>
+          <ul><li>大专就能报四级，门槛最低</li><li>460 / 480 元，一年两轮</li><li>第二轮 10/26–11/26 报名，12/26 考</li><li><b>必须走授权机构，别信个人直报</b></li></ul></div>
+      </div>
+      <div class="col">
+        <div class="card navy" style="flex:1"><h4><span class="chip">长线走学院派</span>CPS 注册系统</h4>
+          <ul><li>不是考试，是申请制，标准最高</li><li>需要实践小时数 + 督导 + 伦理培训</li><li>2026 申请窗口 10/1–10/31 已关闭</li><li><b>想走高校、医院就提前几年布局</b></li></ul></div>
+      </div>
+    </div>
+    <div class="note"><b>CASP 这条先放一放：</b>2026 年新增体系，报名时间、费用、门槛都还没有官方口径，等公告明确再动，不必抢第一波。<br><b>同一时间只追一条：</b>CAMH 和 CPS 水平评价定位接近，二选一即可；注册系统是长线目标，靠的是持续的实践和督导记录，不是再考一张证。</div>
+  </div>
+  <div class="foot"><span>医院见习与实习 · 中央财经大学 应用心理硕士（非全日制）</span><span>34</span></div>
+</section>
+
+<!-- 35 谢谢 -->
+<section class="slide dark" data-title="谢谢 · 提问时间" data-notes="收尾 40 秒 + 1 分钟提问。重复三句话带走 → 说明资料包会后发群 → 12 家机构速查表建议单独打印一张 A4 发听众。">
+  <div class="deco"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div></div>
+  <div style="text-align:center;animation:rise .8s var(--ease) both">
+    <div class="secnum" style="font-size:64px;-webkit-text-stroke:2px rgba(201,162,39,.9);color:transparent;font-weight:700">Q &amp; A</div>
+    <h1>谢谢 · 提问时间</h1>
+    <div class="rule" style="margin:22px auto 16px"></div>
+    <p class="desc" style="margin:0 auto">会后欢迎继续交流</p>
+  </div>
+</section>
+
+</div></div>
+
+<!-- 导航 -->
+<div class="nav">
+  <button id="btnOutline" title="目录 (M)">☰</button>
+  <button id="btnPrev" title="上一页 (←)">‹</button>
+  <span class="pageno" id="pageno">1 / 35</span>
+  <button id="btnNext" title="下一页 (→)">›</button>
+  <button id="btnNotes" title="备注 (N)">✎</button>
+</div>
+<div class="hint" id="hint">← → 翻页 · M 目录 · N 备注 · P 打印</div>
+
+<div class="drawer" id="notesDrawer">
+  <div class="dhead">演讲者备注</div>
+  <div class="dbody" id="notesBody"></div>
+</div>
+<div class="drawer" id="outlineDrawer">
+  <div class="dhead">目录 <button id="btnCloseOutline" style="border:none;background:none;cursor:pointer;font-size:14px;color:var(--ink2)">✕</button></div>
+  <ol id="outlineList"></ol>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var cur = 0, notesOpen = false, outlineOpen = false;
+  var pageno = document.getElementById('pageno');
+  var progress = document.getElementById('progress');
+  var notesBody = document.getElementById('notesBody');
+  var notesDrawer = document.getElementById('notesDrawer');
+  var outlineDrawer = document.getElementById('outlineDrawer');
+  var outlineList = document.getElementById('outlineList');
+
+  slides.forEach(function(s, i){
+    var li = document.createElement('li');
+    li.innerHTML = '<span class="no">' + String(i+1).padStart(2,'0') + '</span><span>' + (s.dataset.title || ('第' + (i+1) + '页')) + '</span>';
+    li.addEventListener('click', function(){ go(i); toggleOutline(false); });
+    outlineList.appendChild(li);
+  });
+
+  function fit(){
+    var w = window.innerWidth, h = window.innerHeight;
+    var scale = Math.min(w/1300, h/740);
+    document.getElementById('stage').style.transform = 'scale(' + scale + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+
+  function go(i){
+    if(i < 0) i = 0;
+    if(i > slides.length-1) i = slides.length-1;
+    if(i === cur && slides[cur].classList.contains('active')) {
+      // same slide: re-trigger animations only if needed
+    }
+    slides[cur].classList.remove('active');
+    cur = i;
+    // force reflow so entry animations restart
+    void slides[cur].offsetWidth;
+    slides[cur].classList.add('active');
+    pageno.textContent = (cur+1) + ' / ' + slides.length;
+    progress.style.width = ((cur+1)/slides.length*100) + '%';
+    setTimeout(function(){ countUp(slides[cur]); }, 350);
+    notesBody.textContent = slides[cur].dataset.notes || '（本页无备注）';
+    Array.prototype.forEach.call(outlineList.children, function(li, j){
+      li.classList.toggle('cur', j === cur);
+    });
+    if(outlineOpen){
+      var curLi = outlineList.children[cur];
+      if(curLi) curLi.scrollIntoView({block:'nearest'});
+    }
+  }
+  function toggleNotes(force){
+    notesOpen = (typeof force === 'boolean') ? force : !notesOpen;
+    notesDrawer.classList.toggle('open', notesOpen);
+  }
+  function toggleOutline(force){
+    outlineOpen = (typeof force === 'boolean') ? force : !outlineOpen;
+    outlineDrawer.classList.toggle('open', outlineOpen);
+    if(outlineOpen){
+      var curLi = outlineList.children[cur];
+      if(curLi) curLi.scrollIntoView({block:'center'});
+    }
+  }
+
+  document.getElementById('btnPrev').addEventListener('click', function(){ go(cur-1); });
+  document.getElementById('btnNext').addEventListener('click', function(){ go(cur+1); });
+  document.getElementById('btnNotes').addEventListener('click', function(){ toggleNotes(); });
+  document.getElementById('btnOutline').addEventListener('click', function(){ toggleOutline(); });
+  document.getElementById('btnCloseOutline').addEventListener('click', function(){ toggleOutline(false); });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); go(cur+1); }
+    else if(e.key === 'ArrowLeft' || e.key === 'PageUp'){ e.preventDefault(); go(cur-1); }
+    else if(e.key === 'Home'){ e.preventDefault(); go(0); }
+    else if(e.key === 'End'){ e.preventDefault(); go(slides.length-1); }
+    else if(e.key === 'n' || e.key === 'N'){ toggleNotes(); }
+    else if(e.key === 'm' || e.key === 'M'){ toggleOutline(); }
+    else if(e.key === 'Escape'){ toggleOutline(false); }
+    else if(e.key === 'p' || e.key === 'P'){ window.print(); }
+  });
+
+  // 快捷键提示 6 秒后淡出
+  setTimeout(function(){ document.getElementById('hint').classList.add('gone'); }, 6000);
+
+  // touch swipe
+  var tx = null;
+  document.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if(tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    if(dx < -40) go(cur+1); else if(dx > 40) go(cur-1);
+    tx = null;
+  }, {passive:true});
+
+  /* ===== 动态引擎：数字计数 ===== */
+  function countUp(slide){
+    if(!slide) return;
+    var els = slide.querySelectorAll('.stat .n');
+    Array.prototype.forEach.call(els, function(el){
+      var node = el.firstChild;
+      if(!node || node.nodeType !== 3) return;
+      var m = node.textContent.match(/^(\d+)([\s\S]*)$/);
+      if(!m) return;
+      var target = parseInt(m[1],10), suffix = m[2];
+      if(!target) return;
+      var t0 = null, dur = 1000 + target % 400;
+      function step(ts){
+        if(t0 === null) t0 = ts;
+        var p = Math.min((ts - t0)/dur, 1);
+        var eased = 1 - Math.pow(1-p, 3);
+        node.textContent = Math.round(target*eased) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* ===== 动态引擎：粒子系统 ===== */
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+  function makeParticles(canvas, opts){
+    var ctx = canvas.getContext('2d');
+    var parts = [], W = 0, H = 0;
+    function resize(){
+      W = opts.width(); H = opts.height();
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+      parts = [];
+      for(var i = 0; i < opts.count; i++){
+        parts.push({
+          x: Math.random()*W, y: Math.random()*H,
+          r: opts.rMin + Math.random()*(opts.rMax - opts.rMin),
+          vy: opts.vyMin + Math.random()*(opts.vyMax - opts.vyMin),
+          sway: 8 + Math.random()*22,
+          ph: Math.random()*Math.PI*2,
+          sp: .3 + Math.random()*.7,
+          hue: Math.random(),
+          tw: .4 + Math.random()*.6
+        });
+      }
+    }
+    function frame(t){
+      ctx.clearRect(0,0,W,H);
+      for(var i = 0; i < parts.length; i++){
+        var p = parts[i];
+        p.y -= p.vy;
+        if(p.y < -p.r*2){ p.y = H + p.r*2; p.x = Math.random()*W; }
+        var x = p.x + Math.sin(t*.0004*p.sp + p.ph) * p.sway;
+        var a = opts.alpha * p.tw * (0.55 + 0.45*Math.sin(t*.0012 + p.ph*3));
+        var col = p.hue < .55 ? '201,162,39' : (p.hue < .8 ? '227,195,90' : opts.alt);
+        ctx.beginPath();
+        var g = ctx.createRadialGradient(x,p.y,0,x,p.y,p.r);
+        g.addColorStop(0,'rgba('+col+','+a.toFixed(3)+')');
+        g.addColorStop(1,'rgba('+col+',0)');
+        ctx.fillStyle = g;
+        ctx.arc(x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+      }
+      if(!reduced) requestAnimationFrame(frame);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    if(!reduced) requestAnimationFrame(frame); else frame(0);
+  }
+
+  // 舞台内：金色尘埃缓缓上浮
+  makeParticles(document.getElementById('fx'), {
+    count: 26, rMin: 1.2, rMax: 3.4, vyMin: .12, vyMax: .38,
+    alpha: .5, alt: '120,150,210',
+    width: function(){ return 1280; }, height: function(){ return 720; }
+  });
+  // 舞台外：环境光斑缓慢漂移
+  makeParticles(document.getElementById('fxbg'), {
+    count: 16, rMin: 30, rMax: 90, vyMin: .05, vyMax: .16,
+    alpha: .07, alt: '70,100,160',
+    width: function(){ return window.innerWidth; }, height: function(){ return window.innerHeight; }
+  });
+
+  /* ===== 动态引擎：鼠标视差 + 聚光灯 ===== */
+  var stage = document.getElementById('stage');
+  document.addEventListener('mousemove', function(e){
+    var r = stage.getBoundingClientRect();
+    if(!r.width) return;
+    var mx = Math.max(-1, Math.min(1, ((e.clientX - r.left)/r.width - .5)*2));
+    var my = Math.max(-1, Math.min(1, ((e.clientY - r.top)/r.height - .5)*2));
+    stage.style.setProperty('--mx', mx.toFixed(3));
+    stage.style.setProperty('--my', my.toFixed(3));
+    stage.style.setProperty('--sx', (((e.clientX - r.left)/r.width)*100).toFixed(2) + '%');
+    stage.style.setProperty('--sy', (((e.clientY - r.top)/r.height)*100).toFixed(2) + '%');
+    document.getElementById('fxbg').style.transform =
+      'translate(' + (mx*-9).toFixed(1) + 'px,' + (my*-7).toFixed(1) + 'px)';
+  }, {passive:true});
+
+  go(0);
+})();
+</script>
+</body>
+</html>

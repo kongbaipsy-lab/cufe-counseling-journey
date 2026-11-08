@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心理咨询理论与实操认证培训清单（2026–2027）</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --ink:#1f2328; --ink2:#4a5568; --ink3:#6b7280;
+    --line:#e5e7eb; --line2:#eef0f3;
+    --accent:#2b6cb0; --accent-soft:#ebf3fb;
+    --ok:#1a7f5a; --ok-soft:#e8f5ef;
+    --warn:#b45309; --warn-soft:#fdf3e3;
+    --red:#b91c1c; --red-soft:#fdecec;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:14px;line-height:1.65;}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 20px 60px;}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:-.3px}
+  .sub{color:var(--ink3);font-size:13px;margin-bottom:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:18px}
+  h2{font-size:19px;margin:0 0 12px;padding-left:10px;border-left:4px solid var(--accent)}
+  h3{font-size:15px;margin:22px 0 8px;color:var(--ink)}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 4px}
+  th,td{border:1px solid var(--line);padding:9px 10px;vertical-align:top;text-align:left}
+  th{background:#f2f5f8;font-weight:600;color:var(--ink2)}
+  td.num{white-space:nowrap}
+  a{color:var(--accent);text-decoration:none;word-break:break-all}
+  a:hover{text-decoration:underline}
+  .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:20px;margin-right:4px;white-space:nowrap}
+  .t-ok{background:var(--ok-soft);color:var(--ok);border:1px solid #cfe9dc}
+  .t-warn{background:var(--warn-soft);color:var(--warn);border:1px solid #f0dcbb}
+  .t-info{background:var(--accent-soft);color:var(--accent);border:1px solid #d3e4f5}
+  .t-red{background:var(--red-soft);color:var(--red);border:1px solid #f2cfcf}
+  .note{background:var(--warn-soft);border:1px solid #f0dcbb;border-radius:10px;padding:12px 14px;font-size:13px;color:#7c4a03;margin:12px 0}
+  .note.b{background:var(--accent-soft);border-color:#d3e4f5;color:#1c4e80}
+  .note.r{background:var(--red-soft);border-color:#f2cfcf;color:#8f1d1d}
+  ul{margin:6px 0 6px 18px;padding:0}
+  li{margin:3px 0}
+  .muted{color:var(--ink3);font-size:12px}
+  .kv{display:grid;grid-template-columns:120px 1fr;gap:4px 12px;font-size:13px}
+  .kv div:nth-child(odd){color:var(--ink3)}
+  footer{color:var(--ink3);font-size:12px;text-align:center;margin-top:30px}
+
+  .tag.t-online{background:#e8f5ef;color:#1a7f5a;border:1px solid #cfe9dc}
+  .tag.t-offline{background:#eef2f7;color:#4a5568;border:1px solid #dbe3ec}
+  .tag.t-mix{background:#eaf1fa;color:#2b6cb0;border:1px solid #d3e4f5}
+  .tag.t-none{background:#f3f4f6;color:#9aa1ab;border:1px solid #e5e7eb}
+  .tag.t-sys{background:#e8f5ef;color:#1a7f5a;border:1px solid #cfe9dc}
+  .tag.t-school{background:#ebf3fb;color:#2b6cb0;border:1px solid #d3e4f5}
+  .tag.t-org{background:#fdf3e3;color:#b45309;border:1px solid #f0dcbb}
+  .tag.t-hosp{background:#f3ebfa;color:#6d3fa8;border:1px solid #e2d3f2}
+  .tag.t-other{background:#f3f4f6;color:#5b6472;border:1px solid #e5e7eb}
+  .badge-new{display:inline-block;font-size:10px;font-weight:700;color:#b45309;background:#fdf3e3;
+    border:1px solid #f0dcbb;border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:1px}
+  .stats{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin:14px 0}
+  .stat{background:#f7f9fb;border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center}
+  .stat b{display:block;font-size:20px;line-height:1.2;color:var(--ink)}
+  .stat span{font-size:11px;color:var(--ink3)}
+  .stat.ok b{color:var(--ok)} .stat.info b{color:var(--accent)}
+  .stat.warn b{color:var(--warn)} .stat.hosp b{color:#6d3fa8}
+  .filterbar{margin:14px 0 10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:20px;padding:4px 12px;font-size:12px;
+    cursor:pointer;color:var(--ink2);font-family:inherit}
+  .chip:hover{border-color:#bcd4ea;background:#f5f9fd}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip.on b{color:#fff}
+  .chip b{color:var(--ink3);font-weight:600;margin-left:2px}
+  .frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .frow input[type=search]{flex:1;min-width:230px;padding:7px 11px;border:1px solid var(--line);
+    border-radius:8px;font-size:13px;font-family:inherit;color:var(--ink)}
+  .frow select{padding:7px 9px;border:1px solid var(--line);border-radius:8px;font-size:13px;
+    font-family:inherit;color:var(--ink2);background:#fff}
+  .ck{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:5px}
+  .cnt{font-size:12px;color:var(--ink3);margin-left:auto}
+  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+  #bigTable{margin:0;border:0;min-width:1080px}
+  #bigTable th{position:sticky;top:0;z-index:2}
+  #bigTable td{font-size:12.5px}
+  .c-name{min-width:250px}
+  .c-cat{color:var(--ink3);font-size:12px}
+  .cmt{color:var(--ink3);font-size:11.5px;margin-top:3px;line-height:1.5}
+  .price{font-weight:600}
+  @media (max-width:760px){ .stats{grid-template-columns:repeat(3,1fr)} }
+
+
+  .topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:13px;
+    font-family:inherit;cursor:pointer}
+  .btn:hover{background:#1f5c96}
+  .btn.g{background:#fff;color:var(--ink2);border:1px solid var(--line)}
+  .tip{font-size:12px;color:var(--ink3)}
+  @media print{
+    @page{size:A3 landscape;margin:10mm}
+    body{background:#fff;font-size:10px}
+    .wrap{max-width:none;padding:0}
+    .topbar,.filterbar,.chips,.frow{display:none !important}
+    .tblwrap{overflow:visible;border:0}
+    #bigTable{min-width:0 !important;font-size:8.5px}
+    #bigTable th,#bigTable td{padding:4px 5px}
+    #bigTable tbody tr{display:table-row !important}
+    .card{page-break-inside:auto;border:1px solid #ccc;margin-bottom:10px;padding:10px}
+    h2{page-break-after:avoid;font-size:15px}
+    h3{page-break-after:avoid;font-size:12px}
+    tr,li,.note{page-break-inside:avoid}
+    a{color:#1a4f82;text-decoration:none}
+    .stats{grid-template-columns:repeat(7,1fr)}
+    footer{page-break-before:auto}
+  }
+
+  @media (max-width:760px){ .kv{grid-template-columns:1fr} table{font-size:12px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>心理咨询「理论 + 实操」认证培训清单（2026 年及以后）</h1>
+<div class="topbar noprint">
+  <button class="btn" onclick="window.print()">导出 PDF / 打印（A3 横向）</button>
+  <span class="tip">提示：打印时会自动展开全部 174 行并隐藏筛选栏；生成的 PDF 可脱离网络、无需登录直接打开，链接可点击。</span>
+</div>
+<div class="sub">
+  更新：2026-11-02（v4，新增第八节六家公立医院进修项目官方原文）｜ 覆盖范围：中国心理卫生协会（CAMH）、中国心理学会（CPS，含水平评价 + 注册系统）、中国社会心理学会（CASP）、市场机构长程培训 174 条｜ 每条均标注来源与核实等级
+</div>
+
+<div class="card">
+<h2>核实原则（先读这三条，避免踩坑）</h2>
+<ul>
+  <li><span class="tag t-ok">官方文件</span>＝来自协会官网、官方考试/报名系统、协会盖章通知原文的字段，可直接采信。</li>
+  <li><span class="tag t-warn">机构公示</span>＝来自协会<b>备案/授权培训机构</b>自行公示的招生价。<b>协会不统一制定培训费</b>，故这类价格是区间参考，不是官方定价，报名前请以机构合同为准。</li>
+  <li><span class="tag t-red">未核实</span>＝未找到官方或可靠公示来源，本清单<b>不给数字</b>，只给官方查询入口。宁缺勿造。</li>
+  <li><span class="tag t-other">社群整理</span>＝第四节 174 条来自第三方社群月度整理表（机构招生公示值），<b>非协会官方核实数据</b>，原样收录并附原表链接，请自行二次核验。</li>
+</ul>
+<div class="note">
+  <b>重要前提：</b>2017 年国家已取消人社部心理咨询师职业资格认证。目前所有「心理咨询师证书」都属<b>行业水平评价 / 培训合格证明</b>，不是执业许可。独立执业还需个案时数、督导、机构备案等条件（《精神卫生法》框架下，心理治疗需医疗机构的心理治疗师或精神科医师资质）。
+</div>
+<div class="note r">
+  <b>防骗提示（官方已发布警示）：</b>中国心理学会曾发布《关于警惕冒用中国心理学会名义虚假招生宣传的提示》（2025-10-31）与《关于虚假证书查询网站的反诈警示》（2026-06-17）。<b>唯一核验方式</b>：机构是否能在官方系统查到备案/授权编码（CPS 编码形如 OR-xxxxxx），证书是否能在官网证书查询栏目查到编号。
+</div>
+</div>
+
+<!-- ============ 一、中国心理卫生协会 ============ -->
+<div class="card">
+<h2>一、中国心理卫生协会（CAMH）体系</h2>
+
+<h3>1.1 核心认证路径：心理咨询师职业能力水平评价（助理 / 初级 / 中级 / 高级）</h3>
+<p class="muted">依据团体标准《心理咨询师职业能力水平评价标准》T/CAMH 00002-2025；实行「考培分离」：协会只管考试与发证，培训由<b>经协会审核备案的培训机构</b>实施。获证后可衔接协会注册系统。</p>
+<table>
+  <tr>
+    <th style="width:96px">等级</th><th>形式<br>（线上/线下）</th><th>培训时长</th><th>报名费用</th><th>凭证说明</th><th>官方链接</th>
+  </tr>
+  <tr>
+    <td><b>助理级</b></td>
+    <td>培训：线上为主（录播+模拟训练，各备案机构自定）<br>考试：<b>全国统一线下机考</b></td>
+    <td>备案课程 <b>≥174 学时</b>（基础理论+伦理规范+专业技能）；多数机构实际开设 174–194+ 学时</td>
+    <td><b>考试费：480 元/两科</b>（240 元/科）<span class="tag t-ok">官方</span><br>培训费：机构自定，公示区间约 <b>3000–3680 元</b><span class="tag t-warn">机构公示</span></td>
+    <td><b>机构证明</b>：备案机构出具的培训学时证明（报考必需）；<br><b>学校证明</b>：在读生需学校/院系在读证明（注明毕业年级）；<br>学历：学信网备案表；<br>通过后获协会证书，官网可查</td>
+    <td><a href="https://www.cert-camh.org.cn/" target="_blank">cert-camh.org.cn（报名/成绩/证书查询/备案机构公示）</a></td>
+  </tr>
+  <tr>
+    <td><b>初级</b></td>
+    <td>同上（线上培训 + 线下机考）</td>
+    <td>非本专业本科需完成备案初级课程 <b>≥174 学时</b>；心理学/临床医学/精神医学/教育学/社会工作本科及以上可按学历直接申报</td>
+    <td><b>考试费：480 元/两科</b><span class="tag t-ok">官方</span><br>培训费同上（约 3000–3680 元）<span class="tag t-warn">机构公示</span></td>
+    <td><b>机构证明</b>（学时证明）/ <b>学校证明</b>（学历或在读证明）/ 职称或社工师职业资格证明；<br>2026-04-30 前已持「三会一所」可查培训合格证书者可直接申报</td>
+    <td><a href="https://www.cert-camh.org.cn/" target="_blank">https://www.cert-camh.org.cn/</a></td>
+  </tr>
+  <tr>
+    <td><b>中级</b></td>
+    <td>课程+伦理可线上；<b>见习 40 / 实习 100 学时须在认定机构线下完成</b>；督导须面询或团体督导</td>
+    <td>中级课程 <b>≥60 学时</b> + 伦理 <b>≥12 学时</b> + 见习 <b>≥40 学时</b> + 实习 <b>≥100 学时</b> + 个体督导 <b>≥10 小时</b> + 团体督导 <b>≥20 小时</b>；另需 2 年相关工作</td>
+    <td><b>考试费：580 元/两科</b>（290 元/科）<span class="tag t-ok">官方</span><br>培训/见习实习/督导费：<span class="tag t-red">未核实</span>（由承办机构自定）</td>
+    <td><b>机构证明</b>：学时证明；<br><b>医院/机构证明</b>：认定机构开具的见习、实习证明 + 工作证明；<br><b>注册督导师证明</b>：督导小时数证明；<br>前置证书（原国家三级证 / 协会初级证 / 相关硕士学历 / 中级职称）</td>
+    <td><a href="https://www.cert-camh.org.cn/" target="_blank">cert-camh.org.cn「报考条件」栏目</a></td>
+  </tr>
+  <tr>
+    <td><b>高级</b></td>
+    <td colspan="5">标准中设四级体系（助理—初级—中级—高级），但截至 2026-10-24，官方考试通知仅开放<b>助理、初级、中级</b>三个级别的报名与考试。<span class="tag t-red">高级暂未开考</span></td>
+  </tr>
+</table>
+
+<h3>1.2 考试时间表（2026–2027）</h3>
+<table>
+  <tr><th>年份</th><th>批次</th><th>考试日期</th><th>报名起止</th><th>备注</th></tr>
+  <tr><td rowspan="3">2026</td><td>第一期</td><td>5 月 24 日</td><td>考前约 1 个月</td><td>已结束（8-15 已顺利举行第二期）</td></tr>
+  <tr><td>第二期</td><td>8 月 15 日</td><td>—</td><td>成绩已于 2026-09-10 发布</td></tr>
+  <tr><td><b>第三期</b></td><td><b>12 月 5 日（周六）</b></td><td><b>2026-08-24 12:00 — 11-11 23:59</b></td><td>基础知识 13:00-15:00；专业技能 16:00-18:00；考点为各省会城市</td></tr>
+  <tr><td rowspan="4">2027</td><td>第一期</td><td>3 月 27 日（周六）</td><td>2026-12-14 — 2027-03-03</td><td rowspan="4">全年四期，同日开考助理/初级/中级；基础知识 13:00-14:30，专业技能 15:30-17:00；考点覆盖省会、计划单列市及部分地级市 <span class="tag t-ok">官方 2026-10-08 通知</span></td></tr>
+  <tr><td>第二期</td><td>6 月 26 日（周六）</td><td>2027-04-08 — 06-02</td></tr>
+  <tr><td>第三期</td><td>9 月 25 日（周六）</td><td>2027-07-05 — 09-01</td></tr>
+  <tr><td>第四期</td><td>12 月 11 日（周六）</td><td>2027-10-09 — 11-17</td></tr>
+</table>
+<p class="muted">合格标准：单科满分 100，60 分及以上合格；单科合格成绩 <b>2 年内有效</b>；考后约 25 个工作日公布成绩。官方咨询电话 400-103-5963（以官网「更换咨询电话」通知为准）；2027 计划通知另列 010-65476861。</p>
+
+<h3>1.3 协会注册系统（获证后的进阶通道）</h3>
+<div class="kv">
+  <div>系统名称</div><div>中国心理卫生协会心理服务专业机构和专业人员注册系统（RPS）</div>
+  <div>关键规则</div><div>2026 年 6 月《管理办法（修订版）》明确：持<b>水平评价初级及以上证书</b>者，完成专业实践、伦理培训、见习实习及督导后，可申请注册为<b>初级心理咨询师</b>——路径为「水平评价 → 注册初级 → 注册中级 → 注册高级 → 注册督导师」</div>
+  <div>凭证类型</div><div><b>注册系统认证</b>（注册名录官网公示）+ <b>机构证明</b>（继续教育/见习实习）+ <b>伦理培训证明</b></div>
+  <div>费用</div><div><span class="tag t-red">未核实</span>：官网已发布《注册系统收费标准（修订）》，本清单未取到具体金额，请在官网「信息公示 / 公告栏」查询</div>
+  <div>链接</div><div><a href="https://rps.camh.org.cn/" target="_blank">https://rps.camh.org.cn/</a>（注册申请 / 继续教育 / 注册查询 / 公示信息）</div>
+</div>
+
+<h3>1.4 协会各专业委员会主办的专项「理论＋实操」培训（2026 年度立项通过项目）</h3>
+<p class="muted">来源：《中国心理卫生协会 2026 年度分支机构教育培训立项通过项目一览表》（共 85 项，协会官网 PDF）。立项表<b>不含费用</b>，费用需查各专委会单独通知；下表中已查到费用的项目已标注来源。</p>
+<table>
+  <tr>
+    <th style="width:200px">培训项目</th><th>主办分支机构</th><th>形式</th><th>时间 / 地点</th><th>时长</th><th>费用</th><th>凭证</th><th>链接</th>
+  </tr>
+  <tr>
+    <td><b>第十一届贝克认知行为治疗系列培训</b>（CBT）</td><td>认知行为治疗专委会 + 北京安定医院</td>
+    <td>线下集训 + 线上团体督导（每期 3 次团督 + 1 次伦理讲座）</td>
+    <td>第1期 4/20-23 芜湖；第2期 8/26-29 雄安；第3期 11/4-7 北京</td>
+    <td><b>3 期共 120 学时</b>（理论 96 + 督导 18 + 伦理 6），每期授予 40 学时</td>
+    <td><b>5000 元/期</b>；会员/3人团报/三期连报 4200；协会注册系统人员 4800；学生 4000；复训 2500 <span class="tag t-ok">专委会通知</span></td>
+    <td>每期《中国心理卫生协会培训证明》40 学时；3 期完成+提交案例+督导考核合格 → 项目负责人签字的 <b>CBT 胜任力证书</b></td>
+    <td><a href="https://www.camh.org.cn/n-421/1726.html" target="_blank">camh.org.cn 活动页</a></td>
+  </tr>
+  <tr>
+    <td><b>临床心理评估与治疗专业技能培训班</b></td><td>职业心理健康促进专委会 / 心理评估专委会（与山东省精神卫生中心联办）</td>
+    <td>线下（济南）</td><td>2026-04-22 至 04-26</td>
+    <td><b>5 天</b></td>
+    <td><b>6800 元/人</b>（含资料、证书）；3 人团报/协会会员 6500 <span class="tag t-ok">招生通知</span></td>
+    <td>双证书：协会《临床心理评估与治疗专业技能培训合格证书》+ 相关治疗技术证书（<b>机构证明</b>）</td>
+    <td><a href="https://www.sdmhc.com.cn/newsDetailCh_6555_156_188.html" target="_blank">山东省精神卫生中心通知</a></td>
+  </tr>
+  <tr>
+    <td>注册心理咨询师（中级）伦理培训</td><td>心理咨询师专委会</td><td>线下</td><td>2026-09-20 北京</td>
+    <td><span class="tag t-red">未核实</span></td><td><span class="tag t-red">未核实</span></td>
+    <td>协会伦理培训证明（注册系统认可）</td>
+    <td><a href="https://www.camh.org.cn/n-265/" target="_blank">协会分支机构活动列表</a></td>
+  </tr>
+  <tr>
+    <td>全国心理测验与评估专业技能培训班</td><td>心理评估专委会</td><td>线下</td><td>2026-06-01 南宁；另安徽芜湖（时间待定）</td>
+    <td><span class="tag t-red">未核实</span></td><td><span class="tag t-red">未核实</span></td><td>协会培训证明</td>
+    <td><a href="https://www.camh.org.cn/n-265/" target="_blank">活动列表</a></td>
+  </tr>
+  <tr>
+    <td>创伤相关障碍诊断和认知加工疗法（CPT）技能培训</td><td>青少年心理卫生专委会</td><td>线下</td><td>2026-03-01 北京</td>
+    <td>两阶段（基础课 + CPT 工作坊）</td><td><span class="tag t-red">未核实</span></td><td>协会证明 + <b>已公示为国家继续医学教育推荐项目</b></td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>儿童心理急救技术培训 / 校园心理危机干预组织与技能培训</td><td>青少年心理卫生专委会</td><td>线下</td><td>2026-07-01 / 2026-08-01 北京</td>
+    <td><span class="tag t-red">未核实</span></td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>人际心理治疗（IPT）初级 / 中级 / 高级班 + IPT 学习班</td><td>人际心理治疗专委会</td><td>线下</td><td>初级 4 月 & 10 月（长沙、长春）；中级 7 月（长沙）；高级 10 月（长沙）；学习班 5 月（长沙）</td>
+    <td>分阶递进</td><td><span class="tag t-red">未核实</span></td><td>协会证明；学习班<b>已公示为国家继续医学教育推荐项目</b></td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>正念减压培训班（标准正念减压 8 周课程）</td><td>护理心理专委会</td><td><b>线上</b></td><td>2026 年 6–8 月</td>
+    <td>标准 8 周课程</td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>家庭治疗理论和技术培训班</td><td>婚姻家庭心理健康促进专委会</td><td><b>线上</b></td><td>2026 年</td>
+    <td><span class="tag t-red">未核实</span></td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>焦点解决短程治疗（SFBT）初阶/中阶/高阶；焦点解决实务技能</td><td>妇女健康与发展专委会</td><td>线上 + 线下</td><td>全年滚动，北京等</td>
+    <td>分阶</td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/n-265/" target="_blank">活动列表</a></td>
+  </tr>
+  <tr>
+    <td>临床心理动力及认知行为治疗心理工作者胜任力实务培训</td><td>特殊职业群体专委会</td><td>线下（石家庄）+ 线上</td><td>2026 年 4–12 月</td>
+    <td>长程</td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>第一届自体心理学实操技能与实务培训（第二阶段）</td><td>特殊职业群体专委会</td><td><b>线上</b></td><td>2026 年 4–12 月</td>
+    <td>长程（含案例督导、模拟咨询）</td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>创伤心理治疗稳定化技能培训（EMDR 前置基础课）</td><td>心理治疗与心理咨询专委会</td><td>线下</td><td>2026-05-01 北京</td>
+    <td>短训</td><td><span class="tag t-red">未核实</span></td><td>协会证明（可衔接 EMDR I/II 阶培训）</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>传统文化与中医心理治疗培训（第五期 / 第六期）</td><td>心理治疗与心理咨询专委会</td><td><b>线上线下混合</b></td><td>第五期 8/21-23 武汉；第六期 11/21-23 深圳</td>
+    <td>3 天/期，含三大模块</td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>中德格式塔治疗连续培训（初级班 / 高级班 / 暑期班 / 督导班）</td><td>心理治疗与心理咨询专委会（指导单位）</td><td>线下</td><td>全年；暑期班 2026-08-01</td>
+    <td>连续培训</td><td><span class="tag t-red">未核实</span></td><td>协会（指导单位）+ 承办机构证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>SID 团体带领者系统培训</td><td>团体心理辅导与治疗专委会（指导单位）</td><td><b>线上线下结合</b></td><td>2026-06-01 起</td>
+    <td><b>两年期</b></td><td><span class="tag t-red">未核实</span></td><td>机构/专委会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>心理减压专家孵化计划（危机干预 / 职场减压 / 灾难救援 / 压力评估 等模块）</td><td>职业心理健康促进专委会</td><td>线下</td><td>2026 年 3–11 月，厦门、贵阳、济南、宝鸡、大连、青岛、广州、北京等多地</td>
+    <td>模块化短训</td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>校园心理危机预防与干预培训（含 2027 年 1 月场次）</td><td>大学生心理咨询专委会</td><td>线下</td><td>2026 年 4/7/10 月、<b>2027 年 1 月</b>；上海、武汉、苏州、杭州</td>
+    <td>短训</td><td><span class="tag t-red">未核实</span></td><td>协会证明</td>
+    <td><a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">2026 立项表 PDF</a></td>
+  </tr>
+  <tr>
+    <td>心理咨询师继续教育培训班（第十五期）</td><td>中国心理卫生协会（总会）</td><td>线下</td><td>2026-06-15 至 06-20，上海交通大学</td>
+    <td>6 天</td><td><span class="tag t-red">未核实</span></td><td>协会继续教育证明</td>
+    <td><a href="https://conf.camh.org.cn/" target="_blank">conf.camh.org.cn（活动预告/报名）</a></td>
+  </tr>
+</table>
+<div class="note b">
+  表中仅为 85 个立项项目中的代表性条目（侧重心理咨询理论与实操）。完整 85 项清单（含精神康复技能训练程式、青少年 DBT-A、学习困难新进展、ISAAC 孤独症干预、心理情景剧导演、叙事治疗、移空技术、团体关系会议、EAP 咨询核心技术等）请直接下载官方 PDF：
+  <a href="https://www.camh.org.cn/upload/file/20260415/d6d6806ee9d9debd31a468f131a6fa7a.pdf" target="_blank">中国心理卫生协会 2026 年度分支机构教育培训立项通过项目一览表</a>
+</div>
+</div>
+
+<!-- ============ 二、中国心理学会 ============ -->
+<div class="card">
+<h2>二、中国心理学会（CPS）体系</h2>
+<div class="note b">
+学会内部有<b>两套完全不同的体系</b>，务必区分：<br>
+① <b>心理咨询师水平评价</b>（四级→一级，面向社会考生，大专可报四级）——由水平评价工作管理中心/继续教育工作委员会体系运行，报名系统 sppj.psysoc.org.cn；<br>
+② <b>临床与咨询心理学专业机构和专业人员注册系统</b>（注册助理心理师/心理师/督导师，要求硕士以上+实务+督导）——由临床心理学注册工作委员会运行，官网 chinacpb.net。
+</div>
+
+<h3>2.1 心理咨询师水平评价（四级 / 三级）</h3>
+<p class="muted">依据《中国心理学会–中国科学院心理研究所心理咨询师水平评价规范（试行）》（2024 年 4 月发布）。同样实行「考培分离」：必须经<b>备案/认定的培训机构</b>完成培训，且学时须录入官方综合服务系统方为有效；考试费由考生本人直接缴至中国心理学会账户。</p>
+<table>
+  <tr>
+    <th style="width:100px">等级</th><th>形式<br>（线上/线下）</th><th>培训时长</th><th>报名费用</th><th>凭证说明</th><th>官方链接</th>
+  </tr>
+  <tr>
+    <td><b>四级</b><br>（助理心理咨询师）</td>
+    <td>理论课：线上录播（或面授）<br>实务课与见习实习：<b>线下面授</b><br>考试：<b>全国统一线下机考</b></td>
+    <td>备案课程 <b>172 学时</b>（基础理论 92 + 四级实务 80）；<br>另有机构按官方教学安排开设 <b>224 学时</b>版（理论 120 线上录播 + 实务 64（线上 24 + 面授 40）+ 见习实习 40 面授）<br><span class="muted">官方要求：线上课程 100% 完成、面授考勤 &gt;70%、见习实习评定合格方可申报</span></td>
+    <td><b>考试费：460 元/两科</b>（230 元/科）<span class="tag t-ok">官方</span><br>培训费：机构自定，公示价约 <b>3980–5980 元</b><span class="tag t-warn">机构公示</span>（例：网梯 3980；广西和谐 3980；南昌大学继续教育学院 5980）</td>
+    <td><b>机构证明</b>：备案/认定机构学时记录（系统可查，是报考的必要条件）；<br><b>学校证明</b>：毕业年级在读学生凭在读证明报考；<br>学历：大专及以上；或助理社会工作师职业资格；<br>通过后获学会水平等级证书，统一编号、官网可查</td>
+    <td rowspan="2"><a href="https://sppj.psysoc.org.cn/#/home" target="_blank">sppj.psysoc.org.cn<br>（报名/学时/成绩/证书查询）</a><br><br>微信小程序：<b>CPS 水平评价学员端</b></td>
+  </tr>
+  <tr>
+    <td><b>三级</b><br>（心理咨询师）</td>
+    <td>理论课线上；<b>含 24 学时实务练习课线下面授</b>；考试线下机考</td>
+    <td><b>212 学时</b>（基础理论 92 + 三级实务 120，其中含 24 学时面授实务练习）</td>
+    <td><b>考试费：480 元/两科</b>（240 元/科）<span class="tag t-ok">官方</span><br>培训费：公示价约 <b>4980–5280 元</b><span class="tag t-warn">机构公示</span></td>
+    <td><b>机构证明</b>（学时）+ 满足七条履历条件之一：<b>学校证明</b>（心理学/教育学/社会学/医学本科及以上学位证）、四级证书、初级以上职称、原国考三级证、社工师证、人力资源管理师二级证、或经认定的培训项目合格证</td>
+  </tr>
+</table>
+
+<p><b>2026 年考试安排</b>（官方）：</p>
+<table>
+  <tr><th>轮次</th><th>等级</th><th>考试日期</th><th>报名起止</th><th>成绩发布</th></tr>
+  <tr><td>第一次</td><td>四级</td><td>2026-06-27</td><td>04-27 至 05-27</td><td>2026-07-20</td></tr>
+  <tr><td>第一次（试点）</td><td>三级</td><td>2026-08-08</td><td>06-08 至 07-08</td><td>2026-09-20</td></tr>
+  <tr><td>第二次</td><td>四级 + 三级（同日）</td><td><b>2026-12-26</b></td><td><b>10-26 至 11-26</b></td><td>2027-01-20</td></tr>
+</table>
+<p class="muted">科目：心理学综合 9:30–11:30；咨询实务 13:00–15:00。百分制，60 分合格，<b>单科成绩有效期 3 年</b>。二级、一级尚未开考（有机构宣称「二级 2027 年开考」，<span class="tag t-red">官方未确认</span>，请勿据此决策）。<b>2027 年度考试计划截至 2026-10-24 官方尚未发布。</b></p>
+
+<h3>2.2 临床心理学注册工作委员会（注册系统）— 伦理与继续教育</h3>
+<table>
+  <tr>
+    <th style="width:170px">项目</th><th>形式</th><th>时长</th><th>费用</th><th>凭证说明</th><th>链接</th>
+  </tr>
+  <tr>
+    <td><b>初阶伦理培训</b><br>（注册系统网络初阶伦理学习与考试）</td><td><b>线上</b>（注册系统指定平台 /「南大数字」微信小程序）</td>
+    <td><b>16 学时</b></td>
+    <td>约 <b>200 元/人</b>（高校通知：「费用以平台公布为准，参与课程且考试 200 元/人」）<span class="tag t-warn">机构公示</span></td>
+    <td>初阶伦理培训证书（<b>注册系统认证</b>）；替代路径：<b>学校证明</b>（已注册硕士项目高校的伦理课 + 学校盖章成绩单）、高校学历教育 ≥16 学时伦理课成绩单、已注册继续教育项目的伦理模块证明（主办方盖章）</td>
+    <td><a href="http://www.chinacpb.net/" target="_blank">chinacpb.net</a></td>
+  </tr>
+  <tr>
+    <td><b>中阶伦理培训</b></td><td><b>线下地面培训</b>（注册系统不设线上中阶）</td>
+    <td><b>16 学时</b>（迟到早退扣学时）</td>
+    <td>注册系统有效注册期内人员 <b>1400 元</b>；非注册人员 <b>1600 元</b>；各省督导点自办场次多为 <b>1600 元</b>（如广东省心理学会）<span class="tag t-ok">官方通知</span></td>
+    <td>中阶伦理培训证书（<b>注册系统认证</b>）；可由注册系统主办、督导项目点主办或注册系统认可的地面培训</td>
+    <td><a href="http://www.chinacpb.net/public/index.php/xwz/zixun/info/leixing/53/id/972.html" target="_blank">2026 年第二期（8/15-16 北京）</a><br><a href="http://www.chinacpb.net/public/index.php/xwz/dahui/info/id/943/leixing/12.html" target="_blank">2026 年第一期（4/18-19 北京）</a></td>
+  </tr>
+  <tr>
+    <td>2026 年各省督导点中阶伦理培训（示例）</td><td>线下</td><td>16 学时</td><td>1600 元/人</td>
+    <td>广东省心理学会临床心理与督导专委会（注册系统督导项目依托单位）主办、南方医科大学承办，2026-11-07 至 11-08，广州</td>
+    <td><a href="http://www.chinacpb.net/" target="_blank">关注各省心理学会 / chinacpb.net</a></td>
+  </tr>
+  <tr>
+    <td><b>继续教育项目</b>（注册系统登记）</td><td>线上/线下（由各登记项目自定）</td><td>按各项目（常见为 2 年左右系统培训）</td>
+    <td>各项目自定<span class="tag t-red">未核实</span></td>
+    <td><b>机构证明</b>：项目主办方盖章的继续教育/伦理学习证明；须为<b>已在注册系统登记</b>的继续教育项目（2026 年 9 月继续教育项目注册登记网上申请已启动）</td>
+    <td><a href="http://www.chinacpb.net/" target="_blank">chinacpb.net「最新资讯/重要通知」</a></td>
+  </tr>
+</table>
+<div class="note">
+  <b>2026 年批次个人注册的伦理学时要求（官方，2025-10 发布）：</b><br>
+  · 注册助理心理师：16 学时（须完成初阶伦理）；<br>
+  · 注册心理师：初阶 16 学时 + <b>中阶 16 学时</b>（新增硬性要求）；<br>
+  · 注册督导师：24 学时（16 学时初阶或中阶 + 8 学时督导伦理）。
+</div>
+
+<h3>2.3 注册系统硕士培育项目（学历通道）</h3>
+<div class="kv">
+  <div>项目</div><div>2026 年度临床与咨询心理学硕士培育项目（官方已发布公告）</div>
+  <div>凭证</div><div><b>学校证明</b>：硕士项目毕业生可走「硕士培养项目毕业生注册申请」通道（官方 2026-09-02 发布《注册登记系列问答（2）》）</div>
+  <div>费用</div><div>学历教育学费，<span class="tag t-red">未核实</span>（各高校自定）</div>
+  <div>链接</div><div><a href="http://www.chinacpb.net/" target="_blank">http://www.chinacpb.net/</a></div>
+</div>
+</div>
+
+<!-- ============ 三、其他 ============ -->
+<div class="card">
+<h2>三、其他相关（被协会考试互认，但非协会主办）</h2>
+<table>
+  <tr><th style="width:150px">机构/项目</th><th>形式</th><th>时长</th><th>费用</th><th>凭证说明</th><th>链接</th></tr>
+  <tr>
+    <td><b>中国科学院心理研究所<br>心理咨询师基础培训项目</b></td><td>培训由授权机构组织（线上+面授）；考试线下机考</td>
+    <td><b>192 学时</b>（部分目录列 262 课时）</td>
+    <td><span class="tag t-red">未核实</span>：本次未从心理所官方页面取到 2026 年统一收费标准（网络流传 3000–5000 元培训费 + 450/480 元考试费，说法互相矛盾，不予采信）</td>
+    <td><b>机构证明</b>：仅心理所官网公示的授权机构可招生报考，个人不能直报；属「三会一所」互认范围——中国心理卫生协会报考条件明确承认心理所颁发的可查培训合格证书</td>
+    <td><a href="https://www.psych.ac.cn/" target="_blank">psych.ac.cn（继续教育 → 心理咨询师基础培训项目）</a><br>项目咨询：010-64888631 / 64845775，公众号 jcpx-psych</td>
+  </tr>
+  <tr>
+    <td>中国社会心理学会</td><td colspan="5">在「三会一所」互认名单中被提及（中国心理卫生协会初级报考条件承认其可查培训合格证书）；<b>本次未检索到其 2026 年公开的官方培训招生通知</b>，故不列具体项目。<span class="tag t-red">未核实</span></td>
+  </tr>
+  <tr>
+    <td>心理治疗师（卫生专业技术资格）</td><td colspan="5">卫健委体系，<b>不是协会认证</b>，但是唯一在医疗系统有效的心理治疗执业资质，需<b>医院证明</b>（医疗机构工作经历）+ 相关专业学历 + 全国卫生资格考试。仅作路径提示，不在本次协会培训范围内。</td>
+  </tr>
+</table>
+</div>
+
+
+
+<!-- ============ 四、中国社会心理学会 ============ -->
+<div class="card">
+<h2>四、中国社会心理学会（CASP）</h2>
+
+<div class="note r">
+  <b>结论先行（这条很重要，别被招生话术绕进去）：</b>截至 2026-10-24，中国社会心理学会官网 <a href="https://www.socialpsy.org.cn/" target="_blank">socialpsy.org.cn</a> <b>没有任何面向社会的心理咨询师认证培训招生通知</b>，2026 年公开的通知全部是学术年会与各专委会学术研讨会。<br>
+  学会章程载明的主要任务是「推动社会心理学研究、开展国内外学术交流、编著出版社会心理学期刊和书籍、开展社会心理学咨询和服务活动、普及社会心理学知识」——<b>不含职业资格认证或水平评价</b>。它成立于 1982 年 4 月，业务主管单位中国社会科学院，登记管理机关民政部，现有 24 个分支机构。<br>
+  所以：<b>想拿能报考、能用来执业的证，CASP 不是发证通道</b>。它在体系里的实际作用只有两个——① 作为「三会一所」之一，其历史培训合格证书被中国心理卫生协会初级报考条件承认；② 分支机构以<b>协办 / 学术支持</b>身份参与具体培训项目（本节已核到 2026 年真实案例 1 个）。
+</div>
+
+<h3>4.1 与 CASP 相关、2026 年可查到的「理论＋实操」项目</h3>
+<table>
+  <tr>
+    <th style="width:190px">项目</th><th>形式<br>（线上/线下）</th><th>培训时长</th><th>报名费用</th><th>凭证说明</th><th>跳转链接</th>
+  </tr>
+  <tr>
+    <td><b>2026 年若波正念研讨会暨「正念指导师」工作坊</b><br><span class="muted">主办：清华大学心理与认知科学系传统文化与心理健康教育项目组 + 曲阜师范大学心理学院<br><b>协办：中国社会心理学会人类智慧心理学专业委员会</b></span></td>
+    <td><b>线上 + 线下</b><br>线上 5/9 晚 2 小时（须全程开摄像头）<br>线下 5/16–5/17（曲阜师范大学曲阜校区），共 6 个半天，须全程参与 ≥5 个半天</td>
+    <td>2 天线下 + 2 小时线上<br><b>＋ 后续「百日筑基」</b>：连续打卡 100 天，每天 7–15 分钟练习；期间线上督导出勤率 ≥80%；并完成 1 次工作坊/活动带领</td>
+    <td><b>不收取培训费</b>（交通、食宿自理）<span class="tag t-ok">主办方通知</span><br><span class="muted">报名已于 2026-04-25 截止，本期已结束；下一期需关注曲阜师大心理学院 / 清华项目组公告</span></td>
+    <td><b>机构证明</b>：参加本次活动是获得清华项目组「若波正念指导师」资格认证的<b>必要环节</b>（非充分条件，还须完成百日筑基与督导）；<br>理论课（中华优秀传统文化与青少年心理健康教育联合培养班必修课）亦为获证必要条件，但可不在本次活动报名时承诺</td>
+    <td><a href="https://xlxy.qfnu.edu.cn/info/1068/4544.htm" target="_blank">曲阜师范大学心理学院通知（2026-04-03）</a></td>
+  </tr>
+  <tr>
+    <td><b>中国社会科学院大学 · 社会心理学在职高级课程培训班</b>（2026）<br><span class="muted">中国社会科学院社会学研究所代管中国社会心理学会；师资含学会秘书长陈满琪、副会长孙健敏、专委会主任李超平 / 唐登华 / 姚翔 / 徐琴美 / 陈昌凯 等</span></td>
+    <td><b>线下面授</b><br>中国社会科学院大学望京校区（北京）</td>
+    <td><b>2 年</b>，分课程学习 + 论文撰写两阶段；两年共约 <b>18 门课</b>；每月集中一个周末授课 2 天，寒暑假不上课。课程含「心理治疗理论与实务」「社会心理学理论」「心理学研究方法」等</td>
+    <td><span class="tag t-red">未核实</span>：招生简介未公布学费金额，需电话咨询（15810145068 / 13051002698）</td>
+    <td><b>学校证明</b>（高校非学历高级课程班，属学校证明口径）；<span class="tag t-red">未核实</span>：简介未列明结业证书名称与查询方式。<br>招生对象为<b>已有硕士学位</b>者（社会工作者、心理教育/研究者、企事业单位中高层管理者）→ 符合条件者可申请博士学位</td>
+    <td><a href="https://www.gscass.com.cn/Home/Hot/view/id/19525" target="_blank">中国社会科学院大学招生简介</a></td>
+  </tr>
+  <tr>
+    <td>中国社会心理学会 2026 年学术年会暨会员代表大会<br><span class="muted">第十届理事会换届</span></td>
+    <td>线下（广州）</td>
+    <td>2026 年 11 月（会期以第二轮通知为准）</td>
+    <td><span class="tag t-red">未核实</span></td>
+    <td><b>非培训项目</b>，不发放培训证书；属学术交流活动，可作为了解各专委会动向的渠道</td>
+    <td><a href="https://www.socialpsy.org.cn/index.php?a=dy&c=pc&id=218&catid=58" target="_blank">2026 年学术年会第二轮通知（2026-08-21）</a></td>
+  </tr>
+</table>
+
+<h3>4.2 「三会一所」互认：CASP 证书在别处怎么用</h3>
+<table>
+  <tr><th style="width:150px">承接方</th><th>条款原文要点</th><th>说明与核实等级</th></tr>
+  <tr>
+    <td><b>中国心理卫生协会<br>心理咨询师（初级）</b></td>
+    <td>报考条件第 5 条：具有大专及以上学历的，在 <b>2026 年 4 月 30 日前</b>，取得<b>中国心理卫生协会、中国心理学会、中国社会心理学会和中国科学院心理研究所</b>颁发<b>可查询</b>的心理咨询师专业技能相关培训合格证书或已考核合格证书 → 可申报初级</td>
+    <td><span class="tag t-warn">机构公示</span> 来源：河南科技学院继续教育学院《关于举办 2026 年中国心理卫生协会心理咨询师职业能力水平评价培训的通知》（2026-07-16）原文引述 CAMH 报考条件。<br><b>两个坑</b>：① 截止日 <b>2026-04-30</b>，此后取得的 CASP 证书是否仍被承认官方未明确，<span class="tag t-red">未核实</span>；② 仍<b>需在 CAMH 备案机构完成培训</b>才能拿到报考资格，不是持证直报</td>
+  </tr>
+  <tr>
+    <td><b>中国心理学会<br>心理咨询师（三级）</b></td>
+    <td>七条履历条件之一：参加<b>经认定的</b>国内高校心理学院系或心理学专业机构举办的、有系统教学大纲与评价规范、有完整培训过程及考试记录的心理咨询培训项目并取得合格证书</td>
+    <td>官方<b>未点名任何具体机构名单</b>，也未写明 CASP 证书可直接对应。<span class="tag t-red">未核实</span>：报名前请在 <a href="https://sppj.psysoc.org.cn/#/search" target="_blank">sppj.psysoc.org.cn 机构查询</a> 核验该机构编码，或咨询水平评价项目管理部</td>
+  </tr>
+  <tr>
+    <td>反向关系</td>
+    <td colspan="2">CASP 官网未公布其认定/认可的培训机构名单，也未见「认可某某课程」的公开文件。市面上宣称「中国社会心理学会认可本课程」的说法，<b>本次未检索到任何官方依据</b>，请一律视为待核验。</td>
+  </tr>
+</table>
+
+<h3>4.3 与心理咨询直接相关的分支机构（2023-11-30 官网公示）</h3>
+<p class="muted">以下专委会是 CASP 体系中与心理咨询/心理健康最接近的部分，但<b>截至 2026-10-24，它们的官网栏目里均未发布面向社会的培训招生通知</b>。若有人以其中某个专委会名义招生，务必先向学会核验。</p>
+<table>
+  <tr><th style="width:230px">分支机构</th><th style="width:130px">主任 / 负责人</th><th>办公地点</th></tr>
+  <tr><td>心理健康专业委员会</td><td>郭 成</td><td>西南大学</td></tr>
+  <tr><td>社会心理服务专业委员会</td><td>辛自强</td><td>中央财经大学</td></tr>
+  <tr><td>员工与组织社会心理援助（EOA）专业委员会</td><td>张建新</td><td>中央财经大学</td></tr>
+  <tr><td>整合心理学专业委员会</td><td>孙时进</td><td>复旦大学</td></tr>
+  <tr><td>心理分析与中国文化专业委员会</td><td>冯建国</td><td>大庆师范学院</td></tr>
+  <tr><td>婚姻与家庭心理学专业委员会</td><td>唐登华</td><td>北京大学第六医院</td></tr>
+  <tr><td>人类智慧心理学专业委员会</td><td>汪凤炎</td><td>南京师范大学</td></tr>
+  <tr><td>社会服务与教育工作委员会</td><td>佐 斌</td><td>中山大学</td></tr>
+  <tr><td>青年社会心理学工作委员会</td><td>陈昌凯</td><td>南京大学</td></tr>
+  <tr><td>国民心理素质研究专业委员会</td><td>刘衍玲</td><td>西南大学</td></tr>
+</table>
+<p class="muted">来源：<a href="http://socialpsy.org.cn/index.php?m=&c=pc&a=org&id=130&catid=118&fcatid=126" target="_blank">《中国社会心理学会分支机构及负责人》（官网，2023-11-30）</a>｜学会秘书处：北京建国门内大街 5 号中国社会科学院社会学所（邮编 100732），邮箱 caspmember@vip.126.com</p>
+
+<div class="note r">
+  <b>防混淆（这个坑最近很常见）：</b>「<b>社会心理服务师</b>」<b>不是</b>中国社会心理学会的证书。其依据为 <b>T/CMEAS 093-2026《社会心理服务师能力水平评价规范》</b>，由<b>中国医药教育协会</b>牵头起草、2026-07-09 批准发布，考试全程线上（人脸识别 + 双视角监控），合格者由中国医药教育协会颁发《社会心理服务师岗位能力培训证书》——发证方、标准归口方都与中国社会心理学会无关（官网 xl.org.cn / shequxiehui.net.cn 相关页面亦指向中国社区发展协会等主体）。<br>
+  CASP 虽有同名的「社会心理服务专业委员会」（主任辛自强，中央财经大学），但<b>与该证书项目没有关系</b>。看到「社会心理服务师」招生材料里挂「中国社会心理学会」字样的，请直接向学会邮箱核验。
+</div>
+</div>
+
+<!-- ============ 五、行业机构培训总表 ============ -->
+<div class="card">
+<h2>五、市场机构「理论 + 实操」培训总表（2026 年 10 月版 · 174 条）</h2>
+
+<div class="note r">
+  <b>数据来源与可信度（务必先读）：</b>本节数据来自你提供的第三方社群整理表《2026年靠谱培训每月更新》（制表方：公众号「一片空白的趣味生活」，2026 年 10 月更新，原表标注「本月新增 38 个培训」，本清单已完整收录 <b>174</b> 条、其中新增 <b>38</b> 条）。<br>
+  它与第一～三节的<b>官方核实信息是两类不同性质的来源</b>：本节的价格、时长、开课时间均为<b>机构招生公示值</b>，由制表方收集整理，<b>未经协会官网二次核实</b>；表格原始声明亦写明「不与任何机构合作、不贩卖证书、不分销课程」「价格仅供参考，报名前请通过官方渠道核实」。因此本节每条都附原表链接，请点进去核当期简章后再付款。
+</div>
+
+<div class="stats">
+  <div class="stat"><b>174</b><span>课程总数</span></div>
+  <div class="stat"><b>38</b><span>本月新增</span></div>
+  <div class="stat"><b>68</b><span>线上 / 混合</span></div>
+  <div class="stat ok"><b>34</b><span>注册系统认证</span></div>
+  <div class="stat info"><b>20</b><span>学校证明</span></div>
+  <div class="stat warn"><b>105</b><span>机构证明</span></div>
+  <div class="stat hosp"><b>7</b><span>医院证明</span></div>
+</div>
+
+<div class="filterbar">
+  <div class="chips" id="chips">
+    <button class="chip on" data-cat="__all__">全部 <b>174</b></button>
+    <button class="chip" data-cat="伦理培训">伦理培训 <b>2</b></button>
+    <button class="chip" data-cat="咨询师基础培训">咨询师基础培训 <b>16</b></button>
+    <button class="chip" data-cat="认知行为">认知行为 <b>28</b></button>
+    <button class="chip" data-cat="以人为中心">以人为中心 <b>9</b></button>
+    <button class="chip" data-cat="精神分析">精神分析 <b>20</b></button>
+    <button class="chip" data-cat="荣格·分析取向·沙盘">荣格·分析取向·沙盘 <b>15</b></button>
+    <button class="chip" data-cat="家庭系统">家庭系统 <b>10</b></button>
+    <button class="chip" data-cat="后现代">后现代 <b>14</b></button>
+    <button class="chip" data-cat="其他流派">其他流派 <b>33</b></button>
+    <button class="chip" data-cat="督导信息">督导信息 <b>3</b></button>
+    <button class="chip" data-cat="实践实习">实践实习 <b>17</b></button>
+    <button class="chip" data-cat="大侠心理平台课程">大侠心理平台课程 <b>7</b></button>
+  </div>
+  <div class="frow">
+    <input id="q" type="search" placeholder="搜索课程名 / 机构 / 流派（如 CBT、和光、王建平、实习）">
+    <select id="fCert">
+      <option value="">凭证：全部</option>
+      <option value="注册系统认证">注册系统认证</option>
+      <option value="学校证明">学校证明</option>
+      <option value="机构证明">机构证明</option>
+      <option value="医院证明">医院证明</option>
+      <option value="其他">其他</option>
+    </select>
+    <select id="fMode">
+      <option value="">形式：全部</option>
+      <option value="线上">线上</option>
+      <option value="线上+线下">线上+线下</option>
+      <option value="线下">线下</option>
+    </select>
+    <label class="ck"><input type="checkbox" id="fNew"> 仅看本月新增</label>
+    <span class="cnt" id="cnt"></span>
+  </div>
+</div>
+
+<div class="tblwrap">
+<table id="bigTable">
+  <thead>
+    <tr>
+      <th style="width:96px">分类</th>
+      <th style="width:280px">课程</th>
+      <th style="width:110px">形式<br>（线上/线下）</th>
+      <th style="width:88px">培训时长</th>
+      <th style="width:104px">开课时间</th>
+      <th style="width:110px">报名费用</th>
+      <th style="width:150px">讲师 / 机构</th>
+      <th style="width:118px">凭证说明</th>
+      <th style="width:82px">跳转链接</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr data-cat="伦理培训" data-cert="注册系统认证" data-mode="线上" data-new="0" data-t="初阶 - 伦理培训 樊富珉 伦理培训"><td class="c-cat">伦理培训</td><td class="c-name"><b>初阶 - 伦理培训</b><div class="cmt">✅新手必学 / iOS版微信不能使用。</div></td><td><span class="tag t-online">线上</span></td><td class="num">555分钟</td><td class="num">不限</td><td class="num price">¥200</td><td>樊富珉</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><span class="muted">小程序：南大数字</span></td></tr>
+<tr data-cat="伦理培训" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="高阶 - 伦理培训 cps 中国心理学会注册系统 伦理培训"><td class="c-cat">伦理培训</td><td class="c-name"><b>高阶 - 伦理培训</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1天</td><td class="num">2026-10-24</td><td class="num price">¥800</td><td>CPS 中国心理学会注册系统</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/8NpbgIwDplhy66O_2_0dqg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="第15期“学院π” 临床与咨询心理学硕士水平培训项目 东方明见 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>第15期“学院π” 临床与咨询心理学硕士水平培训项目</b><div class="cmt">无心理学学历背景/不想考心理学硕士，推荐这个。</div></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">2年半</td><td class="num">2027-01-01</td><td class="num price">¥138,000</td><td>东方明见</td><td><span class="tag t-sys">注册系统证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/V7z-Z-B0Obyu3a7POCoRRg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线下" data-new="1" data-t="临床与咨询心理专业能力长程培训项目（care项目第八期） 家姻心理 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>临床与咨询心理专业能力长程培训项目（CARE项目第八期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">2年半</td><td class="num">2027-03-01</td><td class="num price">¥168,000</td><td>家姻心理</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/6DkhAO2Z3o3Y_ZFj3QSB8A" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="机构证明" data-mode="线下" data-new="1" data-t="心理咨询师基础技能培训（第79期） 四川西南心理咨询师培训中心 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>心理咨询师基础技能培训（第79期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">9周</td><td class="num">2026-11-28</td><td class="num price">¥5,900</td><td>四川西南心理咨询师培训中心</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/3jFo1-di3kZd8hHkD6sBcg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线上" data-new="1" data-t="应用心理学研修班（线上班） 应用心理学 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>应用心理学研修班（线上班）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">6个月</td><td class="num">—</td><td class="num price">¥7,800</td><td>应用心理学</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/vDL7gJsAGjiPHLuUSvizWQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="机构证明" data-mode="线下" data-new="0" data-t="薪传计划·学校教师心理咨询实务技能长程研修项目（第一期） 东方明见心理 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>薪传计划·学校教师心理咨询实务技能长程研修项目（第一期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">2年</td><td class="num">2027-01-24</td><td class="num price">¥29,800</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/LT1jNB-yKeDKy0pUNOAZUA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线下" data-new="0" data-t="浙江大学心理咨询师基础理论培训班（第17期） 浙江大学心理系继续教育中心 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>浙江大学心理咨询师基础理论培训班（第17期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">6个月</td><td class="num">2026-11-01</td><td class="num price">¥9,800</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/JpVNNz0Bq2D30dHDvdz9dg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线下" data-new="0" data-t="浙江大学临床与心理咨询高级研修班（第 6 期） 浙江大学心理系继续教育中心 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>浙江大学临床与心理咨询高级研修班（第 6 期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">1.5年</td><td class="num">2026 年 10 月</td><td class="num price">¥38,600</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/9at5qmwasSljBreeFuuyjQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线上+线下" data-new="0" data-t="心理学基础研修（筑基项目大湾区）第四期 北师大心理学部edp中心 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>心理学基础研修（筑基项目大湾区）第四期</b></td><td><span class="tag t-mix">线上+线下</span> <span class="muted">珠海+深圳+线上</span></td><td class="num">1年</td><td class="num">2026-12-10</td><td class="num price">¥54,800</td><td>北师大心理学部EDP中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/0VXUBUiUru__7wECAsJrqA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="机构证明" data-mode="线上" data-new="0" data-t="心理评估分析系统培训（网络班） 漫语心理 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>心理评估分析系统培训（网络班）</b></td><td><span class="tag t-online">线上</span></td><td class="num">7个月</td><td class="num">2026-11-03</td><td class="num price">¥3,800</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ZtQpCIO_ns094xIXmjPhTg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="机构证明" data-mode="线下" data-new="0" data-t="心理评估分析实务工作坊 漫语心理 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>心理评估分析实务工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">6个月</td><td class="num">2026-11-03</td><td class="num price">¥3,600</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ZtQpCIO_ns094xIXmjPhTg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="机构证明" data-mode="线上+线下" data-new="0" data-t="心理咨询师入门培训项目-点金石计划 心理分析与沙盘游戏 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>心理咨询师入门培训项目-点金石计划</b><div class="cmt">比较一般，因为多是录播课，广州没什么好的选择，可以选择这个。</div></td><td><span class="tag t-mix">线上+线下</span> <span class="muted">广州）+线上</span></td><td class="num">1年</td><td class="num">—</td><td class="num price">¥6,800</td><td>心理分析与沙盘游戏</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/HmUDvELHw2Zt7VQfc5M1vw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="机构证明" data-mode="线下" data-new="0" data-t="精微咨询技术与实操系统培训 漫语心理 my 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>精微咨询技术与实操系统培训</b><div class="cmt">就是助人技术的课程内容。内容有点古老，不是最新版的。感觉在大学教了很多遍。</div></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">8个月</td><td class="num">2027 年 7 月 23 日</td><td class="num price">¥3,400</td><td>漫语心理 MY</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/wEoc7PIzKH8-DQZT7Y743w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线下" data-new="0" data-t="2026年心理学基础研修（筑基项目）第三期 北师大心理学部edp中心 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>2026年心理学基础研修（筑基项目）第三期</b><div class="cmt">心理学本科内容，不用考试版。</div></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1年1个月</td><td class="num">2026-11-14</td><td class="num price">¥54,800</td><td>北师大心理学部EDP中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/37-3SSH6nmLJYhltYnCofg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="机构证明" data-mode="线上" data-new="0" data-t="系统化心理咨询实务技术与策略 漫语心理 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>系统化心理咨询实务技术与策略</b><div class="cmt">讲解咨询流程的课程。</div></td><td><span class="tag t-online">线上</span></td><td class="num">—</td><td class="num">—</td><td class="num price">¥3,000</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/pwL7OFreHaTxBMtzKI5FoA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线上" data-new="0" data-t="2026 年浙江大学心理与行为科学系应用心理学研修班（线上班） 浙江大学心理系继续教育中心 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>2026 年浙江大学心理与行为科学系应用心理学研修班（线上班）</b></td><td><span class="tag t-online">线上</span></td><td class="num">6 个月</td><td class="num">2026 年</td><td class="num price">¥7,800</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/WCQsw_0950tYT2fU6lQYtg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="咨询师基础培训" data-cert="学校证明" data-mode="线上" data-new="0" data-t="浙江大学儿童青少年心理发展与家庭教育高级研修班（线上班） 浙江大学心理系继续教育中心 咨询师基础培训"><td class="c-cat">咨询师基础培训</td><td class="c-name"><b>浙江大学儿童青少年心理发展与家庭教育高级研修班（线上班）</b></td><td><span class="tag t-online">线上</span></td><td class="num">6 个月</td><td class="num">—</td><td class="num price">¥7,800</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/iPHY70Sd8RlwPLtPQiN4KQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线上" data-new="0" data-t="第三届失眠认知行为治疗（cbt-i）连续培训项目 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第三届失眠认知行为治疗（CBT-I）连续培训项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">—</td><td class="num">2026 年（持续招生中）</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/db_5XNONfS42xffztu1PxA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="第七期王建平教授认知行为治疗（cbt）连续培训项目 东方明见心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第七期王建平教授认知行为治疗（CBT）连续培训项目</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">2年</td><td class="num">—</td><td class="num price">—</td><td>东方明见心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/KrkOdvnSm6vWasiwhaQM1A" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="王建平团队认知行为治疗（cbt）连续培训项目（上海第四期） 济心理学苑 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>王建平团队认知行为治疗（CBT）连续培训项目（上海第四期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">2年</td><td class="num">2027-07-08</td><td class="num price">—</td><td>济心理学苑</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/G7KwQXqgdaORCKb88Qzy9Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线下" data-new="1" data-t="第三届接纳与承诺疗法（act）连续培训 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第三届接纳与承诺疗法（ACT）连续培训</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">广州</span></td><td class="num">5个月</td><td class="num">2027-07-30</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/9OKvPPIbmWWGWFNfPkJFIQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线上" data-new="1" data-t="mbct正念认知疗法课程 和光临床心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>MBCT正念认知疗法课程</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">2个月</td><td class="num">2026-10-24</td><td class="num price">¥2,880</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/2ojtL7oKcHdGiVLUbHr_pQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="第11届中国贝克cbt培训第三期 认知行为治疗实践与研究 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第11届中国贝克CBT培训第三期</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">4天</td><td class="num">2026-11-04</td><td class="num price">¥5,000</td><td>认知行为治疗实践与研究</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/86dmvEnCP9BwmqDAnrfpkw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线下" data-new="1" data-t="图式疗法——体验式技术的应用（上海班一期） 济心理学苑 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>图式疗法——体验式技术的应用（上海班一期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">4天</td><td class="num">2026-12-24</td><td class="num price">¥3,600</td><td>济心理学苑</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/PbPIPDIkTAmiw6XNxd8tzw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="图式疗法：体验式技术的应用 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>图式疗法：体验式技术的应用</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">4天</td><td class="num">2027-06-03</td><td class="num price">¥3,600</td><td>中育心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/m1saj2s_qPZ_ecIJR-Kbrw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="图式疗法：体验式技术的应用 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>图式疗法：体验式技术的应用</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">4天</td><td class="num">2027-08-05</td><td class="num price">¥3,600</td><td>中育心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/m1saj2s_qPZ_ecIJR-Kbrw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线下" data-new="1" data-t="复杂性创伤问题的cbt理解与干预工作坊 认知行为治疗实践与研究 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>复杂性创伤问题的CBT理解与干预工作坊</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">3天</td><td class="num">2026-11-06</td><td class="num price">¥4,000</td><td>认知行为治疗实践与研究</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/U0ZtrIvyHw3NMmjPcLAr5A" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="未标注" data-new="1" data-t="和光第六届认知行为（cbt）心理咨询师初级培训 和光临床心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>和光第六届认知行为（CBT）心理咨询师初级培训</b> <span class="badge-new">NEW</span></td><td><span class="tag t-none">未标注</span></td><td class="num">2年</td><td class="num">2027-01-01</td><td class="num price">¥33,300</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/vqKlKltK-GCrtc2HIWBuqA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="王建平团队·认知行为治疗（cbt）连续培训（首届·徐州） 漫语心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>王建平团队·认知行为治疗（CBT）连续培训（首届·徐州）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">徐州</span></td><td class="num">2年</td><td class="num">2026-11-28</td><td class="num price">¥21,600</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ZMjTj7rbLRUXUn2N-2JkFg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线上" data-new="0" data-t="第四期认知行为治疗（cbt）连续培训项目 北师大心理学部edp中心 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第四期认知行为治疗（CBT）连续培训项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">2年</td><td class="num">2026-10-22</td><td class="num price">¥26,880</td><td>北师大心理学部EDP中心</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/J_rnSFmHA-kyZY1tMCkQ9Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="王建平团队·认知行为治疗（cbt）连续培训（行为模块·广州班） 漫语心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>王建平团队·认知行为治疗（CBT）连续培训（行为模块·广州班）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">广州</span></td><td class="num">3个月</td><td class="num">2027-04-15</td><td class="num price">¥10,800</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/YxTtc66CI41QUtUKkqtrFQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="王建平团队·认知行为治疗（cbt）连续培训（行为模块·徐州班） 漫语心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>王建平团队·认知行为治疗（CBT）连续培训（行为模块·徐州班）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">徐州</span></td><td class="num">2个月</td><td class="num">2027-06-17</td><td class="num price">¥10,800</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/YxTtc66CI41QUtUKkqtrFQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线下" data-new="0" data-t="图式疗法——体验式技术的应用（第二期） 漫语心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>图式疗法——体验式技术的应用（第二期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">广州</span></td><td class="num">4天</td><td class="num">2026-11-12</td><td class="num price">¥3,600</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/1sG_AMrXPfMCF-EdhYoGzg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线上" data-new="0" data-t="双相情感障碍与自杀干预（cbt）线上集训 和光临床心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>双相情感障碍与自杀干预（CBT）线上集训</b></td><td><span class="tag t-online">线上</span></td><td class="num">4天</td><td class="num">2027-03-13</td><td class="num price">¥5,900</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/43uxuU3zbavaThJxKoe4Xw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线上" data-new="0" data-t="睡眠管理与失眠治疗（cbt-i）线上集训 和光临床心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>睡眠管理与失眠治疗（CBT-I）线上集训</b></td><td><span class="tag t-online">线上</span></td><td class="num">3天</td><td class="num">2026-11-21</td><td class="num price">¥4,200</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/qug-j-ymioC7le3592gOsQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线上" data-new="0" data-t="社交焦虑障碍的认知行为治疗（cbt） 和光临床心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>社交焦虑障碍的认知行为治疗（CBT）</b></td><td><span class="tag t-online">线上</span></td><td class="num">3天</td><td class="num">2027-11-26</td><td class="num price">¥4,800</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/5rppOfQCVQL3G5Fo9auDzg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线上" data-new="0" data-t="聚焦创伤的cbt治疗（tf-cbt）线上集训 和光临床心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>聚焦创伤的CBT治疗（TF-CBT）线上集训</b></td><td><span class="tag t-online">线上</span></td><td class="num">3天</td><td class="num">2027-08-21</td><td class="num price">¥5,900</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/HbeZYPj_bAz3dgbSKNB45w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线下" data-new="0" data-t="叶绮华·接纳与承诺疗法（act）连续培训（第二届·进阶） 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>叶绮华·接纳与承诺疗法（ACT）连续培训（第二届·进阶）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">3天</td><td class="num">2026-12-25</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/pe-VVMO6Tu4Z7yOKVdDPnw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线上" data-new="0" data-t="第五期基于评估诊断的个案概念化系统培训 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第五期基于评估诊断的个案概念化系统培训</b></td><td><span class="tag t-online">线上</span></td><td class="num">2年</td><td class="num">2027-03-31</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/GO43COk5O2ZsgPmmm-kVDw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="认知行为治疗(cbt)连续培训 漫语心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>认知行为治疗(CBT)连续培训</b></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">2年</td><td class="num">2026-11-05</td><td class="num price">¥21,600</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/a9WcXEXx9pMcg8Q9WlCAhg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="第四期认知行为治疗（cbt）连续培训项目 北师大心理学部edp中心 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第四期认知行为治疗（CBT）连续培训项目</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">2年</td><td class="num">2026-10-29</td><td class="num price">¥26,880</td><td>北师大心理学部EDP中心</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/V8dwDeAqtUXIwRpEp6snJg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线上" data-new="0" data-t="第四届失眠认知行为治疗（cbt-i）连续培训项目 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第四届失眠认知行为治疗（CBT-I）连续培训项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">1年5个月</td><td class="num">2027-04-15</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/5yzkFr8-KwdPCzgcongJwg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="第八届认知行为治疗（cbt）连续培训项目 中育心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>第八届认知行为治疗（CBT）连续培训项目</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1年</td><td class="num">2027-04-09</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/8j46j9Wq8t7K2KBdpISM6g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="机构证明" data-mode="线下" data-new="0" data-t="【上海/成都班】徐勇：认知行为治疗（cbt）12天集训&lt;第五期&gt; 糖心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>【上海/成都班】徐勇：认知行为治疗（CBT）12天集训&lt;第五期&gt;</b></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">6个月</td><td class="num">2026 年 12 月 18 日</td><td class="num price">¥10,199</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/DlX1TgRVq8s2v43YwAW1iw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="认知行为" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="图式疗法连续培训 漫语心理 认知行为"><td class="c-cat">认知行为</td><td class="c-name"><b>图式疗法连续培训</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">4天</td><td class="num">2026-11-19</td><td class="num price">¥3,800</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/SzibJMZ-KckVNGYLhu2I2g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="机构证明" data-mode="线下" data-new="0" data-t="第八届中德格式塔治疗连续培训项目 加洲心理 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>第八届中德格式塔治疗连续培训项目</b></td><td><span class="tag t-offline">线下</span> <span class="muted">福州</span></td><td class="num">2 年</td><td class="num">2026 年 11 月 12 日</td><td class="num price">¥50,000</td><td>加洲心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/AeI6c6PDEqx3_Zt0sUEG7w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="第三期成都班（总第32期）以人为中心取向心理咨询与治疗连续培训项目（两年制） 东方明见心理 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>第三期成都班（总第32期）以人为中心取向心理咨询与治疗连续培训项目（两年制）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">2年</td><td class="num">2026-12-03</td><td class="num price">¥28,800</td><td>东方明见心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/s8fKAcg044NW5dx-Dxjauw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="完形（格式塔）治疗系统培训（第二期） 漫语心理 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>完形（格式塔）治疗系统培训（第二期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">1年</td><td class="num">2027-01-01</td><td class="num price">—</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/rPWfbimArvwgnQsHFt3fTg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="机构证明" data-mode="线上" data-new="1" data-t="人本主义表达性艺术治疗线上体验工作坊 中育心理 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>人本主义表达性艺术治疗线上体验工作坊</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">2天</td><td class="num">2026-12-05</td><td class="num price">¥1,200</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/9DNrJgVB0JpNUPE3ZpUL0g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="以人为中心取向心理咨询与治疗连续培训项目第八期北京班 北师大心理学部edp中心 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>以人为中心取向心理咨询与治疗连续培训项目第八期北京班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">2年</td><td class="num">2026-11-26</td><td class="num price">¥28,800</td><td>北师大心理学部EDP中心</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/dLyyajlr5PKvmfWm9VilkA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="注册系统认证" data-mode="线上" data-new="0" data-t="李素芬·完形（格式塔）治疗系统培训（第二期·初阶网课） 漫语心理 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>李素芬·完形（格式塔）治疗系统培训（第二期·初阶网课）</b></td><td><span class="tag t-online">线上</span></td><td class="num">2天</td><td class="num">2026-10-24</td><td class="num price">¥2,400</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/hfn-bVvsdy8Nx9a3n2HKnw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="机构证明" data-mode="线上" data-new="0" data-t="共情训练工作坊：从初级共情到高级共情（第二期） 东方明见心理 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>共情训练工作坊：从初级共情到高级共情（第二期）</b></td><td><span class="tag t-online">线上</span></td><td class="num">1天</td><td class="num">2027-01-09</td><td class="num price">¥400</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/0TFbAEFTC4bnE_SW0dwC-w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="机构证明" data-mode="线下" data-new="0" data-t="完形 (格式塔) 治疗系统培训（进阶） 漫语心理 my 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>完形 (格式塔) 治疗系统培训（进阶）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">1.5年</td><td class="num">2027 年 1 月 14 日</td><td class="num price">¥13,500</td><td>漫语心理 MY</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/xW__zKj55SnkpC4OeVH1Cg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="以人为中心" data-cert="机构证明" data-mode="线下" data-new="0" data-t="格式塔团体工作坊 有知小飞船 以人为中心"><td class="c-cat">以人为中心</td><td class="c-name"><b>格式塔团体工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">南京</span></td><td class="num">5 天</td><td class="num">2026-11-11</td><td class="num price">¥6,999</td><td>有知小飞船</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/eutkM-NURMzbtv_PgIn3Jw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="仇剑崟·精神分析取向心理治疗研讨班（第六期·2年制） 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>仇剑崟·精神分析取向心理治疗研讨班（第六期·2年制）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">2年</td><td class="num">2027-03-19</td><td class="num price">¥29,499</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/BZzv4Uqap6ZHW-AemSlOsA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上" data-new="1" data-t="两年精神动力学项目高级组（第六期） 心寻心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>两年精神动力学项目高级组（第六期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">2年</td><td class="num">2027-03-01</td><td class="num price">¥51,500</td><td>心寻心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/sr_WLnDq7b6dNVdzn_qiGg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上" data-new="1" data-t="风动?幡动?心动：关系精神分析初探（joyce slochower线上课程） 和光临床心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>风动?幡动?心动：关系精神分析初探（Joyce Slochower线上课程）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">6周</td><td class="num">2026-11-08</td><td class="num price">¥1,680</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/O-vDc0ZN517acV4Oef6YGA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="1" data-t="人格障碍3天工作坊（第3期） 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>人格障碍3天工作坊（第3期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">3天</td><td class="num">2027-05-21</td><td class="num price">¥2,999</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Zu-KH7NexiekC2-Ua751cg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上" data-new="1" data-t="和光婴儿观察项目（中英文小组） 和光临床心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>和光婴儿观察项目（中英文小组）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">2年</td><td class="num">长期招募</td><td class="num price">—</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/U9nwte8CZauwJP6wQ3wxzQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="第六届蓝天动力性儿童青少年心理咨询系统培训项目（2027—2028） 蓝天卢林心理工作室 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>第六届蓝天动力性儿童青少年心理咨询系统培训项目（2027—2028）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">2年</td><td class="num">2027-01-15</td><td class="num price">¥35,749</td><td>蓝天卢林心理工作室</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/hyxhfehgeXoqaJWgiVtIBQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上" data-new="0" data-t="心理动力学视角下的ipt人际关系疗法：整合应用与技能提升工作坊 东方明见心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>心理动力学视角下的IPT人际关系疗法：整合应用与技能提升工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">3天</td><td class="num">2026-11-13</td><td class="num price">—</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/-CtZPmTps0Wp7UMEClaVsg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="性别与性取向：从关系视角的理解（karen weisbard成都地面工作坊） 和光临床心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>性别与性取向：从关系视角的理解（Karen Weisbard成都地面工作坊）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">1天</td><td class="num">2026-11-07</td><td class="num price">¥480</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ULNjGuq2vZ6KeTWhgWdb4Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上+线下" data-new="0" data-t="两年制精神动力学项目（第八期）初级组 心寻心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>两年制精神动力学项目（第八期）初级组</b></td><td><span class="tag t-mix">线上+线下</span> <span class="muted">上海/线上</span></td><td class="num">2年</td><td class="num">2027-03-01</td><td class="num price">¥51,500</td><td>心寻心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/y2srN2py2o5TwsmB2vbT5g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="卢林精神分析取向理论与实践系统培训项目 蓝天卢林心理工作室 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>卢林精神分析取向理论与实践系统培训项目</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">1年</td><td class="num">2026-12-18</td><td class="num price">¥15,000</td><td>蓝天卢林心理工作室</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/4QLgnmRIDw4VWyCGzkqumg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="精神动力学实操高级班 终南心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>精神动力学实操高级班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">西安</span></td><td class="num">5天</td><td class="num">2026-10-16</td><td class="num price">¥5,000</td><td>终南心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/TpeASFIWsdRWqzKd7Pii6Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上" data-new="0" data-t="第7期短程心理动力学理论与实务工作坊 东方明见心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>第7期短程心理动力学理论与实务工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">3天</td><td class="num">2026-11-21</td><td class="num price">¥3,500</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Biyo7_6wEQumx-p7xcjolg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="李小龙高级精神分析研修班 (2 期) 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>李小龙高级精神分析研修班 (2 期)</b></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">1年</td><td class="num">2026-11-27</td><td class="num price">¥21,299</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/QrNG_2HLBQe7rud2bIMDww" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上" data-new="0" data-t="和光动力学初级训练项目招募中 四川和光 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>和光动力学初级训练项目招募中</b><div class="cmt">适合线上的同学参加，入门推荐。</div></td><td><span class="tag t-online">线上</span></td><td class="num">1年</td><td class="num">—</td><td class="num price">¥19,800</td><td>四川和光</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/I_hI-4PIv5540rqmj-E_MA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="李小龙客体关系 6 天系统培训 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>李小龙客体关系 6 天系统培训</b></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">2 个月</td><td class="num">2026 年 10 月 16 日</td><td class="num price">¥8,000</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/RDChbKIhGKupKH8bTItWpw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="操作化心理动力学诊断（opd）3 天工作坊 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>操作化心理动力学诊断（OPD）3 天工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">厦门</span></td><td class="num">3天</td><td class="num">2026-10-23</td><td class="num price">¥2,099</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/OupvEsRz8i1yOzlOJ-5zAw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="动力性人际治疗（dit）3 天工作坊 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>动力性人际治疗（DIT）3 天工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">3天</td><td class="num">2027-01-08</td><td class="num price">¥2,999</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/sGkZ-YUO0UACZJmYinl5gA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="动力性人际治疗（dit）3 天工作坊 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>动力性人际治疗（DIT）3 天工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">大理</span></td><td class="num">3天</td><td class="num">2027-05-21</td><td class="num price">¥2,999</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/sGkZ-YUO0UACZJmYinl5gA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线下" data-new="0" data-t="【仇剑崟】动力性人际治疗（dit） 3天工作坊 糖心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>【仇剑崟】动力性人际治疗（DIT） 3天工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">广州</span></td><td class="num">3 天</td><td class="num">2026-11-27</td><td class="num price">¥2,999</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/DCnWQ9MACHho9q7o9L6Mmg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="精神分析" data-cert="机构证明" data-mode="线上" data-new="0" data-t="婴儿观察项目（中文第六期） 心寻心理 精神分析"><td class="c-cat">精神分析</td><td class="c-name"><b>婴儿观察项目（中文第六期）</b></td><td><span class="tag t-online">线上</span></td><td class="num">—</td><td class="num">2026-11-30</td><td class="num price">¥19,500</td><td>心寻心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/E4uOshA_clzFOsLApkpuHQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="线下" data-new="0" data-t="沙盘游戏疗法培训（高阶） 和人心理 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>沙盘游戏疗法培训（高阶）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">南京</span></td><td class="num">4天</td><td class="num">2026-10-24</td><td class="num price">¥2,400</td><td>和人心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/WSsrOgX_VQHuyhEqnM3Gfg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="线下" data-new="1" data-t="c级沙盘游戏咨询师认证班（第五期济南站） 糖心理 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>C级沙盘游戏咨询师认证班（第五期济南站）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">济南</span></td><td class="num">1年</td><td class="num">2026-10-23</td><td class="num price">¥12,800</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/nQnY28q8n2IyUwhwKOgskQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="线下" data-new="1" data-t="c级沙盘游戏咨询师培养项目 心理分析与沙盘游戏 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>C级沙盘游戏咨询师培养项目</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">济南</span></td><td class="num">1年</td><td class="num">2026-10-23</td><td class="num price">—</td><td>心理分析与沙盘游戏</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/WoFGotZ_GExM_OLxngbk8w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="线下" data-new="1" data-t="c级沙盘游戏咨询师培养项目 心理分析与沙盘游戏 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>C级沙盘游戏咨询师培养项目</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1年</td><td class="num">2026-11-13</td><td class="num price">—</td><td>心理分析与沙盘游戏</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/WoFGotZ_GExM_OLxngbk8w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="线上" data-new="1" data-t="新荣格视角分析心理学核心概念精讲 中育心理 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>新荣格视角分析心理学核心概念精讲</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">1个月</td><td class="num">2027-04-06</td><td class="num price">¥3,600</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/dmaSUv4VGvyCNGpmcXuQvw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="未标注" data-mode="线上" data-new="1" data-t="曼陀罗绘画评估与干预工作坊 东方明见心理 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>曼陀罗绘画评估与干预工作坊</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">1天</td><td class="num">2026-12-26</td><td class="num price">¥600</td><td>东方明见心理</td><td><span class="tag t-none">未标注</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/CWW7CbxY8PuJPpW_bHUHdg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="未标注" data-new="0" data-t="2027表达性艺术两年课程 心理分析与沙盘游戏 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>2027表达性艺术两年课程</b></td><td><span class="tag t-none">未标注</span></td><td class="num">2年</td><td class="num">—</td><td class="num price">¥37,000</td><td>心理分析与沙盘游戏</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/XJ5yJaqokSLxGFXIPfaHbw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="未标注" data-new="0" data-t="国际沙盘游戏(心理分析师)专业资质系统培训课程 心理分析与沙盘游戏 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>国际沙盘游戏(心理分析师)专业资质系统培训课程</b><div class="cmt">适合给未成年做咨询的同学，不过底子又是分析心理学，建议和分析心理学的培训一起学，不然也不会用。</div></td><td><span class="tag t-none">未标注</span></td><td class="num">2年</td><td class="num">—</td><td class="num price">¥36,000</td><td>心理分析与沙盘游戏</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/pM3HYcVSDPw-c9641JgEZg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="未标注" data-new="0" data-t="国际沙盘游戏 (心理分析师) 专业资质系统培训 洗心岛文化 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>国际沙盘游戏 (心理分析师) 专业资质系统培训</b></td><td><span class="tag t-none">未标注</span></td><td class="num">2 年</td><td class="num">—</td><td class="num price">¥36,000</td><td>洗心岛文化</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/LSFTWKT6lhBPXXK8k3_1uA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="线上" data-new="0" data-t="一年制荣格理论体系 糖心理 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>一年制荣格理论体系</b></td><td><span class="tag t-online">线上</span></td><td class="num">1 年</td><td class="num">—</td><td class="num price">¥4,099</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Wg-_5Jrz07XtC9T5dlqlwQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="机构证明" data-mode="线上" data-new="0" data-t="半年制・荣格心理学临床实践 糖心理 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>半年制・荣格心理学临床实践</b></td><td><span class="tag t-online">线上</span></td><td class="num">半年</td><td class="num">—</td><td class="num price">¥1,799</td><td>糖心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/7hGxhpxMKnEsBi0ZNJTHWQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="学校证明" data-mode="线下" data-new="0" data-t="2026 年箱庭疗法理论与实务培训高阶班 北师大心理学部 edp 中心 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>2026 年箱庭疗法理论与实务培训高阶班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1 个月</td><td class="num">2026 年 12 月 18 日</td><td class="num price">¥4,980</td><td>北师大心理学部 EDP 中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/YUdzce5wZBnho2EfPbAI_A" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="学校证明" data-mode="线下" data-new="0" data-t="2026 年箱庭疗法理论与实务培训进阶班 北师大心理学部 edp 中心 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>2026 年箱庭疗法理论与实务培训进阶班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1 个月</td><td class="num">2026 年 10 月 30 日</td><td class="num price">¥4,600</td><td>北师大心理学部 EDP 中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/A90RYv8tQyxXO9D3VMCwzw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="学校证明" data-mode="线下" data-new="0" data-t="2026 年 10 月箱庭疗法理论与实务培训初阶班 北师大心理学部 edp 中心 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>2026 年 10 月箱庭疗法理论与实务培训初阶班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1 个月</td><td class="num">2026 年 10 月 27 日</td><td class="num price">¥3,880</td><td>北师大心理学部 EDP 中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/kzg64F9mz9owz70mcdXUqQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="荣格·分析取向·沙盘" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="第十五届 沙游疗法 中育心理 荣格·分析取向·沙盘"><td class="c-cat">荣格·分析取向·沙盘</td><td class="c-name"><b>第十五届 沙游疗法</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">1个月</td><td class="num">进阶：<br>2026年12月3日<br>高阶：<br>2027年3月25日</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/jN122uKRHx8_ZEO0FE5E5w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="第4期家庭治疗连续培训项目 东方明见心理 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>第4期家庭治疗连续培训项目</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">2年</td><td class="num">2026-12-25</td><td class="num price">¥21,800</td><td>东方明见心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/yrotsTBOzevIz-pDO27Q5g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="孟馥家庭治疗连续培训项目（第八期） 济心理学苑 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>孟馥家庭治疗连续培训项目（第八期）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">4个月</td><td class="num">2027-02-26</td><td class="num price">¥12,300</td><td>济心理学苑</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/73N3bwH5KIp1p7aC4H3yhQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="未标注" data-mode="线下" data-new="1" data-t="系统式咨询提问技术3日工作坊 糖心理 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>系统式咨询提问技术3日工作坊</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">3天</td><td class="num">2026-12-04</td><td class="num price">¥3,399</td><td>糖心理</td><td><span class="tag t-none">未标注</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/L0ELTB9Um2aGzXsDxhD7rA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="机构证明" data-mode="线上" data-new="0" data-t="家庭治疗师进阶训练（孟馥领衔） 济心理学苑 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>家庭治疗师进阶训练（孟馥领衔）</b></td><td><span class="tag t-online">线上</span></td><td class="num">10个月</td><td class="num">2027-02-01</td><td class="num price">¥8,000</td><td>济心理学苑</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ncrUqjtYj6TifTMx02_o4A" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="机构证明" data-mode="线上" data-new="0" data-t="儿童青少年家庭治疗系统课（蔺秀云教授） 家姻心理 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>儿童青少年家庭治疗系统课（蔺秀云教授）</b></td><td><span class="tag t-online">线上</span></td><td class="num">3天</td><td class="num">2026-11-14</td><td class="num price">¥3,999</td><td>家姻心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/yakAoB7xWLFqtst1I2Vcig" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="机构证明" data-mode="线下" data-new="0" data-t="中国家庭代际互动实战工作坊 济心理学苑 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>中国家庭代际互动实战工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">2天</td><td class="num">2026-11-14</td><td class="num price">¥1,680</td><td>济心理学苑</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Ihl3ba3P5NcXLQMaVQpJxw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="机构证明" data-mode="线下" data-new="0" data-t="一人的家庭/伴侣咨询连续培训项目（进阶课程） 和人心理 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>一人的家庭/伴侣咨询连续培训项目（进阶课程）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">南京</span></td><td class="num">3天</td><td class="num">2026-11-20</td><td class="num price">¥3,000</td><td>和人心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/tHFWd-dBbTlhMFjwtVXDDQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="未标注" data-mode="线下" data-new="0" data-t="中德青少年非自杀性自伤系统式治疗工作坊 smhc进食障碍诊治中心 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>中德青少年非自杀性自伤系统式治疗工作坊</b></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">4天</td><td class="num">2026-10-23</td><td class="num price">¥4,500</td><td>SMHC进食障碍诊治中心</td><td><span class="tag t-none">未标注</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Ednlnsk2rNWLUncvhRAvtA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="机构证明" data-mode="线下" data-new="0" data-t="系统式家庭治疗连续培训 漫语心理 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>系统式家庭治疗连续培训</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">—</td><td class="num">2027-01-09</td><td class="num price">三阶连报19380</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/CeCXtiGcHFZp7LPLtS_29g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="家庭系统" data-cert="机构证明" data-mode="线下" data-new="0" data-t="家庭治疗视角下拒学干预实训与督导班 中育心理 家庭系统"><td class="c-cat">家庭系统</td><td class="c-name"><b>家庭治疗视角下拒学干预实训与督导班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">3天</td><td class="num">2026-12-04</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/FKa-ZbMOUPn2BuFNSDt3Iw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="许维素・焦点解决短期治疗 sfbt 系统培训（广州・第三届） 漫语心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>许维素・焦点解决短期治疗 SFBT 系统培训（广州・第三届）</b><div class="cmt">参加了许老师的培训，一开始很不适应，后来发现很适合在医院使用。 / 许老师更多的是学校咨询经验。</div></td><td><span class="tag t-offline">线下</span> <span class="muted">广州</span></td><td class="num">1年，5阶，每阶4天</td><td class="num">二阶：<br>2027年1月7日起<br>三阶：<br>2027年4月8日起<br>四阶：<br>2027年7月22日起<br>五阶：<br>2027年11月4日起</td><td class="num price">3800元/阶，17000元/五阶</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/JaRIpYTf-7wjK0Spe4tWbg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线下" data-new="1" data-t="与青少年、家长和家庭工作：焦点解决短期治疗视角大师课 焦点解决研究院 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>与青少年、家长和家庭工作：焦点解决短期治疗视角大师课</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">3天</td><td class="num">2027-06-04</td><td class="num price">¥2,980</td><td>焦点解决研究院</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/pi0KIWnUnq3OApRRzdfoVg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线下" data-new="1" data-t="语言微观艺术：一句话让改变发生焦点解决大师课 焦点解决研究院 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>语言微观艺术：一句话让改变发生焦点解决大师课</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">2天</td><td class="num">2026-11-20</td><td class="num price">¥2,980</td><td>焦点解决研究院</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/pi0KIWnUnq3OApRRzdfoVg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线上" data-new="1" data-t="叙事疗法在高校困难个案中的运用实务工作坊 东方明见心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>叙事疗法在高校困难个案中的运用实务工作坊</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">1天</td><td class="num">2026-10-24</td><td class="num price">¥600</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/uzlO0nnSgkgneHFlZhV8qQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="注册系统认证" data-mode="线上" data-new="0" data-t="焦点解决短期治疗在危机干预和创伤议题中的应用（sfbt专题网课） 漫语心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>焦点解决短期治疗在危机干预和创伤议题中的应用（SFBT专题网课）</b></td><td><span class="tag t-online">线上</span></td><td class="num">6天</td><td class="num">2026-10-24</td><td class="num price">¥5,400</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/CwNAZBEkDglHHoQb-rjQfw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线上" data-new="0" data-t="许维素·焦点解决短期治疗（sfbt）网络课程（第12期·中阶） 漫语心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>许维素·焦点解决短期治疗（SFBT）网络课程（第12期·中阶）</b></td><td><span class="tag t-online">线上</span></td><td class="num">4天</td><td class="num">2026-11-21</td><td class="num price">¥3,600</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/qVI8i1NzQokX4DRRDDkWRA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线上" data-new="0" data-t="第八届叙事疗法连续培训项目 中育心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>第八届叙事疗法连续培训项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">1年7个月</td><td class="num">2027-06-19</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/DMm4qptg1WugCWCxzjFKKg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线上" data-new="0" data-t="第十届焦点解决短期治疗连续培训项目 中育心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>第十届焦点解决短期治疗连续培训项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">1年6个月</td><td class="num">2027-04-17</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ZW7TV5nNyYgrLssYlYjm5Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线上" data-new="0" data-t="第13期焦点解决短期治疗(sfbt)网络课程 漫语心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>第13期焦点解决短期治疗(SFBT)网络课程</b></td><td><span class="tag t-online">线上</span></td><td class="num">3个月</td><td class="num">2027-01-02</td><td class="num price">¥7,200</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/oxx-35kCc2KNUwF1vhL0xg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="许维素・焦点解决短期治疗 sfbt 系统培训（成都・第二届） 漫语心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>许维素・焦点解决短期治疗 SFBT 系统培训（成都・第二届）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">1年，5阶，每阶4天</td><td class="num">二阶：<br>2026年12月17日起<br>三阶：<br>2027年3月18日起<br>四阶：<br>2027年6月24日起<br>五阶：<br>2027年8月26日起</td><td class="num price">3800元/阶，17000元/五阶</td><td>漫语心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ZliKisT2TMfiQFX3Bw7COw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="注册系统认证" data-mode="线上" data-new="0" data-t="第六届焦点取向心理咨询师一站式培养项目 焦点解决研究院 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>第六届焦点取向心理咨询师一站式培养项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">1 年</td><td class="num">—</td><td class="num price">¥23,800</td><td>焦点解决研究院</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/psKRKt-ZCXvai2T5NAbCEg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="线下" data-new="0" data-t="陈意文博士焦点解决短期治疗儿童青少年咨询实战系列课（进阶面授） 漫语心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>陈意文博士焦点解决短期治疗儿童青少年咨询实战系列课（进阶面授）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">3天</td><td class="num">2027-01-08</td><td class="num price">—</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/O-49ljHd0iantSkZU_MxSw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="机构证明" data-mode="未标注" data-new="0" data-t="单次咨询初・中・高阶系统培训课程 焦点解决研究院 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>单次咨询初・中・高阶系统培训课程</b></td><td><span class="tag t-none">未标注</span></td><td class="num">—</td><td class="num">中阶：2026年12月<br>高阶：2027年3月</td><td class="num price">—</td><td>焦点解决研究院</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/aumdpvXF8kmrSyh8_A4URA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="后现代" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="许维素焦点解决短期治疗 (sfbt) 系统课程 糖心理 后现代"><td class="c-cat">后现代</td><td class="c-name"><b>许维素焦点解决短期治疗 (SFBT) 系统课程</b></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">—</td><td class="num">—</td><td class="num price">¥15,999</td><td>糖心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/_0ZqCpwh7LD-B10l79sYcg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="线下" data-new="0" data-t="浙江大学儿童青少年心理发展与家庭教育高级研修班 浙江大学 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>浙江大学儿童青少年心理发展与家庭教育高级研修班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">1.5 年，每月 2 天</td><td class="num">—</td><td class="num price">¥26,800</td><td>浙江大学</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/oShv5yLzlh4IOP8beyA5tA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="注册系统认证" data-mode="线下" data-new="1" data-t="第十五届绘画心理分析与治疗连续培训 中育心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>第十五届绘画心理分析与治疗连续培训</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">8个月</td><td class="num">2027-07-17</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/PmBUUrz8zN6tsoPvpWCXHQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="1" data-t="多元文化咨询概论：文化观点在助人、咨询与治疗关系中的应用 漫语心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>多元文化咨询概论：文化观点在助人、咨询与治疗关系中的应用</b> <span class="badge-new">NEW</span></td><td><span class="tag t-online">线上</span></td><td class="num">9天</td><td class="num">2027-04-17</td><td class="num price">¥2,480</td><td>漫语心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/9HgsXAjBrMR2dgnxeFSZzw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线下" data-new="1" data-t="心理测量师培训班 上海市心理卫生学会 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>心理测量师培训班</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">5天</td><td class="num">2026-11-16</td><td class="num price">¥4,000</td><td>上海市心理卫生学会</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/pY7WW2w7hcETk-zcVQ0S9w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线下" data-new="1" data-t="正念在心理咨询中的应用进阶培训第三阶整合运用 上海市心理卫生学会 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>正念在心理咨询中的应用进阶培训第三阶整合运用</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">上海</span></td><td class="num">3天</td><td class="num">2026-11-27</td><td class="num price">¥2,400</td><td>上海市心理卫生学会</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/enytO5HZbbsAHlu1tOPmhQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线下" data-new="1" data-t="依恋关系的六大属性及对日后社会关系的影响躯体动力分析国际大师地面工作坊 和人心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>依恋关系的六大属性及对日后社会关系的影响躯体动力分析国际大师地面工作坊</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">南京</span></td><td class="num">2天</td><td class="num">2027-01-22</td><td class="num price">¥3,800</td><td>和人心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/_TWp4mOcIPXkDtRcaF4acQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="线下" data-new="0" data-t="浙江大学心理咨询师职业技能提升高级研修班（第9期） 浙江大学心理系继续教育中心 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>浙江大学心理咨询师职业技能提升高级研修班（第9期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">1年</td><td class="num">2026-12-01</td><td class="num price">¥28,600</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/f1hIyQgpKP3wRHAuMEVcxg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="线下" data-new="0" data-t="浙江大学正念与疗愈研修班 浙江大学心理系继续教育中心 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>浙江大学正念与疗愈研修班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">6个月</td><td class="num">—</td><td class="num price">¥15,800</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Lhs_YbmdZ8beUUgRw1M61w" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="施香如·危机干预专项训练（第3期） 有知小飞船 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>施香如·危机干预专项训练（第3期）</b></td><td><span class="tag t-online">线上</span></td><td class="num">5个月</td><td class="num">2027-01-08</td><td class="num price">¥6,780</td><td>有知小飞船</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/f2aibyN7YpcVHelUvmBFyQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="邱敏丽·绘画心理分析与治疗连续培训（第十四届·进阶+高阶） 中育心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>邱敏丽·绘画心理分析与治疗连续培训（第十四届·进阶+高阶）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">4个月</td><td class="num">2026-11-28</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/othnei5uNgeS5AJGf7z1dg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="mind-body-brain人我调节躯体取向创伤治疗专业训练（高阶：阶段a线上+阶段b地面） 嘉心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>Mind-Body-Brain人我调节躯体取向创伤治疗专业训练（高阶：阶段A线上+阶段B地面）</b></td><td><span class="tag t-online">线上</span></td><td class="num">9天</td><td class="num">2026-11-14</td><td class="num price">¥9,780</td><td>嘉心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Tbn74iBH_xqYGzvEqGvcVQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线下" data-new="0" data-t="大学生心理危机评估与自杀干预实务工作坊（第29期） 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>大学生心理危机评估与自杀干预实务工作坊（第29期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">4天</td><td class="num">2027-01-20</td><td class="num price">¥3,800</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/YkpnkRE9xoIqZCPeNu2iaA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线下" data-new="0" data-t="叶海鲲·身心疗愈工作坊（催眠专题） 终南心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>叶海鲲·身心疗愈工作坊（催眠专题）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">西安</span></td><td class="num">4天</td><td class="num">2026-12-03</td><td class="num price">¥4,000</td><td>终南心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/pg2H2rMwm8j9ecqQCxiXeQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="东方ipt人际心理治疗工作坊（第八期） 济心理学苑 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>东方IPT人际心理治疗工作坊（第八期）</b></td><td><span class="tag t-online">线上</span></td><td class="num">2天</td><td class="num">2026-12-26</td><td class="num price">¥2,280</td><td>济心理学苑</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/q5OqW72KBsIle2ahIQ5Odw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="领航计划大学生心理健康教育课程教师专项培训冬季班 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>领航计划大学生心理健康教育课程教师专项培训冬季班</b></td><td><span class="tag t-online">线上</span></td><td class="num">2天</td><td class="num">2026-12-26</td><td class="num price">¥3,800</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/TIXyw0IC50PgUzbXDl506g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="资源优势取向心理咨询理论与实务工作坊 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>资源优势取向心理咨询理论与实务工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">2天</td><td class="num">2026-11-14</td><td class="num price">¥600</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/VS_skZl0W2v-Q4gK0NxJqA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="提升接案能力与预防咨询脱落实务工作坊 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>提升接案能力与预防咨询脱落实务工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">2天</td><td class="num">2026-11-07</td><td class="num price">¥600</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/0I8mHaeeH0kvd1k5e8Ky6g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="心理咨询目标与干预计划临床实务工作坊 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>心理咨询目标与干预计划临床实务工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">1天</td><td class="num">2026-10-31</td><td class="num price">¥600</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/VYVzzsUW9STt49Nk4R9eyg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="临床评估与初始访谈实务工作坊 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>临床评估与初始访谈实务工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">1天</td><td class="num">2026-11-07</td><td class="num price">¥600</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/XM4ym7nGnk-F5ENwvQMncg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="个案概念化——基于理性决策与实务思维的整合模型工作坊 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>个案概念化——基于理性决策与实务思维的整合模型工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">1天</td><td class="num">2026-11-28</td><td class="num price">¥600</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/MVGvpqAFY6N_LAMPzn386Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="单次会谈疗法：焦虑与抑郁专项工作坊 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>单次会谈疗法：焦虑与抑郁专项工作坊</b></td><td><span class="tag t-online">线上</span></td><td class="num">2天</td><td class="num">2026-10-17</td><td class="num price">—</td><td>东方明见心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/5av6SWmaUtyVMFrpI1a2qw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="线下" data-new="0" data-t="临床与咨询心理专业能力长程培训项目（care项目第八期） 北师大心理学部edp中心 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>临床与咨询心理专业能力长程培训项目（CARE项目第八期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">2年3个月</td><td class="num">2027-03-01</td><td class="num price">¥168,000</td><td>北师大心理学部EDP中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Bj42CFA6yyHVlEuJlG6pvg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="「知行计划」第3期心理咨询师临床实训项目（深圳班） 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>「知行计划」第3期心理咨询师临床实训项目（深圳班）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">深圳</span></td><td class="num">2年</td><td class="num">2027-01-01</td><td class="num price">—</td><td>东方明见心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/_nBO_3mvZNgDyOaaLm1m0g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="注册系统认证" data-mode="线上+线下" data-new="0" data-t="第4期ipt人际关系疗法系统培训 东方明见心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>第4期IPT人际关系疗法系统培训</b></td><td><span class="tag t-mix">线上+线下</span> <span class="muted">武汉+线上</span></td><td class="num">6个月</td><td class="num">2027-04-01</td><td class="num price">—</td><td>东方明见心理</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/HCFmDq4QFL_SHntRsQtdCQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="未标注" data-new="0" data-t="学习障碍评估与干预培训 北师大心理学部edp中心 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>学习障碍评估与干预培训</b></td><td><span class="tag t-none">未标注</span></td><td class="num">—</td><td class="num">—</td><td class="num price">¥9,800</td><td>北师大心理学部EDP中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/b6AUYGhVrEiPu6Dk9vrfPw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="未标注" data-new="0" data-t="儿童青少年心理发展与家庭教育高级研修班 浙江大学心理系继续教育中心 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>儿童青少年心理发展与家庭教育高级研修班</b></td><td><span class="tag t-none">未标注</span></td><td class="num">—</td><td class="num">—</td><td class="num price">—</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/vXD4GpU9qmmiQIE0BmSKfQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="线下" data-new="0" data-t="第四期儿童青少年心理发展与家庭教育指导能力提升高级研修项目 北师大心理学部edp中心 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>第四期儿童青少年心理发展与家庭教育指导能力提升高级研修项目</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1年</td><td class="num">2026-12-01</td><td class="num price">¥26,800</td><td>北师大心理学部EDP中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/y3OWzCZav0-YriwJGZHsIQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="线下" data-new="0" data-t="浙江大学心理学与人生智慧系列研修班 浙江大学心理系继续教育中心 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>浙江大学心理学与人生智慧系列研修班</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">6个月</td><td class="num">—</td><td class="num price">¥12,800</td><td>浙江大学心理系继续教育中心</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/YAGc2XwwWqG1lpC5_Mpw8Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="其他" data-mode="线下" data-new="0" data-t="2025心理咨询师高级研修班（三期） 江苏苏培职业技术培训学校 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>2025心理咨询师高级研修班（三期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">南京</span></td><td class="num">3个月</td><td class="num">长期招募</td><td class="num price">¥19,800</td><td>江苏苏培职业技术培训学校</td><td><span class="tag t-other">其他 · 学习证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/NqN4FGfEZb8AUTMVOJ08rg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="跨儿心理咨询核心能力精讲课 小悟生心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>跨儿心理咨询核心能力精讲课</b></td><td><span class="tag t-online">线上</span></td><td class="num">8 周</td><td class="num">—</td><td class="num price">¥1,992</td><td>小悟生心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/8yy5baQBHV4pIP0AH9PfjQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="儿童青少年精神障碍的早期识别及基础干预培训 中育心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>儿童青少年精神障碍的早期识别及基础干预培训</b></td><td><span class="tag t-online">线上</span></td><td class="num">2 个月</td><td class="num">2026 年 11 月 3 日</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ZjjvXbpb_LlKk1Wal4Pujw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="学校证明" data-mode="线上" data-new="0" data-t="儿童青少年心理咨询高级研修班 糖心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>儿童青少年心理咨询高级研修班</b></td><td><span class="tag t-online">线上</span></td><td class="num">—</td><td class="num">—</td><td class="num price">¥18,800</td><td>糖心理</td><td><span class="tag t-school">学校证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/qUpMm3tXSpDDtgRYLtixIQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="其他流派" data-cert="机构证明" data-mode="线上" data-new="0" data-t="预防自杀：不同阶段的预防与干预模式开展 中育心理 其他流派"><td class="c-cat">其他流派</td><td class="c-name"><b>预防自杀：不同阶段的预防与干预模式开展</b></td><td><span class="tag t-online">线上</span></td><td class="num">—</td><td class="num">—</td><td class="num price">—</td><td>中育心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/ceU_m1EMiI8U2v4JVMTOeg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="督导信息" data-cert="其他" data-mode="线上+线下" data-new="0" data-t="安徽心语 · 季益富精神分析案例督导小组（地面）持续招募中 季益富 督导信息"><td class="c-cat">督导信息</td><td class="c-name"><b>安徽心语 · 季益富精神分析案例督导小组（地面）持续招募中</b><div class="cmt">太贵了，不推荐</div></td><td><span class="tag t-mix">线上+线下</span> <span class="muted">合肥/线上</span></td><td class="num">隔周周六下午</td><td class="num">长期</td><td class="num price">5000元/10次*3.3小时</td><td>季益富</td><td><span class="tag t-other">其他 · 督导证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/dxA8u8y4VEif_3mmvGiKKg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="督导信息" data-cert="其他" data-mode="未标注" data-new="0" data-t="中美精神分析联盟（capa）2023届督导组受训学员招募受督者 — 督导信息"><td class="c-cat">督导信息</td><td class="c-name"><b>中美精神分析联盟（CAPA）2023届督导组受训学员招募受督者</b><div class="cmt">个体督导推荐</div></td><td><span class="tag t-none">未标注</span></td><td class="num">—</td><td class="num">长期</td><td class="num price">—</td><td>—</td><td><span class="tag t-other">其他 · 个人证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/Us8tmoni121Gp03uGf-C2Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="督导信息" data-cert="其他" data-mode="未标注" data-new="0" data-t="中挪精神分析培训 · 个体督导 - 精神分析 — 督导信息"><td class="c-cat">督导信息</td><td class="c-name"><b>中挪精神分析培训 · 个体督导 - 精神分析</b></td><td><span class="tag t-none">未标注</span></td><td class="num">—</td><td class="num">长期</td><td class="num price">300-500</td><td>—</td><td><span class="tag t-other">其他 · 个人证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/1V6Aa85rwEbBzMK_32U5NQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="医院证明" data-mode="线下" data-new="0" data-t="浙江大学医学院附属第一医院精神科住培专业基地培训 浙大医学院附属第一医院 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>浙江大学医学院附属第一医院精神科住培专业基地培训</b></td><td><span class="tag t-offline">线下</span> <span class="muted">杭州</span></td><td class="num">3年</td><td class="num">—</td><td class="num price">—</td><td>浙大医学院附属第一医院</td><td><span class="tag t-hosp">医院证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/_POeLP8-eT9VqhwgOJlbSA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线下" data-new="1" data-t="追光计划心理咨询师实习项目（初阶） 和光临床心理 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>追光计划心理咨询师实习项目（初阶）</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">1年</td><td class="num">2026-11-01</td><td class="num price">¥17,800</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/SXtdnrZ05K_kZ9rcRX71Kw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线下" data-new="1" data-t="三个月精神分析脱产临床进修班 武汉忠德心理医院 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>三个月精神分析脱产临床进修班</b> <span class="badge-new">NEW</span></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">3个月</td><td class="num">2026年10月底</td><td class="num price">¥8,000</td><td>武汉忠德心理医院</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/LwlxevTRDXF-yrO3cHzEBA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线下" data-new="0" data-t="追光计划·系统化实习项目（第三期） 和光临床心理 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>追光计划·系统化实习项目（第三期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">成都</span></td><td class="num">1年</td><td class="num">2026-11-01</td><td class="num price">¥19,800</td><td>和光临床心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/SXtdnrZ05K_kZ9rcRX71Kw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线下" data-new="0" data-t="躬行计划·心理咨询师实习成长项目2.0（第2期） 焦点解决研究院 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>躬行计划·心理咨询师实习成长项目2.0（第2期）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">1年</td><td class="num">2027年2月下旬</td><td class="num price">—</td><td>焦点解决研究院</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/8piZr1vJXUdPlZt8BZCpuw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线上" data-new="0" data-t="【青鸟计划】新手咨询师“个案-督导-培训”实习成长项目 东方明见 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>【青鸟计划】新手咨询师“个案-督导-培训”实习成长项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">半年</td><td class="num">长期</td><td class="num price">¥19,900</td><td>东方明见</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/OcnrYpJEKKRzvtxzNDkjNQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="医院证明" data-mode="线下" data-new="0" data-t="长期招募番禺区何贤纪念医院临床心理科实习生！ — 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>长期招募番禺区何贤纪念医院临床心理科实习生！</b></td><td><span class="tag t-offline">线下</span> <span class="muted">广州</span></td><td class="num">—</td><td class="num">长期招募</td><td class="num price">—</td><td>—</td><td><span class="tag t-hosp">医院证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/5f5r3Mu5werEgzJ_xYuaPg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="医院证明" data-mode="线下" data-new="0" data-t="忠德心理医院三个月全脱产进修项目 武汉忠德心理医院 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>忠德心理医院三个月全脱产进修项目</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">3个月，脱产</td><td class="num">长期招募</td><td class="num price">16000~22000</td><td>武汉忠德心理医院</td><td><span class="tag t-hosp">医院证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/WvFumhOCvh5lNj5grm1Qrg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="医院证明" data-mode="线下" data-new="0" data-t="心理咨询与治疗进修班 武汉市心理医院 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>心理咨询与治疗进修班</b><div class="cmt">要求具备医师证、执业医师资格证或二级心理师资格</div></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">3个月，脱产</td><td class="num">长期招募</td><td class="num price">—</td><td>武汉市心理医院</td><td><span class="tag t-hosp">医院证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/fmbhnIlxGmn8BDJvR5oUDw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="医院证明" data-mode="线下" data-new="0" data-t="广州医科大学附属脑科医院临床心理科进修生招募（长期有效） — 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>广州医科大学附属脑科医院临床心理科进修生招募（长期有效）</b></td><td><span class="tag t-offline">线下</span> <span class="muted">广州</span></td><td class="num">3个月</td><td class="num">长期招募</td><td class="num price">¥12,000</td><td>—</td><td><span class="tag t-hosp">医院证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/24sHwfQjV2OC_d_MVOgOyQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="注册系统认证" data-mode="线下" data-new="0" data-t="临床心理诊疗辅助人员临床见习专业技能培训 中国心理卫生协会 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>临床心理诊疗辅助人员临床见习专业技能培训</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">2个月</td><td class="num">长期招募</td><td class="num price">¥10,388</td><td>中国心理卫生协会</td><td><span class="tag t-sys">注册系统认证</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/tHxfxzbr__8VledHouXHJw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线上" data-new="0" data-t="“青鸟计划”—心理咨询师专业实习与督导项目 东方明见 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>“青鸟计划”—心理咨询师专业实习与督导项目</b></td><td><span class="tag t-online">线上</span></td><td class="num">2个月</td><td class="num">长期招募</td><td class="num price">¥7,700</td><td>东方明见</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/vbitnAhA_bRX4SiRnrMPlg" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="医院证明" data-mode="线上+线下" data-new="0" data-t="浙大精中（杭州七院）2025年度专项进修“临床心理评估技术专项培训班” 浙大精中（杭州七院） 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>浙大精中（杭州七院）2025年度专项进修“临床心理评估技术专项培训班”</b></td><td><span class="tag t-mix">线上+线下</span> <span class="muted">线上+杭州</span></td><td class="num">2个月，线上课1个月，实操实习1个月</td><td class="num">长期招募</td><td class="num price">¥6,000</td><td>浙大精中（杭州七院）</td><td><span class="tag t-hosp">医院证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/DwCvQbCvMJO8Rahmxnq15g" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="医院证明" data-mode="线下" data-new="0" data-t="渝中区精神卫生中心研修培训 重庆市渝中区精神卫生中心 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>渝中区精神卫生中心研修培训</b></td><td><span class="tag t-offline">线下</span> <span class="muted">重庆</span></td><td class="num">1个月</td><td class="num">每月初</td><td class="num price">500元/人/月</td><td>重庆市渝中区精神卫生中心</td><td><span class="tag t-hosp">医院证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/kLWw-YHhyekKTzDRjOJ40Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="其他" data-mode="线下" data-new="0" data-t="北京青少年服务中心社会化心理服务项目招募预约助理 北京青少年服务中心 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>北京青少年服务中心社会化心理服务项目招募预约助理</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">—</td><td class="num">长期招募</td><td class="num price">—</td><td>北京青少年服务中心</td><td><span class="tag t-other">其他 · 志愿服务证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/klXfsv5zziwcfXA_IfnEdw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线下" data-new="0" data-t="东方明见心理实习与督导中心招聘 东方明见 / 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>东方明见心理实习与督导中心招聘</b></td><td><span class="tag t-offline">线下</span> <span class="muted">武汉</span></td><td class="num">—</td><td class="num">—</td><td class="num price">—</td><td>东方明见 /</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/NS1xBewicUuwSC7HyMj0_A" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="实践实习" data-cert="机构证明" data-mode="线下" data-new="0" data-t="大美心田·北京短程心理咨询中心实习生招募 北京短程心理咨询中心 实践实习"><td class="c-cat">实践实习</td><td class="c-name"><b>大美心田·北京短程心理咨询中心实习生招募</b></td><td><span class="tag t-offline">线下</span> <span class="muted">北京</span></td><td class="num">—</td><td class="num">—</td><td class="num price">—</td><td>北京短程心理咨询中心</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/cCz2ySKopP2yHLvsN7UpRA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="大侠心理平台课程" data-cert="机构证明" data-mode="线上" data-new="0" data-t="心理咨询入门「咨询技术课」 大侠心理 大侠心理平台课程"><td class="c-cat">大侠心理平台课程</td><td class="c-name"><b>心理咨询入门「咨询技术课」</b></td><td><span class="tag t-online">线上</span></td><td class="num">4-5个月</td><td class="num">招募中</td><td class="num price">¥1,899</td><td>大侠心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/dZHBduBSt1ZDFMNV86MrXQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="大侠心理平台课程" data-cert="机构证明" data-mode="线上" data-new="0" data-t="心理动力学实操课 大侠心理 大侠心理平台课程"><td class="c-cat">大侠心理平台课程</td><td class="c-name"><b>心理动力学实操课</b></td><td><span class="tag t-online">线上</span></td><td class="num">4个月</td><td class="num">招募中</td><td class="num price">¥599</td><td>大侠心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/07cHwi3MC-YvOkckpZAgSQ" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="大侠心理平台课程" data-cert="机构证明" data-mode="线上" data-new="0" data-t="精神分析动力学通识课 大侠心理 大侠心理平台课程"><td class="c-cat">大侠心理平台课程</td><td class="c-name"><b>精神分析动力学通识课</b></td><td><span class="tag t-online">线上</span></td><td class="num">3个月</td><td class="num">招募中</td><td class="num price">¥599</td><td>大侠心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/QLGP7w_1GRdYAQtS_Q5f5Q" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="大侠心理平台课程" data-cert="机构证明" data-mode="线上" data-new="0" data-t="认知行为治疗第1阶入门实操课 大侠心理 大侠心理平台课程"><td class="c-cat">大侠心理平台课程</td><td class="c-name"><b>认知行为治疗第1阶入门实操课</b></td><td><span class="tag t-online">线上</span></td><td class="num">3个月</td><td class="num">招募中</td><td class="num price">¥599</td><td>大侠心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/CVYqK2y2Y7gOnvZp8xKAcw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="大侠心理平台课程" data-cert="机构证明" data-mode="线上" data-new="0" data-t="以人为中心流派理论、体验与应用实践课 大侠心理 大侠心理平台课程"><td class="c-cat">大侠心理平台课程</td><td class="c-name"><b>以人为中心流派理论、体验与应用实践课</b></td><td><span class="tag t-online">线上</span></td><td class="num">3个月</td><td class="num">招募中</td><td class="num price">¥499</td><td>大侠心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/WGwMMpCTpy9JfFJP-PHFKw" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="大侠心理平台课程" data-cert="机构证明" data-mode="线上" data-new="0" data-t="叙事疗法入门实操课 大侠心理 大侠心理平台课程"><td class="c-cat">大侠心理平台课程</td><td class="c-name"><b>叙事疗法入门实操课</b></td><td><span class="tag t-online">线上</span></td><td class="num">3个月</td><td class="num">招募中</td><td class="num price">¥499</td><td>大侠心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/B3qCYp8l3qCC99cBggLKDA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+<tr data-cat="大侠心理平台课程" data-cert="机构证明" data-mode="线上" data-new="0" data-t="危机干预实操课 大侠心理 大侠心理平台课程"><td class="c-cat">大侠心理平台课程</td><td class="c-name"><b>危机干预实操课</b></td><td><span class="tag t-online">线上</span></td><td class="num">3个月</td><td class="num">未开始</td><td class="num price">¥499</td><td>大侠心理</td><td><span class="tag t-org">机构证明</span></td><td class="num"><a href="https://mp.weixin.qq.com/s/9h-XvbOU4oF3XfyEQjI5JA" target="_blank" rel="noopener">报名/详情 ↗</a></td></tr>
+  </tbody>
+</table>
+</div>
+<p class="muted" id="empty" style="display:none">没有匹配的课程，试试清空筛选条件。</p>
+
+<div class="note b">
+  <b>怎么读这张表：</b>「凭证说明」沿用你给的口径——<span class="tag t-org">机构证明</span>（105 条，机构自颁结业证，行业内口碑认可但未申请学会学分）、<span class="tag t-sys">注册系统认证</span>（34 条，可在注册系统登记继续教育学分）、<span class="tag t-school">学校证明</span>（20 条，高校继教中心/院系发证）、<span class="tag t-hosp">医院证明</span>（7 条，医院进修/实习证明）、<span class="tag t-other">其他</span>（督导证明、个人证明、学习证明、志愿服务证明等）。<br><span class="muted">注：原表中有 1 条写作「注册系统证明」（第15期学院π），按语义归入注册系统认证，请以注册系统官网公示为准。</span><br>
+  与第一节 CAMH、第二节 CPS 的官方路径是<b>互补关系</b>：官方考试解决「入门资质」，本表的长程连续培训解决「流派胜任力 + 继续教育学分 + 实习督导时数」，而注册系统/水平评价中级的硬指标（见习 40、实习 100 学时、个体督导 10h、团体督导 20h）只能靠本表「实践实习」分类里的项目来攒。
+</div>
+</div>
+
+<!-- ============ 六、凭证类型对照 ============ -->
+<div class="card">
+<h2>六、凭证类型速查（按你给的口径归类）</h2>
+<table>
+  <tr><th style="width:130px">凭证类型</th><th>在哪些环节需要</th><th>出具方</th></tr>
+  <tr><td><b>注册系统认证</b></td><td>中国心理学会注册系统（助理心理师/心理师/督导师申请、更新注册）；中国心理卫生协会注册系统（初级→中级→高级→督导师）</td><td>chinacpb.net / rps.camh.org.cn，官网公示名录可查</td></tr>
+  <tr><td><b>学校证明</b></td><td>毕业学年在读生报考（在读证明须注明毕业年级）；学历验证（学信网《教育部学历证书电子注册备案表》）；海外学历（教育部留服中心《国外学历学位认证书》）；注册系统认定的硕士项目伦理课成绩单</td><td>高校/院系、学信网、教育部留服中心</td></tr>
+  <tr><td><b>机构证明</b></td><td>两个协会考试的<b>必备前置</b>——备案/认定培训机构出具的培训学时证明（须录入官方系统）；中级申报还需见习、实习、督导小时数证明；各专委会专项培训的结业/胜任力证书</td><td>协会备案或认定的培训机构、认定见习实习机构、注册督导师</td></tr>
+  <tr><td><b>医院证明</b></td><td>协会中级申报（认定机构见习/实习，部分认定机构为精神卫生中心/医院）；心理治疗师职称报考（医疗机构工作证明）</td><td>医院/精神卫生中心/认定机构</td></tr>
+  <tr><td><b>其他</b></td><td>协会证书官网查询编号；国家继续医学教育推荐项目学分（部分 CAMH 培训已公示）；原国家三级心理咨询师证书；社工师/人力资源管理师/职称证书</td><td>协会官网证书查询系统、继教项目主办方、人社部/卫健委</td></tr>
+</table>
+</div>
+
+<!-- ============ 七、核验入口 ============ -->
+<div class="card">
+<h2>七、官方核验入口汇总（报名前必查）</h2>
+<ul>
+  <li><b>中国心理卫生协会 · 职业能力水平评价</b>（报名/大纲/成绩/证书查询/课程备案机构公示）：<a href="https://www.cert-camh.org.cn/" target="_blank">https://www.cert-camh.org.cn/</a>　｜　<a href="https://cert.camh.org.cn/" target="_blank">https://cert.camh.org.cn/</a>　｜　公众号「心理咨询师职业能力水平考试」</li>
+  <li><b>中国心理卫生协会 · 官网 / 分支机构培训活动</b>：<a href="https://www.camh.org.cn/" target="_blank">https://www.camh.org.cn/</a>　｜　<a href="https://www.camh.org.cn/n-265/" target="_blank">分支机构活动列表</a>　｜　<a href="https://conf.camh.org.cn/" target="_blank">会议与培训报名</a></li>
+  <li><b>中国心理卫生协会 · 注册系统（RPS）</b>：<a href="https://rps.camh.org.cn/" target="_blank">https://rps.camh.org.cn/</a></li>
+  <li><b>中国心理学会 · 心理咨询师水平评价综合服务系统</b>：<a href="https://sppj.psysoc.org.cn/#/home" target="_blank">https://sppj.psysoc.org.cn/#/home</a>　｜　小程序「CPS 水平评价学员端」　｜　服务号「心理咨询师水平评价 CPS」</li>
+  <li><b>中国心理学会 · 临床心理学注册系统</b>：<a href="http://www.chinacpb.net/" target="_blank">http://www.chinacpb.net/</a>（伦理培训报名仅支持 PC 端）</li>
+  <li><b>中国社会心理学会（CASP）</b>：<a href="https://www.socialpsy.org.cn/" target="_blank">https://www.socialpsy.org.cn/</a>（学会简介 / 分支机构 / 通知公告；<b>暂无培训报名系统</b>）｜核验邮箱 caspmember@vip.126.com</li>
+  <li><b>中科院心理所 · 心理咨询基础培训项目</b>：<a href="https://www.psych.ac.cn/" target="_blank">https://www.psych.ac.cn/</a></li>
+</ul>
+<div class="note">
+  核验动作三步：<b>①</b> 在官方系统查机构备案/授权编码（CPS 形如 OR-xxxxxx，心卫协在「考试报名—课程备案机构」公示）；<b>②</b> 确认学时会被录入官方系统（否则无法报考）；<b>③</b> 培训费与考试费应<b>分别收取</b>——考试费由考生本人缴至学会账户，正规机构不会代收考试费、不做「包过」承诺。
+</div>
+</div>
+
+<!-- ============ 八、六家公立医院进修 ============ -->
+<div class="card">
+<h2>八、六家公立精神专科医院进修项目（官方原文链接 · 2026-11-02 核实）</h2>
+
+<div class="note r">
+  <b>先说清楚这类项目和前面几节的区别：</b>医院进修不是「培训课程」，是<b>临床进修</b>——你进病房、跟门诊、接真实个案，拿的是医院的<b>进修结业证书 + 个案时数 / 督导时数证明</b>（对应第六节的 <span class="tag t-hosp">医院证明</span>）。它的价值在于<b>注册系统要的见习实习与督导时数，只有这条路能攒</b>；代价是几乎全部要求<b>全脱产</b>，且多数有资质门槛。<br>
+  下面每条都给了<b>官网原文</b>（不是招生中介的转述），并把「下一期」按 2026-11-02 这个时点重算过——你截图里的时间有几处已经过期。
+</div>
+
+<h3>8.1 六家逐条核对（含截图价格的修正）</h3>
+<div class="tblwrap">
+<table>
+  <tr>
+    <th style="width:150px">机构 / 城市</th>
+    <th style="width:200px">项目名称</th>
+    <th style="width:120px">最新一期</th>
+    <th style="width:150px">费用（官方原文）</th>
+    <th style="width:150px">报名资质</th>
+    <th style="width:130px">官方原文链接</th>
+  </tr>
+
+  <tr>
+    <td><b>北京安定医院</b><br><span class="muted">北京 · 东城北锣鼓巷</span></td>
+    <td>临床心理病区<br>精神科医师及心理治疗师进修项目<br><span class="muted">每年两期，每期精神科医生 6 人 + 心理治疗师 8 人</span></td>
+    <td>2026 秋季：8/15 截止、9/1 报到（<b>已截止</b>）<br><b>下一期 2027-03</b>，简章约 2027-01 发布</td>
+    <td>精神科医生 <b>8000 元/半年</b><br>心理治疗师 <b>15000 元/半年</b><br>不足半年 3000 元/月<br><span class="tag t-ok">与截图一致</span></td>
+    <td>心理治疗师：本科 + 从事心理咨询/治疗 2 年以上 + 心理治疗师证或心理咨询师证<br><span class="muted">仅在本病区及门诊，不轮转其他科室</span></td>
+    <td><a href="https://www.bjad.com.cn/Html/News/Articles/4963.html" target="_blank">官网招生简章 ↗</a><br><span class="muted">联系人 王光<br>010-59513371</span></td>
+  </tr>
+
+  <tr>
+    <td><b>上海市精神卫生中心</b><br><span class="muted">上海 · 徐汇/闵行</span></td>
+    <td>临床心理咨询与心理治疗专项进修班<br><span class="muted">200h 公共理论 + 100h 专项技术 + 50h 督导 + 15h 门诊观摩，三病房轮转</span></td>
+    <td>第 34 期：2026-09 至 2027-02（<b>已开班</b>）<br><b>第 35 期预计 2027-03</b>，简章提前 2–3 个月发</td>
+    <td><b>25,000 元/人</b>（第 34 期）<br><span class="tag t-warn">截图 35000 是旧价</span><br><span class="muted">第 32、33 期为 35,000 元，第 34 期起调为 25,000 元，官网专项价目表同为 25,000 元/届</span></td>
+    <td>临床医师 / 心理治疗师 / <b>心理咨询师（二、三级证）</b> / 高校心理中心专职 / 社工 / 心理专硕</td>
+    <td><a href="https://www.smhc.org.cn/info/1009/20701.htm" target="_blank">官网专项进修通知（价目表）↗</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzI0MzYwMTk2Mw==&amp;mid=2247500425&amp;idx=1&amp;sn=4e6d8e629b9db63ec785576201cf7017" target="_blank">第 34 期简章（官方号）↗</a><br><a href="https://www.smhc.org.cn/HospitalHomepage/contents/1137/689.html" target="_blank">申请表下载 ↗</a></td>
+  </tr>
+
+  <tr>
+    <td><b>四川大学华西医院<br>心理卫生中心</b><br><span class="muted">成都</span></td>
+    <td>临床心理评估方向（八大方向之一）<br><span class="muted">另有：临床心理咨询与治疗、儿少、物理诊疗、临床科研、老年心身等</span></td>
+    <td>2026 秋季：<b>报名截止 2026-11-02 16:00</b>（即本清单核实当日）<br><b>下一期 2027 春季</b>，约 4–5 月发布</td>
+    <td>临床心理评估 <b>1500 元/3 个月</b><br><b>2500 元/6 个月</b><br><b>4000 元/12 个月</b><br><span class="tag t-ok">与截图一致</span></td>
+    <td>医护资格证 / 心理治疗师 / <b>心理咨询师</b> / 教育系统心理工作 2 年 / 心理健康指导师 / 社工 / 心理康复 / 心理学研究生<br><span class="muted">医疗、教育系统优先</span></td>
+    <td><a href="https://www.cd120.com/public/bmxxy1_dynamics/97141.html" target="_blank">官网同文 ↗</a><br><a href="https://www.wchscu.cn/public/notice/recruit/97822.html" target="_blank">八大方向总入口 ↗</a><br><a href="http://mp.weixin.qq.com/s/qQChFnmhuHGR6YZ0rmN8cQ" target="_blank">官方公众号原文 ↗</a></td>
+  </tr>
+
+  <tr>
+    <td><b>南京脑科医院</b><br><span class="muted">南京 · 鼓楼区广州路 264 号</span></td>
+    <td>医学心理与心理治疗专项进修班<br><span class="muted">三方向：医学心理与专病诊疗管理 / 心理咨询与治疗 / 心理评估；导师制</span></td>
+    <td>2026 秋季：9/1 开班、8/10 截止（<b>已截止</b>）<br><b>下一期 2027-03</b>，简章约 2027-01 发布</td>
+    <td><b>4500 元/3 个月</b><br><b>6500 元/6 个月</b><br><b>9500 元/12 个月</b><br><span class="tag t-ok">与截图一致</span></td>
+    <td>综合/专科医院医护（需医疗资格证）、高校与中小学心理工作者（<b>二、三级咨询师或注册系统心理师优先</b>）、心理评估人员</td>
+    <td><a href="http://www.c-nbh.com/kyjx/detail.asp?nid=418" target="_blank">官网专项班公告 ↗</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODgwNjQ1OQ==&amp;mid=2651018970&amp;idx=1&amp;sn=31e6a80906a975b36d188b0b9938633a" target="_blank">官方公众号原文 ↗</a><br><a href="http://www.c-nbh.com/kyjx/detail.asp?nid=416" target="_blank">2026 秋季进修班总简章 ↗</a></td>
+  </tr>
+
+  <tr>
+    <td><b>广州医科大学<br>附属脑科医院</b><br><span class="muted">广州 · 荔湾芳村大道中 218 号</span></td>
+    <td>临床心理科进修生招募<br><span class="muted">导师制 + 三级督导，可自选流派与导师，每位导师限带 3–5 人</span></td>
+    <td><b>长期有效</b>，一季度一期<br>已列：2026-04 / 07 / 10、<b>2027-01</b></td>
+    <td><b>4000 元/月</b><br><span class="tag t-ok">与截图一致</span><br><span class="muted">食宿自理，可办职工饭卡</span></td>
+    <td>精神科医师、心理治疗师；<b>二、三级心理咨询师（需面试）</b>；心理学/教育/医学/护理/社工背景 + 相关证书；心理学本科+研究生应届亦可</td>
+    <td><a href="http://mp.weixin.qq.com/s?__biz=MzkzMTYzNDAwNw==&amp;mid=2247490036&amp;idx=1&amp;sn=59a7447d8071de7662b260dde6ac4f66" target="_blank">官方公众号招募原文 ↗</a><br><span class="muted">020-81268086</span></td>
+  </tr>
+
+  <tr>
+    <td><b>天津市安定医院</b><br><span class="muted">天津 · 河西柳林路 13 号</span></td>
+    <td>进修招生（精神科 / 心理科 / 护理 / 检验）<br><span class="muted">另有神经调控诊疗中心专项进修（3/6/12 个月）</span></td>
+    <td><b>常年招收</b><br>按批次报到，随时可递材料</td>
+    <td><b>800 元/人/月</b><br><b>4000 元/半年</b><br><b>7000 元/年</b><br><span class="tag t-ok">与截图一致</span><br><span class="muted">医联体单位人员减免</span></td>
+    <td>全国精神专科医院或综合医院精神科、心理科临床专业技术人员及护理人员</td>
+    <td><a href="https://www.tmu.edu.cn/jswszx/2022/0702/c7840a60590/page.htm" target="_blank">官网进修招生简章 ↗</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzUzODg3NzQ5Ng==&amp;mid=2247570644&amp;idx=2&amp;sn=362ccbb3cd89158f5b9d98a75f21d729" target="_blank">神经调控中心 2026 第 2 期 ↗</a><br><span class="muted">科教科 022-88188856</span></td>
+  </tr>
+</table>
+</div>
+
+<h3>8.2 截图里需要修正的 3 处</h3>
+<table>
+  <tr><th style="width:150px">位置</th><th style="width:180px">截图上写的</th><th>实际核实结果</th></tr>
+  <tr>
+    <td>上海市精神卫生中心 · 费用</td>
+    <td>专项班 35000（6 个月脱产）</td>
+    <td><b>第 34 期（2026-09 至 2027-02）已调为 25,000 元/人。</b>35,000 元是第 32、33 期的价格。官网「临床与科研半年期专项进修」价目表中「临床心理咨询与治疗（临床）」一栏同为 25,000 元/届，两处一致。<span class="tag t-ok">已核实</span></td>
+  </tr>
+  <tr>
+    <td>华西 · 下一期</td>
+    <td>2027 春季</td>
+    <td>2026 秋季这批的报名截止是 <b>2026-11-02 16:00</b>（即今天下午），如果现在看到还来得及直接报；过期则等 2027 春季。评估方向每年 3/6/9/12 月到岗，比其他方向频次高。<span class="tag t-ok">已核实</span></td>
+  </tr>
+  <tr>
+    <td>南京脑科 · 宿舍</td>
+    <td>有宿舍 1000 元/月</td>
+    <td>1000 元/月宿舍出自<b>「2026 年秋季进修班招生简章」</b>（普通进修班：4850 元/6 个月、7850 元/12 个月），<b>不是</b>医学心理专项班的价格。专项班（4500/6500/9500）是单独简章，住宿需另行确认。<span class="tag t-warn">两个班别搞混</span></td>
+  </tr>
+</table>
+
+<h3>8.3 纯心理咨询师能报哪几家（按准入从宽到严）</h3>
+<table>
+  <tr><th style="width:170px">机构</th><th>对「没有医师资格证」的咨询师友好度</th></tr>
+  <tr><td><b>广州脑科医院</b></td><td><span class="tag t-ok">最宽松</span> 二级/三级心理咨询师证 + 面试合格即可；心理学本科+研究生应届、暂无证但受过系统训练者也可。4000 元/月，随时可申请。</td></tr>
+  <tr><td><b>华西医院</b></td><td><span class="tag t-ok">较宽松</span> 心理咨询师证 + 2 年经验即可；心理健康指导师、社工、心理康复、教育系统心理教师都有对应通道。评估方向 3 个月起。</td></tr>
+  <tr><td><b>南京脑科医院</b></td><td><span class="tag t-ok">可行</span> 高校/中小学心理工作者通道，二三级咨询师或注册系统心理师优先。</td></tr>
+  <tr><td><b>上海精卫</b></td><td><span class="tag t-warn">需资历</span> 二三级咨询师可报，但医疗/教育系统优先，且必须 6 个月全脱产。</td></tr>
+  <tr><td><b>北京安定医院</b></td><td><span class="tag t-warn">需资历</span> 需心理治疗师证或心理咨询师证 + 2 年从业；全脱产 6 个月起；心理治疗师岗每年仅 8 人。</td></tr>
+  <tr><td><b>天津安定医院</b></td><td><span class="tag t-red">偏医疗</span> 面向精神科/心理科临床专业技术人员与护理人员，纯咨询师路径较窄，但价格最低（800 元/月），适合已有医疗背景者。</td></tr>
+</table>
+
+<div class="note b">
+  <b>一个容易被忽略的换算：</b>北京安定心理治疗师 15000 元/半年 ≈ 2500 元/月；上海精卫 25000 元/6 个月 ≈ 4167 元/月；华西 2500 元/6 个月 ≈ 417 元/月；南京脑科 6500 元/6 个月 ≈ 1083 元/月；广州脑科 4000 元/月；天津安定 800 元/月。<b>华西和天津是性价比的两个极端</b>——华西便宜但方向偏评估、名额紧；天津最便宜但要求医疗背景。<br>
+  另一件必须算进去的隐形成本：<b>全脱产 6 个月的机会成本</b>。这几家除天津、广州外基本都要求脱产，等于半年不接个案、不出诊。
+</div>
+<h3>8.4 纯文本链接（方便复制 / 打印后手抄）</h3>
+<div class="note" style="font-size:12px;line-height:2">
+<b>北京安定医院</b>（临床心理病区 · 心理治疗师 15000 元/半年）<br>
+https://www.bjad.com.cn/Html/News/Articles/4963.html<br>
+同名项目「心理健康实践进修」6000 元/期（6 个月，含热线夜班）：https://www.bjad.com.cn/Html/News/Articles/4954.html<br><br>
+
+<b>上海市精神卫生中心</b>（半年期专项进修价目表 · 临床心理咨询与治疗 25000 元/届）<br>
+https://www.smhc.org.cn/info/1009/20701.htm<br>
+第 34 期招生简章（官方公众号，2026-09 至 2027-02）：<br>
+http://mp.weixin.qq.com/s?__biz=MzI0MzYwMTk2Mw==&amp;mid=2247500425&amp;idx=1&amp;sn=4e6d8e629b9db63ec785576201cf7017<br>
+进修申请表下载：https://www.smhc.org.cn/HospitalHomepage/contents/1137/689.html<br><br>
+
+<b>四川大学华西医院心理卫生中心</b>（八大方向总入口）<br>
+https://www.wchscu.cn/public/notice/recruit/97822.html<br>
+临床心理评估方向 2026 秋季（1500/2500/4000 元）：https://www.cd120.com/public/bmxxy1_dynamics/97141.html<br>
+你给的那篇官方原文（2026-10-21 发布）：http://mp.weixin.qq.com/s/qQChFnmhuHGR6YZ0rmN8cQ<br><br>
+
+<b>南京脑科医院</b>（医学心理与心理治疗专项进修班 4500/6500/9500 元）<br>
+http://www.c-nbh.com/kyjx/detail.asp?nid=418<br>
+官方公众号原文：<br>
+http://mp.weixin.qq.com/s?__biz=MzA3ODgwNjQ1OQ==&amp;mid=2651018970&amp;idx=1&amp;sn=31e6a80906a975b36d188b0b9938633a<br>
+2026 秋季进修班总简章（普通进修 4850/7850 元、宿舍 1000 元/月）：http://www.c-nbh.com/kyjx/detail.asp?nid=416<br><br>
+
+<b>广州医科大学附属脑科医院</b>（临床心理科 4000 元/月，长期有效）<br>
+http://mp.weixin.qq.com/s?__biz=MzkzMTYzNDAwNw==&amp;mid=2247490036&amp;idx=1&amp;sn=59a7447d8071de7662b260dde6ac4f66<br><br>
+
+<b>天津市安定医院</b>（800 元/月 · 4000 元/半年 · 7000 元/年）<br>
+https://www.tmu.edu.cn/jswszx/2022/0702/c7840a60590/page.htm<br>
+神经调控诊疗中心 2026 第 2 期（同价）：<br>
+http://mp.weixin.qq.com/s?__biz=MzUzODg3NzQ5Ng==&amp;mid=2247570644&amp;idx=2&amp;sn=362ccbb3cd89158f5b9d98a75f21d729
+</div>
+</div>
+
+<footer>
+  v4（2026-11-02）新增第八节：北京安定、上海精卫、华西、南京脑科、广州脑科、天津安定六家公立医院进修项目的官方原文链接，并按当日时点重算了下一期与费用（其中上海精卫第 34 期已由 35000 降至 25000）。<br>v2（2026-10-24）新增第四节 174 条市场机构培训，来源：《2026年靠谱培训每月更新》（公众号「一片空白的趣味生活」，2026 年 10 月版）。第一～三节为协会官方核实信息；第四节为第三方整理，价格与时间为机构公示值，可能变动。<br>全清单原则：可查证的给链接，查不到的留空白，不补数字、不做推测。
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#bigTable tbody tr'));
+  var chips = document.getElementById('chips');
+  var q = document.getElementById('q');
+  var fCert = document.getElementById('fCert');
+  var fMode = document.getElementById('fMode');
+  var fNew = document.getElementById('fNew');
+  var cnt = document.getElementById('cnt');
+  var empty = document.getElementById('empty');
+  var cat = '__all__';
+  function apply(){
+    var kw = (q.value||'').trim().toLowerCase();
+    var c = fCert.value, m = fMode.value, onlyNew = fNew.checked;
+    var n = 0;
+    rows.forEach(function(tr){
+      var ok = true;
+      if(cat !== '__all__' && tr.dataset.cat !== cat) ok = false;
+      if(ok && c && tr.dataset.cert !== c) ok = false;
+      if(ok && m && tr.dataset.mode !== m) ok = false;
+      if(ok && onlyNew && tr.dataset.new !== '1') ok = false;
+      if(ok && kw && tr.dataset.t.indexOf(kw) === -1) ok = false;
+      tr.style.display = ok ? '' : 'none';
+      if(ok) n++;
+    });
+    cnt.textContent = '显示 ' + n + ' / ' + rows.length + ' 条';
+    empty.style.display = n ? 'none' : '';
+  }
+  chips.addEventListener('click', function(e){
+    var b = e.target.closest('.chip'); if(!b) return;
+    Array.prototype.forEach.call(chips.querySelectorAll('.chip'), function(x){x.classList.remove('on')});
+    b.classList.add('on'); cat = b.dataset.cat; apply();
+  });
+  q.addEventListener('input', apply);
+  fCert.addEventListener('change', apply);
+  fMode.addEventListener('change', apply);
+  fNew.addEventListener('change', apply);
+  apply();
+})();
+</script>
+
+</body>
+</html>
